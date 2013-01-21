@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planetypes">
+        <item>Airbus A300</item>
+        <item>Airbus A310</item>
+        <item>Airbus A318</item>
+        <item>Airbus A319</item>
+        <item>Airbus A320</item>
+        <item>Airbus A321</item>
+        <item>Airbus A330</item>
+        <item>Airbus A380</item>
+    </string-array>
+    
+</resources>
