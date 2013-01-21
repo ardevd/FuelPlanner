@@ -2,13 +2,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1a1a1a"
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/fuelTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:typeface="sans"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/app_name"
+        android:textColor="#00aeef"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/textViewPlanesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fuelTitle"
+        android:layout_alignTop="@+id/spinnerPlanes"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:text="@string/aircaft_type"
+        android:textColor="#00aeef"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerPlanes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewPlanesTitle"
+        android:layout_below="@+id/fuelTitle"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="14dp"
+        android:entries="@array/planetypes" />
+    
+    <View
+        android:layout_below="@+id/spinnerPlanes"
+	   	android:layout_width="fill_parent"
+	   	android:layout_marginLeft="30dp"
+	   	android:layout_marginRight="30dp"
+	    android:layout_height="0.5dp"
+	    android:background="@android:color/darker_gray"/>
 
 </RelativeLayout>
