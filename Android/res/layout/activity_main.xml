@@ -11,12 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:typeface="sans"
         android:layout_marginLeft="31dp"
         android:layout_marginTop="24dp"
         android:text="@string/app_name"
         android:textColor="#00aeef"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        android:typeface="sans" />
 
     <TextView
         android:id="@+id/textViewPlanesTitle"
@@ -25,27 +25,125 @@
         android:layout_alignLeft="@+id/fuelTitle"
         android:layout_alignTop="@+id/spinnerPlanes"
         android:layout_marginTop="16dp"
-        android:textStyle="bold"
         android:text="@string/aircaft_type"
         android:textColor="#00aeef"
-        android:textSize="20sp" />
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinnerPlanes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textViewPlanesTitle"
-        android:layout_below="@+id/fuelTitle"
         android:layout_alignParentRight="true"
+        android:layout_below="@+id/fuelTitle"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/textViewPlanesTitle"
         android:entries="@array/planetypes" />
-    
+
     <View
+        android:id="@+id/separatorType"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
         android:layout_below="@+id/spinnerPlanes"
-	   	android:layout_width="fill_parent"
-	   	android:layout_marginLeft="30dp"
-	   	android:layout_marginRight="30dp"
-	    android:layout_height="0.5dp"
-	    android:background="@android:color/darker_gray"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/TextViewOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewPlanesTitle"
+        android:layout_below="@+id/spinnerPlanes"
+        android:layout_marginTop="30dp"
+        android:text="@string/origin"
+        android:textColor="#00aeef"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextViewOrigin"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/TextViewOrigin"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="@string/origin_airport"
+        android:inputType="textCapCharacters"
+        android:maxLength="4"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/TextViewDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextViewOrigin"
+        android:layout_below="@+id/TextViewOrigin"
+        android:layout_marginTop="30dp"
+        android:text="@string/dest"
+        android:textColor="#00aeef"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextViewDest"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/TextViewDest"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="@string/destination_airpot"
+        android:inputType="textCapCharacters"
+        android:maxLength="4"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" >
+    </EditText>
+
+    <View
+        android:id="@+id/separatorAirports"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/TextViewDest"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupMeasurements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextViewDest"
+        android:layout_below="@+id/separatorAirports"
+        android:layout_marginTop="24dp" >
+
+        <RadioButton
+            android:id="@+id/radioMetrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:text="Metrics" />
+
+        <RadioButton
+            android:id="@+id/radioImperial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:text="Imperial" />
+    </RadioGroup>
 
 </RelativeLayout>

@@ -6,5 +6,9 @@
     <string name="menu_settings">Settings</string>
     
     <string name="aircaft_type">Aircraft</string>
+    <string name="origin_airport">Origin Airport</string>
+    <string name="origin">ORIG</string>
+    <string name="dest">DEST</string>
+    <string name="destination_airpot">Destination Airport</string>
 
 </resources>
