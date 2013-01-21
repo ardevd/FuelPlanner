@@ -1,5 +1,7 @@
 package com.connectutb.xfuel;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -13,13 +15,23 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		//Assign spinner layout
+		/** Prepare the Aircraft Array. We are splitting on ; **/
+		String[] aircraftArray = getResources().getStringArray(R.array.planetypes);
+		ArrayList<String> temp_array = new ArrayList<String>();
+		for (int i = 0; i < aircraftArray.length; i++){
+			//Loop through the aircraftArray and add the stripped strings to the temp_array
+			String[] splittedAircraftString = aircraftArray[i].split(";");
+			temp_array.add(splittedAircraftString[0]);
+		}
+		//Convert the ArrayList to String Array
+		aircraftArray = (String[]) temp_array.toArray(aircraftArray);
+		
+		//Prepare the Aircraft Spinner
 	    Spinner localSpinner = (Spinner)findViewById(R.id.spinnerPlanes);
-	    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-	                R.array.planetypes,
-	                R.layout.spinner_white);
-	    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    localSpinner.setAdapter(adapter);
+	    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   
+	    		R.layout.spinner_white, aircraftArray);
+	    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    localSpinner.setAdapter(spinnerArrayAdapter);
 	}
 
 	@Override
