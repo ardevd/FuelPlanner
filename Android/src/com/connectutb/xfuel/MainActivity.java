@@ -29,10 +29,14 @@ public class MainActivity extends Activity {
 	/* Our preferences */
 	public SharedPreferences settings;
 	public SharedPreferences.Editor editor;
+	/* Our view components */
 	public Spinner aircraftSpinner;
 	public EditText orig;
 	public EditText dest;
 	public Switch metar;
+	public RadioButton radioMetrics;
+	public RadioButton radioImperial;
+	
 	public Map<String, String> mMap;
 	
 	@Override
@@ -111,8 +115,8 @@ public class MainActivity extends Activity {
 	}
 	
 	public void grabDefaults(){
-		RadioButton radioMetrics = (RadioButton)findViewById(R.id.radioMetrics);
-		RadioButton radioImperial = (RadioButton)findViewById(R.id.radioImperial);
+		radioMetrics = (RadioButton)findViewById(R.id.radioMetrics);
+		radioImperial = (RadioButton)findViewById(R.id.radioImperial);
 		Log.d("XFUEL", settings.getString("def_units", "Metrics"));
 		if (settings.getString("def_units", "Metrics").equals("Metrics")){
 				radioMetrics.setChecked(true);
@@ -145,8 +149,13 @@ public class MainActivity extends Activity {
     	if (metar.isChecked()){
     		getMetar = true;
     	}
+    	//Determine units
+    	String units = "LBS";
+    	if (radioMetrics.isChecked()){
+    		units = "METRIC";
+    	}
     	
-    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,"JAR", "METRIC");
+    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,"JAR", units);
     	fp.submitFuelRequest();
     }
     
