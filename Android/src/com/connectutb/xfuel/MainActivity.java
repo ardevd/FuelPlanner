@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 	public EditText orig;
 	public EditText dest;
 	public Switch metar;
-	public Map mMap;
+	public Map<String, String> mMap;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		/** Prepare the Aircraft Array. We are splitting on ; **/
-		mMap = new HashMap();
+		mMap = new HashMap<String, String>();
 		String[] aircraftArray = getResources().getStringArray(R.array.planetypes);
 		ArrayList<String> temp_array = new ArrayList<String>();
 		for (int i = 0; i < aircraftArray.length; i++){
