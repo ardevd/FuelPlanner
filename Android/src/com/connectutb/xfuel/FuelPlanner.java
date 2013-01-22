@@ -182,8 +182,10 @@ public class FuelPlanner {
 						Element e = (Element) nl.item(i);
 					    String distance = getValue(e, "NM"); // name child value
 					    Log.d("XFUEL", "NM : " + distance);
-					    String estimated_fuel_usage = getValue(e, "FUEL_EFU");
-					    String reserve_fuel = getValue(e, "FUEL_RSV");
+					    estimated_fuel_usage = getValue(e, "FUEL_EFU");
+					    reserve_fuel = getValue(e, "FUEL_RSV");
+					    takeoff_fuel = getValue(e, "FUEL_TOF");
+					    estimated_landing_weight = getValue(e, "LWT");
 					}
 					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
