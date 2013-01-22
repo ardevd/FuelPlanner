@@ -80,10 +80,7 @@
         android:inputType="textCapCharacters"
         android:maxLength="4"
         android:textColor="#FFFFFF"
-        android:textSize="25sp" >
-
-        <requestFocus />
-    </EditText>
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/TextViewDest"
@@ -149,5 +146,17 @@
             android:textSize="20sp"
             android:text="Imperial" />
     </RadioGroup>
+    
+    <Button
+        android:id="@+id/buttonCalculate"
+        android:layout_marginTop="20dp"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:background="#00aeef"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/radioGroupMeasurements"
+        android:layout_weight="1"
+        android:text="@string/calculate" />
 </RelativeLayout>
 </ScrollView>

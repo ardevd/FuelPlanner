@@ -11,4 +11,9 @@
         <item>Airbus A380;A380</item>
     </string-array>
     
+    <string-array name="units">
+        <item>Metrics</item>
+        <item>Imperial</item>
+    </string-array>
+    
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/prefs_general">
+        
+        <ListPreference 
+            android:key="def_units"
+            android:title="@string/prefs_def_units"
+            android:summary="@string/prefs_def_units_summary"
+            android:entries="@array/units"
+            android:defaultValue="Metrics"
+            android:entryValues="@array/units"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -5,10 +5,18 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     
+    <!-- Fuel Planning -->
     <string name="aircaft_type">Aircraft</string>
     <string name="origin_airport">Origin Airport</string>
     <string name="origin">ORIG</string>
     <string name="dest">DEST</string>
     <string name="destination_airpot">Destination Airport</string>
+    <string name="calculate">Calculate</string>
 
+    <!-- Preferences -->
+    <string name="prefs_xfuel">xFuel Preferences</string>
+    <string name="prefs_summary">Preferences for xFuel</string>
+    <string name="prefs_general">General</string>
+    <string name="prefs_def_units">Default unit</string>
+    <string name="prefs_def_units_summary">Default measurement units</string>
 </resources>
