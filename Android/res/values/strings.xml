@@ -7,9 +7,9 @@
     <string name="post_url">http://fuelplanner.com/api/fuelapi.php</string>
     
     <!-- API License -->
-    <string name="account">2AFECEBD</string>
-    <string name="license">78729470e887fa717a99d15df663feeb</string>
-    <string name="email">mail@mail.com</string>
+    <string name="account">881970FF</string>
+    <string name="license">438b83bceeeb06fc3932c225c2965798</string>
+    <string name="email">xfuel@connect-utb.com</string>
     
     <!-- Fuel Planning -->
     <string name="aircaft_type">Aircraft</string>
