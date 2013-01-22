@@ -126,9 +126,9 @@ public class FuelPlanner {
             }
                 // return DOM
         	Log.d("XFUEL", "XML parsing completed successfully");
-            return doc;
-           
+            return doc;      
 	}
+	
 	
 	public String getValue(Element item, String str) {
 		 NodeList n = item.getElementsByTagName(str);
@@ -172,7 +172,19 @@ public class FuelPlanner {
 					//Execute HTTP Post
 					String response = httpclient.execute(httppost,responseHandler);
 					
-					parseFuelResponse(response);
+					Document doc = parseFuelResponse(response);
+					NodeList nl = doc.getElementsByTagName("DATA");
+					// looping through all item nodes <item>
+					for (int i = 0; i < nl.getLength(); i++) {
+						/**
+						 * HERE WE EXTRACT THE FUEL PLANNING OUTPUT ELEMENTS
+						 */
+						Element e = (Element) nl.item(i);
+					    String distance = getValue(e, "NM"); // name child value
+					    Log.d("XFUEL", "NM : " + distance);
+					    String estimated_fuel_usage = getValue(e, "FUEL_EFU");
+					    String reserve_fuel = getValue(e, "FUEL_RSV");
+					}
 					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
 					//TODO catch block
