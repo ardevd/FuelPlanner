@@ -16,4 +16,10 @@
         <item>Imperial</item>
     </string-array>
     
+    <string-array name="app_navigation">
+        <item>Fuel Planner</item>
+        <item>History</item>
+        <item>Favorites</item>
+    </string-array>
+    
 </resources>

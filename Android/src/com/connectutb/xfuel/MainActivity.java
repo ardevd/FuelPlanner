@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.app.ActionBar;
+import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +15,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -26,6 +30,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		actionBarNavigation();
 		
 		/** Prepare the Aircraft Array. We are splitting on ; **/
 		String[] aircraftArray = getResources().getStringArray(R.array.planetypes);
@@ -51,6 +57,31 @@ public class MainActivity extends Activity {
 	    //Grab Default values
 	    grabDefaults();
 	}
+	
+	public void actionBarNavigation(){
+		 //SpinnerAdapter for the ActionBar Navigation
+		SpinnerAdapter navSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.app_navigation,
+		          android.R.layout.simple_spinner_dropdown_item);
+		/** Defining Navigation listener */
+		/** Defining Navigation listener */
+        ActionBar.OnNavigationListener navigationListener = new OnNavigationListener() {
+ 
+            @Override
+            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                Toast.makeText(getBaseContext(), "You selected : " + itemPosition  , Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        };
+		ActionBar actionBar = getActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+	    actionBar.setDisplayShowTitleEnabled(false);
+	    actionBar.setListNavigationCallbacks(
+	    		navSpinnerAdapter,
+	            navigationListener);	
+		
+	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
