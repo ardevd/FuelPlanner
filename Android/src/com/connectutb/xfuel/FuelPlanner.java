@@ -81,6 +81,26 @@ public class FuelPlanner {
 	}
 	
 	public Document parseFuelResponse(String response){
+		/** Need to modify the response string to fix malformed XML **/
+		//* Split our string on newlines
+		String[] response_array = response.split("(\\n)");
+		//Loop through string array
+		String fixed_response = "";
+			for (int n=0; n<response_array.length-1; n++){
+			
+				if (n==1){
+					//Add a ROOT element <DATA>
+					fixed_response += "<DATA>" + System.getProperty("line.separator");
+				}
+				if(response_array[n].startsWith("<MESSAGES>") || response_array[n].startsWith("</MESSAGES>")){
+					//Remove <Messages> tag
+				}else{
+				fixed_response += response_array[n] + System.getProperty("line.separator");
+				}
+			}
+		//Close the </DATA> tag
+		fixed_response += "</DATA>" + System.getProperty("line.separator");
+		Log.d("XFUEL", fixed_response);		
 		
 		//Parse the response string and set values
 		//Parse XML Response
@@ -91,7 +111,7 @@ public class FuelPlanner {
             DocumentBuilder db = dbf.newDocumentBuilder();
  
             InputSource is = new InputSource();
-                is.setCharacterStream(new StringReader(response));
+                is.setCharacterStream(new StringReader(fixed_response));
                 doc = db.parse(is); 
  
             } catch (ParserConfigurationException e) {
@@ -153,7 +173,7 @@ public class FuelPlanner {
 					String response = httpclient.execute(httppost,responseHandler);
 					
 					parseFuelResponse(response);
-					Log.d("XFUEL", "Server Response: " + response);
+					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
 					//TODO catch block
 				}catch(IOException e){
