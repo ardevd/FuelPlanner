@@ -136,7 +136,7 @@
             android:checked="true"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:text="Metrics" />
+            android:text="@string/metrics" />
 
         <RadioButton
             android:id="@+id/radioImperial"
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:text="Imperial" />
+            android:text="@string/imperial" />
     </RadioGroup>
     
     <Button
@@ -155,8 +155,18 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/radioGroupMeasurements"
-        android:layout_weight="1"
+        android:layout_below="@+id/switchWeather"
         android:text="@string/calculate" />
+
+    <Switch
+        android:id="@+id/switchWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/radioGroupMeasurements"
+        android:layout_alignLeft="@+id/radioGroupMeasurements"
+        android:text="@string/use_weather" />
+
 </RelativeLayout>
 </ScrollView>
