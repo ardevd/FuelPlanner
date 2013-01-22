@@ -1,9 +1,13 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#1a1a1a"
-    tools:context=".MainActivity" >
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#1a1a1a">
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#1a1a1a" >
 
     <TextView
         android:id="@+id/fuelTitle"
@@ -145,5 +149,5 @@
             android:textSize="20sp"
             android:text="Imperial" />
     </RadioGroup>
-
 </RelativeLayout>
+</ScrollView>
