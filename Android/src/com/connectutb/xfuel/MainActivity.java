@@ -14,9 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -26,6 +28,9 @@ public class MainActivity extends Activity {
 	public SharedPreferences.Editor editor;
 	
 	public Spinner aircraftSpinner;
+	public EditText orig;
+	public EditText dest;
+	public Switch metar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,11 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		actionBarNavigation();
+		
+		//Views
+		orig = (EditText)findViewById(R.id.editTextOrigin);
+		dest = (EditText)findViewById(R.id.editTextDest);
+		metar = (Switch) findViewById(R.id.switchWeather);
 		
 		//Prevent Keyboard from popping up on activity start
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -124,7 +134,13 @@ public class MainActivity extends Activity {
     
     //Post Fuel request
     public void postFuelRequest(){
-    	FuelPlanner fp = new FuelPlanner(this, aircraftSpinner.getSelectedItem().toString());
+    	//Do we request weather?
+    	boolean getMetar = false;
+    	if (metar.isChecked()){
+    		getMetar = true;
+    	}
+    	
+    	FuelPlanner fp = new FuelPlanner(this, aircraftSpinner.getSelectedItem().toString(), orig.getText().toString(), dest.getText().toString(), getMetar,"JAR", "METRIC");
     	fp.submitFuelRequest();
     }
     
