@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -32,6 +33,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		actionBarNavigation();
+		
+		//Prevent Keyboard from popping up on activity start
+		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		/** Prepare the Aircraft Array. We are splitting on ; **/
 		String[] aircraftArray = getResources().getStringArray(R.array.planetypes);
@@ -61,7 +65,7 @@ public class MainActivity extends Activity {
 	public void actionBarNavigation(){
 		 //SpinnerAdapter for the ActionBar Navigation
 		SpinnerAdapter navSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.app_navigation,
-		          android.R.layout.simple_spinner_dropdown_item);
+		          R.layout.spinner_white);
 		/** Defining Navigation listener */
 		/** Defining Navigation listener */
         ActionBar.OnNavigationListener navigationListener = new OnNavigationListener() {

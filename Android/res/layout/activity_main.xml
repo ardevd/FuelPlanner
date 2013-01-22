@@ -44,6 +44,7 @@
         android:layout_marginTop="14dp"
         android:layout_toRightOf="@+id/textViewPlanesTitle"
         android:entries="@array/planetypes" />
+    	<requestFocus/>
 
     <View
         android:id="@+id/separatorType"
@@ -108,7 +109,8 @@
         android:inputType="textCapCharacters"
         android:maxLength="4"
         android:textColor="#FFFFFF"
-        android:textSize="25sp" >
+        android:textSize="25sp"
+        android:imeOptions="actionDone">
     </EditText>
 
     <View

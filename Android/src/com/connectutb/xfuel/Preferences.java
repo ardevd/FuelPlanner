@@ -2,17 +2,37 @@ package com.connectutb.xfuel;
 
 import java.util.List;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.view.MenuItem;
 
 public class Preferences extends PreferenceActivity{
 	/* Load the preferences */
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		 ActionBar actionBar = getActionBar();
+		 actionBar.setDisplayHomeAsUpEnabled(true);
 
 	}
+	
+	/* Action on menu selection */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	switch(item.getItemId()){
+    	//Go home
+    	case android.R.id.home:
+    		Intent i = new Intent(this, MainActivity.class);
+        	startActivity(i);	 
+    		return true;
+    	default:
+    		return super.onOptionsItemSelected(item);
+    	}
+    }
+    
     /**
      * Populate the activity with the top-level headers.
      */

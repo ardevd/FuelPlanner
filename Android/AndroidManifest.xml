@@ -8,6 +8,8 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -15,6 +17,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.connectutb.xfuel.MainActivity"
+            android:windowSoftInputMode="adjustResize"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
