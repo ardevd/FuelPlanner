@@ -20,6 +20,8 @@ public class MainActivity extends Activity {
 	public SharedPreferences settings;
 	public SharedPreferences.Editor editor;
 	
+	public Spinner aircraftSpinner;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,11 +39,11 @@ public class MainActivity extends Activity {
 		aircraftArray = (String[]) temp_array.toArray(aircraftArray);
 		
 		//Prepare the Aircraft Spinner
-	    Spinner localSpinner = (Spinner)findViewById(R.id.spinnerPlanes);
+		aircraftSpinner = (Spinner)findViewById(R.id.spinnerPlanes);
 	    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   
 	    		R.layout.spinner_white, aircraftArray);
 	    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    localSpinner.setAdapter(spinnerArrayAdapter);
+	    aircraftSpinner.setAdapter(spinnerArrayAdapter);
 	    
 	    //Init prefs
 	    settings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -85,6 +87,11 @@ public class MainActivity extends Activity {
     	}
     }
     
+    //Post Fuel request
+    public void postFuelRequest(){
+    	FuelPlanner fp = new FuelPlanner(this, aircraftSpinner.getSelectedItem().toString());
+    	fp.submitFuelRequest();
+    }
     
     
 }
