@@ -7,14 +7,17 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 public class FuelPlanner {
 	
@@ -64,16 +67,20 @@ public class FuelPlanner {
 				try{
 					//add data
 					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+					nameValuePairs.add(new BasicNameValuePair("QUERY", "FUEL"));
 					nameValuePairs.add(new BasicNameValuePair("EQPT", aircraft));
 					nameValuePairs.add(new BasicNameValuePair("ORIG", orig));
 					nameValuePairs.add(new BasicNameValuePair("DEST", dest));
 					nameValuePairs.add(new BasicNameValuePair("RULES", rules));
-					nameValuePairs.add(new BasicNameValuePair("metar", metar));
+					nameValuePairs.add(new BasicNameValuePair("METAR", metar));
+					nameValuePairs.add(new BasicNameValuePair("USER", email));
+					nameValuePairs.add(new BasicNameValuePair("ACCOUNT", account));
+					nameValuePairs.add(new BasicNameValuePair("LICENSE", license));
 					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-					
+					ResponseHandler<String> responseHandler = new BasicResponseHandler();
 					//Execute HTTP Post
-					httpclient.execute(httppost);
-					
+					String response = httpclient.execute(httppost,responseHandler);
+					Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
 					//TODO catch block
 				}catch(IOException e){

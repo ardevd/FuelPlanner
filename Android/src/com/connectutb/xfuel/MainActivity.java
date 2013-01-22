@@ -1,6 +1,8 @@
 package com.connectutb.xfuel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,6 +14,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -26,11 +29,11 @@ public class MainActivity extends Activity {
 	/* Our preferences */
 	public SharedPreferences settings;
 	public SharedPreferences.Editor editor;
-	
 	public Spinner aircraftSpinner;
 	public EditText orig;
 	public EditText dest;
 	public Switch metar;
+	public Map mMap;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +51,15 @@ public class MainActivity extends Activity {
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		/** Prepare the Aircraft Array. We are splitting on ; **/
+		mMap = new HashMap();
 		String[] aircraftArray = getResources().getStringArray(R.array.planetypes);
 		ArrayList<String> temp_array = new ArrayList<String>();
 		for (int i = 0; i < aircraftArray.length; i++){
 			//Loop through the aircraftArray and add the stripped strings to the temp_array
 			String[] splittedAircraftString = aircraftArray[i].split(";");
 			temp_array.add(splittedAircraftString[0]);
+			//Add the values to the hash map
+			mMap.put(splittedAircraftString[0], splittedAircraftString[1]);
 		}
 		//Convert the ArrayList to String Array
 		aircraftArray = (String[]) temp_array.toArray(aircraftArray);
@@ -133,14 +139,14 @@ public class MainActivity extends Activity {
     }
     
     //Post Fuel request
-    public void postFuelRequest(){
+    public void postFuelRequest(View view){
     	//Do we request weather?
     	boolean getMetar = false;
     	if (metar.isChecked()){
     		getMetar = true;
     	}
     	
-    	FuelPlanner fp = new FuelPlanner(this, aircraftSpinner.getSelectedItem().toString(), orig.getText().toString(), dest.getText().toString(), getMetar,"JAR", "METRIC");
+    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,"JAR", "METRIC");
     	fp.submitFuelRequest();
     }
     

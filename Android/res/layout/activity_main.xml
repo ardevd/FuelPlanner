@@ -158,6 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/switchWeather"
+        android:onClick="postFuelRequest"
         android:text="@string/calculate" />
 
     <Switch
