@@ -167,6 +167,7 @@
         android:layout_marginTop="10dp"
         android:textColor="#FFFFFF"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
         android:layout_alignTop="@+id/radioGroupMeasurements"
         android:text="@string/use_weather" />
     
