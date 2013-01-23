@@ -10,6 +10,13 @@
             android:entries="@array/units"
             android:defaultValue="Metrics"
             android:entryValues="@array/units"/>
+
+        <CheckBoxPreference
+            android:key="show_units"
+            android:title="@string/prefs_show_units"
+            android:summary="@string/prefs_show_units_summary"
+            android:defaultValue="True" />
+        
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -98,6 +98,7 @@ public class MainActivity extends Activity {
 		TextView aircraft_title = (TextView)findViewById(R.id.textViewPlanesTitle);
 		TextView orig_title = (TextView)findViewById(R.id.TextViewOrigin);
 		TextView dest_title = (TextView)findViewById(R.id.TextViewDest);
+		TextView rules = (TextView)findViewById(R.id.TextViewRules);
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 	            "fonts/Roboto-Light.ttf");
 		xfuel_title.setTypeface(tf);
@@ -109,6 +110,7 @@ public class MainActivity extends Activity {
 		dest.setTypeface(tf);
 		radioMetrics.setTypeface(tf);
 		radioImperial.setTypeface(tf);
+		rules.setTypeface(tf);
 	}
 	
 	

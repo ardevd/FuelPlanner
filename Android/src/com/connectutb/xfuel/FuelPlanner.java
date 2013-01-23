@@ -27,6 +27,8 @@ import org.xml.sax.SAXException;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -38,6 +40,7 @@ public class FuelPlanner {
 	private final HttpPost httppost;
 	private final HttpClient httpclient;
 	private boolean bMetar;
+	public SharedPreferences settings;
 	
 	/* Input Parameters */
 	private final String aircraft;
@@ -90,6 +93,8 @@ public class FuelPlanner {
 		this.email = context.getString(R.string.email);
 		
 		this.loading = loading;
+		
+		settings =  PreferenceManager.getDefaultSharedPreferences(context);
 	    
 	}
 	
@@ -207,13 +212,23 @@ public class FuelPlanner {
 					    metar_orig = getValue(e, "METAR_ORIG");
 					    metar_dest = getValue(e, "METAR_DEST");
 					    
+					    String unit_str = "";
+					    //Include unit notation if set in settings
+					    if (settings.getBoolean("show_units", true)){
+					    	
+					    	unit_str = " Lbs";
+					    if (units.equals("METRIC")){
+					    	unit_str = " Kg";
+					    	
+					    }
+					    }
 					    /** Load up the data in a string array and pass it to the FuelReport activity **/
 					    ArrayList<String> fuelData_array = new ArrayList<String>();
-					    fuelData_array.add(context.getString(R.string.distance) + "-" + distance + "NM");
-					    fuelData_array.add(context.getString(R.string.est_fuel_usage) + "-" + estimated_fuel_usage);
-					    fuelData_array.add(context.getString(R.string.reserve_fuel) + "-" + reserve_fuel);
-					    fuelData_array.add(context.getString(R.string.takeoff_fuel) + "-" + takeoff_fuel);
-					    fuelData_array.add(context.getString(R.string.estimated_landing_weight) + "-" + estimated_landing_weight);
+					    fuelData_array.add(context.getString(R.string.distance) + "-" + distance + " NM");
+					    fuelData_array.add(context.getString(R.string.est_fuel_usage) + "-" + estimated_fuel_usage + unit_str);
+					    fuelData_array.add(context.getString(R.string.reserve_fuel) + "-" + reserve_fuel+ unit_str);
+					    fuelData_array.add(context.getString(R.string.takeoff_fuel) + "-" + takeoff_fuel+ unit_str);
+					    fuelData_array.add(context.getString(R.string.estimated_landing_weight) + "-" + estimated_landing_weight+ unit_str);
 					    fuelData_array.add(context.getString(R.string.estimated_time_enroute) + "-" + estimated_time_enroute);
 					    fuelData_array.add(context.getString(R.string.reserve_fuel_time) + "-" + reserve_fuel_time);
 					    fuelData_array.add(context.getString(R.string.total_fuel_time) + "-" + total_fuel_time);

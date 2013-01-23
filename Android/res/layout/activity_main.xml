@@ -92,8 +92,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/dest"
         android:textColor="#00aeef"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
     <EditText
         android:id="@+id/editTextDest"
@@ -167,19 +166,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textColor="#FFFFFF"
-        android:layout_below="@+id/radioGroupMeasurements"
-        android:layout_alignLeft="@+id/radioGroupMeasurements"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/radioGroupMeasurements"
         android:text="@string/use_weather" />
     
      <Spinner
         android:id="@+id/spinnerRules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/switchWeather"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/switchWeather"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
         android:entries="@array/rules" />
+     
+      <TextView
+        android:id="@+id/TextViewRules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/spinnerRules"
+        android:layout_alignBaseline="@+id/spinnerRules"
+        android:text="@string/rules"
+        android:textColor="#00aeef"
+        android:textSize="18sp" />
 
      <ProgressBar
 	    android:id="@+id/progress"
