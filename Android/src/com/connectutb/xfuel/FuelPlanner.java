@@ -186,6 +186,11 @@ public class FuelPlanner {
 					    reserve_fuel = getValue(e, "FUEL_RSV");
 					    takeoff_fuel = getValue(e, "FUEL_TOF");
 					    estimated_landing_weight = getValue(e, "LWT");
+					    estimated_time_enroute = getValue(e, "TIME_BLK");
+					    reserve_fuel_time = getValue(e, "TIME_RSV");
+					    total_fuel_time = getValue(e, "TIME_TTE");
+					    metar_orig = getValue(e, "METAR_ORIG");
+					    metar_dest = getValue(e, "METAR_DEST");
 					}
 					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
