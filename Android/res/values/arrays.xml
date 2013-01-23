@@ -2,13 +2,33 @@
 <resources>
     <string-array name="planetypes">
         <item>Airbus A300;A300</item>
-        <item>Airbus A310;A310</item>
+        <item>Airbus A310&#8211;300;A310</item>
         <item>Airbus A318;A318</item>
-        <item>Airbus A319;A319</item>
+        <item>Airbus A319&#8211;132;A319</item>
         <item>Airbus A320;A320</item>
         <item>Airbus A321;A321</item>
-        <item>Airbus A330;A330</item>
-        <item>Airbus A380;A380</item>
+        <item>Airbus A330&#8211;200;A330</item>
+        <item>Airbus A340&#8211;300;A343</item>
+        <item>Airbus A380&#8211;100;A3281</item>
+        <item>Boeing 727&#8211;100;B721</item>
+        <item>Boeing 727&#8211;200;B722</item>
+        <item>Boeing 737&#8211;200;B732</item>
+        <item>Boeing 737&#8211;300;B733</item>
+        <item>Boeing 737&#8211;400;B734</item>
+        <item>Boeing 737&#8211;500;B735</item>
+        <item>Boeing 737&#8211;600;B736</item>
+        <item>Boeing 737&#8211;700;B737</item>
+        <item>Boeing 737&#8211;800;B738</item>
+        <item>Boeing 737&#8211;900;B739</item>
+        <item>Boeing 747&#8211;400;B744</item>
+        <item>Boeing 757&#8211;200;B752</item>
+        <item>Boeing 767&#8211;300ER;B763</item>
+        <item>Boeing 777&#8211;200;B772</item>
+        <item>Boeing 787&#8211;800;B788</item>
+        <item>CRJ&#8211;200;CRJ2</item>
+        <item>CRJ&#8211;700;CRJ7</item>
+        <item>Embraer 170;E170</item>
+        <item>Embraer 190;E190</item>
     </string-array>
     
     <string-array name="units">
