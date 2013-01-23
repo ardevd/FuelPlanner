@@ -85,7 +85,7 @@ public class DbManager extends SQLiteOpenHelper{
 		//Loop through the results and add it to the temp_array
 		if (c.moveToFirst()){
 			do{
-				temp_array.add(c.getString(c.getColumnIndex(HISTORY_ID)) + ";" + c.getString(c.getColumnIndex(HISTORY_ORIG))+ ";" + c.getString(c.getColumnIndex(HISTORY_DEST)) +  ";" + c.getString(c.getColumnIndex(HISTORY_AIRCRAFT)) + ";" + c.getString(c.getColumnIndex(HISTORY_AIRCRAFT)) );
+				temp_array.add(c.getString(c.getColumnIndex(HISTORY_ID)) + ";" + c.getString(c.getColumnIndex(HISTORY_ORIG))+ ";" + c.getString(c.getColumnIndex(HISTORY_DEST)) +  ";" + c.getString(c.getColumnIndex(HISTORY_AIRCRAFT)) + ";" + c.getString(c.getColumnIndex(HISTORY_RULES)) );
 			}while(c.moveToNext());
 		}
 		//Close cursor

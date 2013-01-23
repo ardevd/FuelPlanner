@@ -44,6 +44,8 @@ public class MainActivity extends Activity {
 	
 	public Map<String, String> mMap;
 	
+	public int currentNav = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -121,6 +123,20 @@ public class MainActivity extends Activity {
             @Override
             public boolean onNavigationItemSelected(int itemPosition, long itemId) {
                 Toast.makeText(getBaseContext(), "You selected : " + itemPosition  , Toast.LENGTH_SHORT).show();
+                if (itemPosition==1){
+                	currentNav = 1;
+                	Intent i = new Intent(getApplicationContext(), FuelHistory.class);
+                	startActivity(i);	 
+            		return true;
+                }else if(itemPosition==0){
+                	if (currentNav != 0){
+                		currentNav = 0;
+                		Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    	startActivity(i);
+                	}
+                	
+            		return true;
+                }
                 return false;
             }
         };

@@ -36,6 +36,9 @@
     <string name="metar_orig">METAR Origin</string>
     <string name="metar_dest">METAR Destination</string>
     
+    <!--  History -->
+    <string name="fuel_history">Fuel Planning History</string>
+    
     <!-- Preferences -->
     <string name="prefs_xfuel">xFuel Preferences</string>
     <string name="prefs_summary">Preferences for xFuel</string>
