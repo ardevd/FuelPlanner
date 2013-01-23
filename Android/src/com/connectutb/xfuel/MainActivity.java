@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 	public SharedPreferences.Editor editor;
 	/* Our view components */
 	public Spinner aircraftSpinner;
+	public Spinner rulesSpinner;
 	public EditText orig;
 	public EditText dest;
 	public Switch metar;
@@ -72,10 +73,16 @@ public class MainActivity extends Activity {
 		
 		//Prepare the Aircraft Spinner
 		aircraftSpinner = (Spinner)findViewById(R.id.spinnerPlanes);
-	    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   
+	    ArrayAdapter<String> aircraftSpinnerArrayAdapter = new ArrayAdapter<String>(this,   
 	    		R.layout.spinner_white, aircraftArray);
-	    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    aircraftSpinner.setAdapter(spinnerArrayAdapter);
+	    aircraftSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    aircraftSpinner.setAdapter(aircraftSpinnerArrayAdapter);
+	    
+	    //Prepare the Rules spinner
+		rulesSpinner = (Spinner)findViewById(R.id.spinnerRules);
+	    ArrayAdapter rulesSpinnerArrayAdapter = ArrayAdapter.createFromResource( this, R.array.rules , R.layout.spinner_white); 
+	    rulesSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    rulesSpinner.setAdapter(rulesSpinnerArrayAdapter);
 	    
 	    //Init prefs
 	    settings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -174,7 +181,7 @@ public class MainActivity extends Activity {
     		units = "METRIC";
     	}
     	
-    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,"JAR", units);
+    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
     	fp.submitFuelRequest();
     }
     

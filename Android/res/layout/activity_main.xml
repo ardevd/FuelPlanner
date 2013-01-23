@@ -157,7 +157,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/switchWeather"
+        android:layout_below="@+id/spinnerRules"
         android:onClick="postFuelRequest"
         android:text="@string/calculate" />
 
@@ -170,6 +170,16 @@
         android:layout_below="@+id/radioGroupMeasurements"
         android:layout_alignLeft="@+id/radioGroupMeasurements"
         android:text="@string/use_weather" />
+    
+     <Spinner
+        android:id="@+id/spinnerRules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switchWeather"
+        android:layout_below="@+id/switchWeather"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="14dp"
+        android:entries="@array/rules" />
 
 </RelativeLayout>
 </ScrollView>

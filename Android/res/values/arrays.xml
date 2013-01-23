@@ -22,4 +22,9 @@
         <item>Favorites</item>
     </string-array>
     
+    <string-array name="rules">
+        <item>FARDOM</item>
+        <item>INTL</item>
+        <item>JAR</item>
+    </string-array>
 </resources>
