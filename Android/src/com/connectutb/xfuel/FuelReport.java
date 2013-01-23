@@ -1,18 +1,25 @@
 package com.connectutb.xfuel;
 
 import android.app.ActionBar;
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
-public class FuelReport extends Activity{
+public class FuelReport extends ListActivity{
+	
+	private String[] fuelData = new String[0];
 	
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    ActionBar actionBar = getActionBar();
 	    actionBar.setDisplayHomeAsUpEnabled(true);
+	    fuelData =getIntent().getStringArrayExtra("fuelData");
+	    
+	    setListAdapter(new FuelReportListAdapter(this, fuelData));
 	}
+
 	
 	/* Action on menu selection */
     @Override

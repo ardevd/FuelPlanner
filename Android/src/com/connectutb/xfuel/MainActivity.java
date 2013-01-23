@@ -11,6 +11,7 @@ import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -80,6 +82,23 @@ public class MainActivity extends Activity {
 	    
 	    //Grab Default values
 	    grabDefaults();
+	    
+		//Set Fonts
+		TextView xfuel_title = (TextView)findViewById(R.id.fuelTitle);
+		TextView aircraft_title = (TextView)findViewById(R.id.textViewPlanesTitle);
+		TextView orig_title = (TextView)findViewById(R.id.TextViewOrigin);
+		TextView dest_title = (TextView)findViewById(R.id.TextViewDest);
+		Typeface tf = Typeface.createFromAsset(getAssets(),
+	            "fonts/Roboto-Light.ttf");
+		xfuel_title.setTypeface(tf);
+		aircraft_title.setTypeface(tf);
+		orig_title.setTypeface(tf);
+		dest_title.setTypeface(tf);
+		metar.setTypeface(tf);
+		orig.setTypeface(tf);
+		dest.setTypeface(tf);
+		radioMetrics.setTypeface(tf);
+		radioImperial.setTypeface(tf);
 	}
 	
 	public void actionBarNavigation(){

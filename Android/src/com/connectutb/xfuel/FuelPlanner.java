@@ -26,6 +26,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 
 public class FuelPlanner {
@@ -34,6 +35,7 @@ public class FuelPlanner {
 	private final Activity context;
 	private final HttpPost httppost;
 	private final HttpClient httpclient;
+	private boolean bMetar;
 	
 	/* Input Parameters */
 	private final String aircraft;
@@ -58,6 +60,9 @@ public class FuelPlanner {
 	private String metar_orig;
 	private String metar_dest;
 	
+	/* Fuel Data Array */
+	private String[] fuelData = new String[0];
+	
 	public FuelPlanner (Activity context, String aircraft, String orig, String dest, boolean metar, String rules, String units){
 		/* Assign variables */
 		this.context = context;
@@ -66,6 +71,7 @@ public class FuelPlanner {
 		this.aircraft = aircraft;
 		this.orig = orig;
 		this.dest = dest;
+		this.bMetar = metar;
 		if(metar){
 			this.metar = "YES";
 		}else{
@@ -191,6 +197,27 @@ public class FuelPlanner {
 					    total_fuel_time = getValue(e, "TIME_TTE");
 					    metar_orig = getValue(e, "METAR_ORIG");
 					    metar_dest = getValue(e, "METAR_DEST");
+					    
+					    /** Load up the data in a string array and pass it to the FuelReport activity **/
+					    ArrayList<String> fuelData_array = new ArrayList<String>();
+					    fuelData_array.add(context.getString(R.string.distance) + "-" + distance + "NM");
+					    fuelData_array.add(context.getString(R.string.est_fuel_usage) + "-" + estimated_fuel_usage);
+					    fuelData_array.add(context.getString(R.string.reserve_fuel) + "-" + reserve_fuel);
+					    fuelData_array.add(context.getString(R.string.takeoff_fuel) + "-" + takeoff_fuel);
+					    fuelData_array.add(context.getString(R.string.estimated_landing_weight) + "-" + estimated_landing_weight);
+					    fuelData_array.add(context.getString(R.string.estimated_time_enroute) + "-" + estimated_time_enroute);
+					    fuelData_array.add(context.getString(R.string.reserve_fuel_time) + "-" + reserve_fuel_time);
+					    fuelData_array.add(context.getString(R.string.total_fuel_time) + "-" + total_fuel_time);
+					    //METAR might not always be included
+					    if(bMetar){
+					    fuelData_array.add(context.getString(R.string.metar_orig) + "-" + metar_orig);
+					    fuelData_array.add(context.getString(R.string.metar_dest) + "-" + metar_dest);
+					    }
+					    //Convert ArrayList to String Array
+					    //Convert the ArrayList to String Array
+					    fuelData = (String[]) fuelData_array.toArray(fuelData);
+					     
+					    
 					}
 					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
@@ -198,6 +225,10 @@ public class FuelPlanner {
 				}catch(IOException e){
 					//TODO: catch block
 				}
+			    //Start FuelReport activity
+			    Intent frIntent = new Intent(context, FuelReport.class);
+			    frIntent.putExtra("fuelData", fuelData);
+	        	context.startActivity(frIntent);	
 			}
 		}).start();
 	}

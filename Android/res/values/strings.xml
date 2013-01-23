@@ -22,6 +22,19 @@
     <string name="imperial">Imperial</string>
     <string name="use_weather">METAR</string>
 
+    <!--  Fuel Report -->
+    <string name="fuel_report">Fuel Report</string>
+    <string name="distance">Distance</string>
+    <string name="est_fuel_usage">Est. Fuel Usage</string>
+    <string name="reserve_fuel">Reserve Fuel</string>
+    <string name="takeoff_fuel">Takeoff Fuel</string>
+    <string name="estimated_landing_weight">Est. Landing Weight</string>
+    <string name="estimated_time_enroute">Est. Time Enroute</string>
+    <string name="reserve_fuel_time">Reserve Fuel Time</string>
+    <string name="total_fuel_time">Total Fuel Time</string>
+    <string name="metar_orig">METAR Origin</string>
+    <string name="metar_dest">METAR Destination</string>
+    
     <!-- Preferences -->
     <string name="prefs_xfuel">xFuel Preferences</string>
     <string name="prefs_summary">Preferences for xFuel</string>

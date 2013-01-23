@@ -30,6 +30,12 @@
             android:name=".Preferences"
             android:label="@string/prefs_xfuel">
         </activity>
+        
+        <activity
+            android:name=".FuelReport"
+            android:theme="@android:style/Theme.Holo"
+            android:label="@string/fuel_report">
+        </activity>
     </application>
 
 </manifest>

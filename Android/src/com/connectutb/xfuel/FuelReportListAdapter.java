@@ -1,6 +1,7 @@
 package com.connectutb.xfuel;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +46,26 @@ public class FuelReportListAdapter extends ArrayAdapter<String> {
 			} else {
 				holder = (ViewHolder) rowView.getTag();
 			}
-			String[] arrayString = fuelData[position].split(";");
-			String fKey = arrayString[0];
-			String fValue = arrayString[1];
+			String[] arrayString = fuelData[position].split("-");
+			String fKey;
+			String fValue;
+			try{
+			fKey = arrayString[0];
+			}
+			catch(Exception ex){
+				fKey="ERROR";
+			}
+			try{
+			fValue = arrayString[1];
+			}
+			catch(Exception ex){
+				fValue="N/A";
+			}
+			//Set Roboto Font
+			Typeface tf = Typeface.createFromAsset(context.getAssets(),
+		            "fonts/Roboto-Light.ttf");
+			holder.textViewKey.setTypeface(tf);
+			holder.textViewValue.setTypeface(tf);
 			holder.textViewKey.setText(fKey);
 			holder.textViewValue.setText(fValue);
 			
