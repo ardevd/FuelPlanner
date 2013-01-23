@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#1a1a1a" >
+
+    <TextView
+        android:id="@+id/textViewKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#00aeef"
+        android:textSize="18sp"
+        android:typeface="sans"
+        android:text="Distance" />
+
+    <TextView
+        android:id="@+id/textViewValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewKey"
+        android:layout_alignBottom="@+id/textViewKey"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="71dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:typeface="sans"
+        android:text="280Nm" />
     
+     <View
+        android:id="@+id/separatorType"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/textViewKey"
+        android:background="#00aeef" />
 
 </RelativeLayout>
