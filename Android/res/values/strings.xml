@@ -37,6 +37,7 @@
     <string name="metar_dest">METAR Destination</string>
     
     <!--  History -->
+    <string name="history">History</string>
     <string name="fuel_history">Fuel Planning History</string>
     
     <!-- Preferences -->

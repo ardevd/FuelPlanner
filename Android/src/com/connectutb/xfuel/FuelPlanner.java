@@ -68,7 +68,7 @@ public class FuelPlanner {
 	/* Fuel Data Array */
 	private String[] fuelData = new String[0];
 	
-	public FuelPlanner (Activity context, String aircraft, String orig, String dest, boolean metar, String rules, String units){
+	public FuelPlanner (Activity context, String aircraft, String orig, String dest, boolean metar, String rules, String units, ProgressBar loading){
 		/* Assign variables */
 		this.context = context;
 		this.httppost = new HttpPost(context.getResources().getString(R.string.post_url));
@@ -89,7 +89,7 @@ public class FuelPlanner {
 		this.license = context.getString(R.string.license);
 		this.email = context.getString(R.string.email);
 		
-		loading = (ProgressBar)context.findViewById(R.id.progress);
+		this.loading = loading;
 	    
 	}
 	

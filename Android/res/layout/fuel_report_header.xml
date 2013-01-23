@@ -25,5 +25,6 @@
         android:textColor="#ffffff"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
+        android:paddingBottom="20dp"
         android:text="ENGM->ENZV - A320" />
 </RelativeLayout>

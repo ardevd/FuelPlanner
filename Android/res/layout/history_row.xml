@@ -53,6 +53,15 @@
         android:typeface="sans"
         android:text="JDOM" />
     
+    <ProgressBar
+	    android:id="@+id/progressHistory"
+	    style="?android:attr/progressBarStyleLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="fill_parent"
+	    android:layout_centerInParent="true"
+	    android:layout_gravity="center_vertical|center_horizontal"
+	    android:visibility="gone" />
+    
      <View
         android:id="@+id/separatorType"
         android:layout_width="fill_parent"

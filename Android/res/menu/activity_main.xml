@@ -2,9 +2,14 @@
 
     <item
         android:id="@+id/menu_settings"
-        android:orderInCategory="100"
-        android:showAsAction="ifRoom|withText"
+        android:orderInCategory="101"
+        android:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_settings"
         android:title="@string/menu_settings"/>
-
+    <item
+        android:id="@+id/menu_history"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_go_to_today"
+        android:title="@string/history"/>
 </menu>

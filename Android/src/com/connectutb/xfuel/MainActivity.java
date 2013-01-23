@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -44,14 +46,11 @@ public class MainActivity extends Activity {
 	
 	public Map<String, String> mMap;
 	
-	public int currentNav = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		actionBarNavigation();
 		
 		//Views
 		orig = (EditText)findViewById(R.id.editTextOrigin);
@@ -112,45 +111,7 @@ public class MainActivity extends Activity {
 		radioImperial.setTypeface(tf);
 	}
 	
-	public void actionBarNavigation(){
-		 //SpinnerAdapter for the ActionBar Navigation
-		SpinnerAdapter navSpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.app_navigation,
-		          R.layout.spinner_white);
-		/** Defining Navigation listener */
-		/** Defining Navigation listener */
-        ActionBar.OnNavigationListener navigationListener = new OnNavigationListener() {
- 
-            @Override
-            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-                Toast.makeText(getBaseContext(), "You selected : " + itemPosition  , Toast.LENGTH_SHORT).show();
-                if (itemPosition==1){
-                	currentNav = 1;
-                	Intent i = new Intent(getApplicationContext(), FuelHistory.class);
-                	startActivity(i);	 
-            		return true;
-                }else if(itemPosition==0){
-                	if (currentNav != 0){
-                		currentNav = 0;
-                		Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    	startActivity(i);
-                	}
-                	
-            		return true;
-                }
-                return false;
-            }
-        };
-		ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-	    actionBar.setDisplayShowTitleEnabled(false);
-	    actionBar.setListNavigationCallbacks(
-	    		navSpinnerAdapter,
-	            navigationListener);	
-		
-	}
 	
-	
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -177,10 +138,14 @@ public class MainActivity extends Activity {
     	switch(item.getItemId()){
     	//Open prefs
     	case R.id.menu_settings:
-    		Intent i = new Intent(this, Preferences.class);
-        	startActivity(i);	 
+    		Intent settingsIntent = new Intent(this, Preferences.class);
+        	startActivity(settingsIntent);	 
     		return true;
-    		
+    	
+    	case R.id.menu_history:
+    		Intent historyIntent = new Intent(this, FuelHistory.class);
+        	startActivity(historyIntent);	 
+    		return true;
     	default:
     		return super.onOptionsItemSelected(item);
     	}
@@ -200,10 +165,14 @@ public class MainActivity extends Activity {
     		units = "METRIC";
     	}
     	
-    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
+        //Define progressDialog
+        ProgressBar progress = (ProgressBar)findViewById(R.id.progress);
+    	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units, progress);
     	//add to history
     	//Define our database manager
         DbManager db = new DbManager(this);
+
+        
         db.addToHistory(mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
     	fp.submitFuelRequest();
     }
