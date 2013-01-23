@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1a" >
+
+    <TextView
+        android:id="@+id/textViewHistoryOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#00aeef"
+        android:textSize="18sp"
+        android:typeface="sans"
+        android:text="ENGM" />
+    
+    <TextView
+        android:id="@+id/textViewHistoryDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewHistoryOrigin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#00aeef"
+        android:textSize="18sp"
+        android:typeface="sans"
+        android:text="EDDF" />
+
+    <TextView
+        android:id="@+id/textViewHistoryAircraft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:typeface="sans"
+        android:text="A320" />
+    
+    <TextView
+        android:id="@+id/textViewHistoryRules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#9b9b9b"
+        android:textSize="18sp"
+        android:typeface="sans"
+        android:text="JDOM" />
+    
+     <View
+        android:id="@+id/separatorType"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/textViewHistoryOrigin"
+        android:background="#00aeef" />
+
+</RelativeLayout>
