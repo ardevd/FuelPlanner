@@ -64,6 +64,7 @@ public class FuelPlanner {
 	private String total_fuel_time;
 	private String metar_orig;
 	private String metar_dest;
+	private String zero_fuel_weight;
 	
 	/* Activity Circle */
 	private ProgressBar loading;
@@ -211,6 +212,7 @@ public class FuelPlanner {
 					    total_fuel_time = getValue(e, "TIME_TTE");
 					    metar_orig = getValue(e, "METAR_ORIG");
 					    metar_dest = getValue(e, "METAR_DEST");
+					    zero_fuel_weight = getValue(e, "ZFW");
 					    
 					    String unit_str = "";
 					    //Include unit notation if set in settings
@@ -228,6 +230,7 @@ public class FuelPlanner {
 					    fuelData_array.add(context.getString(R.string.est_fuel_usage) + "-" + estimated_fuel_usage + unit_str);
 					    fuelData_array.add(context.getString(R.string.reserve_fuel) + "-" + reserve_fuel+ unit_str);
 					    fuelData_array.add(context.getString(R.string.takeoff_fuel) + "-" + takeoff_fuel+ unit_str);
+					    fuelData_array.add(context.getString(R.string.zero_fuel_weight) + "-" + zero_fuel_weight + unit_str);
 					    fuelData_array.add(context.getString(R.string.estimated_landing_weight) + "-" + estimated_landing_weight+ unit_str);
 					    fuelData_array.add(context.getString(R.string.estimated_time_enroute) + "-" + estimated_time_enroute);
 					    fuelData_array.add(context.getString(R.string.reserve_fuel_time) + "-" + reserve_fuel_time);

@@ -36,6 +36,7 @@
     <string name="total_fuel_time">Total Fuel Time</string>
     <string name="metar_orig">METAR Origin</string>
     <string name="metar_dest">METAR Destination</string>
+    <string name="zero_fuel_weight">Zero Fuel Weight</string>
     
     <!--  History -->
     <string name="history">History</string>
