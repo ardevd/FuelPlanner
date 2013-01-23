@@ -96,7 +96,6 @@ public class FuelPlanner {
 		this.loading = loading;
 		
 		settings =  PreferenceManager.getDefaultSharedPreferences(context);
-	    
 	}
 	
 	public Document parseFuelResponse(String response){
@@ -220,8 +219,7 @@ public class FuelPlanner {
 					    	
 					    	unit_str = " Lbs";
 					    if (units.equals("METRIC")){
-					    	unit_str = " Kg";
-					    	
+					    	unit_str = " Kg";		    	
 					    }
 					    }
 					    /** Load up the data in a string array and pass it to the FuelReport activity **/
@@ -243,8 +241,6 @@ public class FuelPlanner {
 					    //Convert ArrayList to String Array
 					    //Convert the ArrayList to String Array
 					    fuelData = (String[]) fuelData_array.toArray(fuelData);
-					     
-					    
 					}
 					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){

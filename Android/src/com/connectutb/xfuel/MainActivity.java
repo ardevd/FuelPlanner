@@ -46,7 +46,6 @@ public class MainActivity extends Activity {
 	
 	public Map<String, String> mMap;
 	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -116,10 +115,8 @@ public class MainActivity extends Activity {
 		if (settings.getBoolean("use_default_airports", false) == true){
 			orig.setText(settings.getString("default_origin", ""));
 			dest.setText(settings.getString("default_destination", ""));
-		}
-				
+		}			
 	}
-	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -138,7 +135,6 @@ public class MainActivity extends Activity {
 		}else{
 			radioImperial.setChecked(true);
 		}
-		
 	}
 	
 	/* Action on menu selection */
@@ -183,7 +179,5 @@ public class MainActivity extends Activity {
         
         db.addToHistory(mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
     	fp.submitFuelRequest();
-    }
-    
-    
+    }   
 }

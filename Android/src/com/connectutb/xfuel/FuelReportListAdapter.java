@@ -71,5 +71,4 @@ public class FuelReportListAdapter extends ArrayAdapter<String> {
 			
 			return rowView;
 		}
-
 }

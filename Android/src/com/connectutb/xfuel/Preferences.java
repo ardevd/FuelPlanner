@@ -16,7 +16,6 @@ public class Preferences extends PreferenceActivity{
 		super.onCreate(savedInstanceState);
 		 ActionBar actionBar = getActionBar();
 		 actionBar.setDisplayHomeAsUpEnabled(true);
-
 	}
 	
 	/* Action on menu selection */
@@ -55,5 +54,4 @@ public class Preferences extends PreferenceActivity{
             addPreferencesFromResource(R.xml.preferences);
         }
     }
-
 }

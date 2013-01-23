@@ -60,5 +60,4 @@ public class FuelHistoryAdapter extends ArrayAdapter<String>{
 		
 		return rowView;
 	}
-
 }
