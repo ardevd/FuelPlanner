@@ -12,6 +12,12 @@ public class DbManager extends SQLiteOpenHelper{
 	/* Our tables and fields */
 	private static final String TABLE_HISTORY= "list";
 	private static final String HISTORY_ID = "id";
+	private static final String HISTORY_AIRCRAFT = "aircraft";
+	private static final String HISTORY_ORIG = "origin";
+	private static final String HISTORY_DEST = "destination";
+	private static final String HISTORY_UNIT = "unit";
+	private static final String HISTORY_METAR = "metar";
+	private static final String HISTORY_RULES = "rules";
 	private Context context;
 	
 	//constructor

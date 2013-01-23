@@ -170,6 +170,7 @@ public class MainActivity extends Activity {
     
     //Post Fuel request
     public void postFuelRequest(View view){
+    	
     	//Do we request weather?
     	boolean getMetar = false;
     	if (metar.isChecked()){

@@ -24,6 +24,7 @@
 
     <!--  Fuel Report -->
     <string name="fuel_report">Fuel Report</string>
+    <string name="load_sheet">Load Sheet</string>
     <string name="distance">Distance</string>
     <string name="est_fuel_usage">Est. Fuel Usage</string>
     <string name="reserve_fuel">Reserve Fuel</string>

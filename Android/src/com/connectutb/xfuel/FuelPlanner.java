@@ -28,6 +28,8 @@ import org.xml.sax.SAXException;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 public class FuelPlanner {
 	
@@ -60,6 +62,9 @@ public class FuelPlanner {
 	private String metar_orig;
 	private String metar_dest;
 	
+	/* Activity Circle */
+	private ProgressBar loading;
+	
 	/* Fuel Data Array */
 	private String[] fuelData = new String[0];
 	
@@ -83,6 +88,8 @@ public class FuelPlanner {
 		this.account = context.getString(R.string.account);
 		this.license = context.getString(R.string.license);
 		this.email = context.getString(R.string.email);
+		
+		loading = (ProgressBar)context.findViewById(R.id.progress);
 	    
 	}
 	
@@ -157,6 +164,8 @@ public class FuelPlanner {
 	
 	public void submitFuelRequest(){
 		
+		/** Show loading indicator **/
+		loading.setVisibility(View.VISIBLE);
 		/** Post fuel data to server **/
 		new Thread(new Runnable(){
 			public void run(){
@@ -186,7 +195,7 @@ public class FuelPlanner {
 						 * HERE WE EXTRACT THE FUEL PLANNING OUTPUT ELEMENTS
 						 */
 						Element e = (Element) nl.item(i);
-					    String distance = getValue(e, "NM"); // name child value
+					    distance = getValue(e, "NM"); // name child value
 					    Log.d("XFUEL", "NM : " + distance);
 					    estimated_fuel_usage = getValue(e, "FUEL_EFU");
 					    reserve_fuel = getValue(e, "FUEL_RSV");
@@ -228,8 +237,18 @@ public class FuelPlanner {
 			    //Start FuelReport activity
 			    Intent frIntent = new Intent(context, FuelReport.class);
 			    frIntent.putExtra("fuelData", fuelData);
+			    frIntent.putExtra("aircraft", aircraft);
+			    frIntent.putExtra("origin", orig);
+			    frIntent.putExtra("destination", dest);
 	        	context.startActivity(frIntent);	
+	        	
+	        	 loading.post(new Runnable() {
+	                 public void run() {
+	                	 loading.setVisibility(View.GONE);
+	                 }
+	             });
 			}
+			
 		}).start();
 	}
 }

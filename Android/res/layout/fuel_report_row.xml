@@ -13,7 +13,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:textColor="#00aeef"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:typeface="sans"
         android:text="Distance" />
 
@@ -26,7 +26,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:textColor="#ffffff"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:typeface="sans"
         android:text="280Nm" />
     
