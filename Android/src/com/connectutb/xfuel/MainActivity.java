@@ -111,6 +111,13 @@ public class MainActivity extends Activity {
 		radioMetrics.setTypeface(tf);
 		radioImperial.setTypeface(tf);
 		rules.setTypeface(tf);
+		
+		//Auto fill default airports if set
+		if (settings.getBoolean("use_default_airports", false) == true){
+			orig.setText(settings.getString("default_origin", ""));
+			dest.setText(settings.getString("default_destination", ""));
+		}
+				
 	}
 	
 	

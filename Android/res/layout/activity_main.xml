@@ -78,7 +78,7 @@
         android:ems="10"
         android:gravity="right"
         android:hint="@string/origin_airport"
-        android:inputType="textCapCharacters"
+        android:inputType="textCapCharacters|textNoSuggestions"
         android:maxLength="4"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
@@ -105,7 +105,7 @@
         android:ems="10"
         android:gravity="right"
         android:hint="@string/destination_airpot"
-        android:inputType="textCapCharacters"
+        android:inputType="textCapCharacters|textNoSuggestions"
         android:maxLength="4"
         android:textColor="#FFFFFF"
         android:textSize="25sp"

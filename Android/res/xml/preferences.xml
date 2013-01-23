@@ -18,5 +18,23 @@
             android:defaultValue="True" />
         
     </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/prefs_airports">
+         <EditTextPreference
+             android:key="default_origin"
+             android:title="@string/prefs_default_orig_airport"
+             android:summary="@string/prefs_default_orig_airport_summary"
+             android:defaultValue="" />
+         <EditTextPreference
+             android:key="default_destination"
+             android:title="@string/prefs_default_dest_airport"
+             android:summary="@string/prefs_default_dest_airport_summary"
+             android:defaultValue="" />
+        <CheckBoxPreference 
+             android:key="use_default_airports"
+             android:title="@string/prefs_use_default_airports"
+             android:summary="@string/prefs_use_default_airports_summary"
+             android:defaultValue="False"/>
+    </PreferenceCategory>
 
 </PreferenceScreen>
