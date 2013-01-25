@@ -8,10 +8,7 @@ import com.connectutb.xfuel.util.DbManager;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -25,10 +22,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -178,6 +173,6 @@ public class MainActivity extends Activity {
         DbManager db = new DbManager(this);
         
         db.addToHistory(mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
-    	fp.submitFuelRequest();
+    	fp.wantFuelInfo();
     }   
 }

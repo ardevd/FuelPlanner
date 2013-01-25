@@ -22,6 +22,8 @@
     <string name="imperial">Imperial</string>
     <string name="rules">Rules</string>
     <string name="use_weather">METAR</string>
+    
+    <string name="error_network">An active internet connection is required to request fuel plans</string>
 
     <!--  Fuel Report -->
     <string name="fuel_report">Fuel Report</string>

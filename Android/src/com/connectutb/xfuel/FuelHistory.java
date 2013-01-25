@@ -47,6 +47,6 @@ public class FuelHistory extends ListActivity{
     	//Request Fuel Planner
     	ProgressBar progress = (ProgressBar)findViewById(R.id.progressHistory);
     	FuelPlanner fp = new FuelPlanner(this, aircraft, orig, dest, bMetar, rules, units, progress);
-    	fp.submitFuelRequest();
+    	fp.wantFuelInfo();
     }
 }

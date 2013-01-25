@@ -26,12 +26,16 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class FuelPlanner {
 	
@@ -166,6 +170,23 @@ public class FuelPlanner {
 	     }
 	     return "";
 	} 
+	
+	private boolean isNetworkAvailable() {
+	    ConnectivityManager connectivityManager 
+	          = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null;
+	}
+	
+	public void wantFuelInfo(){
+		/** Check if we have network connectivity before proceeding **/
+		if (isNetworkAvailable()){
+			submitFuelRequest();
+		} else{
+			// Notify user that an internet connection is required. 
+			 Toast.makeText(context, context.getString(R.string.error_network), Toast.LENGTH_SHORT).show(); 
+		}
+	}
 	
 	public void submitFuelRequest(){
 		
