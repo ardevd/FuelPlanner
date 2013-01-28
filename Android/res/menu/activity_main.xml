@@ -12,4 +12,11 @@
         android:showAsAction="ifRoom|withText"
         android:icon="@drawable/ic_action_go_to_today"
         android:title="@string/history"/>
+    
+    <item
+        android:id="@+id/menu_rate"
+        android:orderInCategory="102"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_good"
+        android:title="@string/menu_rate"/>
 </menu>

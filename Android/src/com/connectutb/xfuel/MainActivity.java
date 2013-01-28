@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.connectutb.xfuel.util.DbManager;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
@@ -146,6 +147,13 @@ public class MainActivity extends Activity {
     		Intent historyIntent = new Intent(this, FuelHistory.class);
         	startActivity(historyIntent);	 
     		return true;
+    	
+    	case R.id.menu_rate:
+    		/* Show app listing */
+        	Intent intent = new Intent(Intent.ACTION_VIEW); 
+        	intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.connectutb.xfuel")); 
+        	startActivity(intent);
+        	return true;
     	default:
     		return super.onOptionsItemSelected(item);
     	}
