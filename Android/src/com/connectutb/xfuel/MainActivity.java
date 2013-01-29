@@ -111,7 +111,17 @@ public class MainActivity extends Activity {
 		if (settings.getBoolean("use_default_airports", false) == true){
 			orig.setText(settings.getString("default_origin", ""));
 			dest.setText(settings.getString("default_destination", ""));
-		}			
+		}
+		
+		//Get last used ruleset
+		int lastRuleSet = settings.getInt("last_ruleset", 0);
+		if (lastRuleSet == 0){
+			rulesSpinner.setSelection(0);
+		}else if (lastRuleSet == 1){
+			rulesSpinner.setSelection(1);
+		}else if (lastRuleSet == 2){
+			rulesSpinner.setSelection(2);
+		}
 	}
 	
 	@Override
