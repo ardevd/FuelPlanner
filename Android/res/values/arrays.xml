@@ -35,6 +35,7 @@
         <item>McDonnell&#8211;Douglas MD&#8211;11;MD11</item>
         <item>McDonnell&#8211;Douglas MD80&#8211;30;MD83</item>
         <item>McDonnell&#8211;Douglas MD90&#8211;30;MD93</item>
+        <item>BAe Jetstream 41;JS41</item>
     </string-array>
     
     <string-array name="units">
