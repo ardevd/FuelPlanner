@@ -40,7 +40,8 @@
     <string name="metar_orig">METAR Origin</string>
     <string name="metar_dest">METAR Destination</string>
     <string name="zero_fuel_weight">Zero Fuel Weight</string>
-    
+    <string name="share">Share</string>
+    <string name="add_favourite">Favourite</string>
     <!--  History -->
     <string name="history">History</string>
     <string name="fuel_history">Fuel Planning History</string>

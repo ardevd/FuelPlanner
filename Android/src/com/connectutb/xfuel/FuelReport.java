@@ -1,7 +1,11 @@
 package com.connectutb.xfuel;
 
+import com.connectutb.xfuel.util.DbManager;
+
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
@@ -19,7 +25,9 @@ public class FuelReport extends ListActivity{
 	private String aircraft;
 	private String origin;
 	private String destination;
-	
+	private String rules;
+	private String units;
+	private boolean bMetar;
 	private ShareActionProvider mShareActionProvider;
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,9 @@ public class FuelReport extends ListActivity{
 	    aircraft = getIntent().getStringExtra("aircraft");
 	    origin = getIntent().getStringExtra("origin");
 	    destination = getIntent().getStringExtra("destination");
+	    rules = getIntent().getStringExtra("rules");
+	    units = getIntent().getStringExtra("units");
+	    bMetar = getIntent().getBooleanExtra("metar", false);
 	    //Add header view
 	    View header = getLayoutInflater().inflate(R.layout.fuel_report_header, null);
 	    ListView listView = getListView();
@@ -85,6 +96,32 @@ public class FuelReport extends ListActivity{
 	    }
 	}
 	
+	private void addtoFav(){
+		
+		final DbManager db = new DbManager(this);
+		AlertDialog.Builder editalert = new AlertDialog.Builder(this);
+
+		editalert.setTitle("Add to Favourites");
+		editalert.setMessage("Fuel Plan Name");
+
+
+		final EditText input = new EditText(this);
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+		        LinearLayout.LayoutParams.FILL_PARENT,
+		        LinearLayout.LayoutParams.FILL_PARENT);
+		input.setLayoutParams(lp);
+		editalert.setView(input);
+
+		editalert.setPositiveButton("Add to Favorites", new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int whichButton) {
+		    	
+		    	db.addFavorite(aircraft, origin, destination, bMetar,rules, units, input.getText().toString());
+		    }
+		});
+		editalert.show();
+		
+	}
+	
 	/* Action on menu selection */
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -94,6 +131,9 @@ public class FuelReport extends ListActivity{
     		Intent i = new Intent(this, MainActivity.class);
         	startActivity(i);	 
     		return true;
+    	case R.id.menu_add_favorite:
+    		//Add favourite
+    		addtoFav();
     	default:
     		return super.onOptionsItemSelected(item);
     	}

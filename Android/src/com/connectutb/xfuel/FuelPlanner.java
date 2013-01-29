@@ -275,6 +275,9 @@ public class FuelPlanner {
 			    frIntent.putExtra("aircraft", aircraft);
 			    frIntent.putExtra("origin", orig);
 			    frIntent.putExtra("destination", dest);
+			    frIntent.putExtra("rules",rules);
+			    frIntent.putExtra("units", units);
+			    frIntent.putExtra("metar", bMetar);
 	        	context.startActivity(frIntent);	
 	        	
 	        	 loading.post(new Runnable() {
