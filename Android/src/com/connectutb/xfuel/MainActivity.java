@@ -82,8 +82,9 @@ public class MainActivity extends Activity {
 	    rulesSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	    rulesSpinner.setAdapter(rulesSpinnerArrayAdapter);
 	    
-	    //Init prefs
+	    //Init prefs and editor
 	    settings = PreferenceManager.getDefaultSharedPreferences(this);
+	    editor = settings.edit();
 	    
 	    //Grab Default values
 	    grabDefaults();
@@ -152,7 +153,7 @@ public class MainActivity extends Activity {
     		Intent settingsIntent = new Intent(this, Preferences.class);
         	startActivity(settingsIntent);	 
     		return true;
-    	
+
     	case R.id.menu_history:
     		Intent historyIntent = new Intent(this, FuelHistory.class);
         	startActivity(historyIntent);	 
@@ -182,6 +183,10 @@ public class MainActivity extends Activity {
     	if (radioMetrics.isChecked()){
     		units = "METRIC";
     	}
+    	
+    	int selectedRule = rulesSpinner.getSelectedItemPosition();
+    	editor.putInt("last_ruleset", selectedRule);
+    	editor.commit();
     	
         //Define progressDialog
         ProgressBar progress = (ProgressBar)findViewById(R.id.progress);
