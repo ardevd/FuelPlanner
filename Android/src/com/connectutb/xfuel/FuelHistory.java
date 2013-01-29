@@ -2,9 +2,12 @@ package com.connectutb.xfuel;
 
 import com.connectutb.xfuel.util.DbManager;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -19,6 +22,8 @@ public class FuelHistory extends ListActivity{
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+		ActionBar actionBar = getActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 		history_array = db.listHistory();
 		setListAdapter(new FuelHistoryAdapter(this, history_array));
 	}
@@ -48,5 +53,19 @@ public class FuelHistory extends ListActivity{
     	ProgressBar progress = (ProgressBar)findViewById(R.id.progressHistory);
     	FuelPlanner fp = new FuelPlanner(this, aircraft, orig, dest, bMetar, rules, units, progress);
     	fp.wantFuelInfo();
+    }
+	
+	/* Action on menu selection */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	switch(item.getItemId()){
+    	//Go home
+    	case android.R.id.home:
+    		Intent i = new Intent(this, MainActivity.class);
+        	startActivity(i);	 
+    		return true;
+    	default:
+    		return super.onOptionsItemSelected(item);
+    	}
     }
 }
