@@ -18,7 +18,7 @@
     <string name="origin">ORIG</string>
     <string name="dest">DEST</string>
     <string name="destination_airpot">ICAO</string>
-    <string name="calculate">Calculate</string>
+    <string name="calculate">Submit</string>
     <string name="metrics">Metrics</string>
     <string name="imperial">Imperial</string>
     <string name="rules">Rules</string>
@@ -41,14 +41,17 @@
     <string name="metar_dest">METAR Destination</string>
     <string name="zero_fuel_weight">Zero Fuel Weight</string>
     <string name="share">Share</string>
-    <string name="add_favourite">Favourite</string>
-    
+    <string name="add_favourite">Favorite</string>
+    <string name="added_favorite">Added To Favorites!</string>
+    <string name="add_to_favs">Add to Favorites</string>
+    <string name="fuelplan_name">Fuelplan name</string>
     <!--  History -->
     <string name="history">History</string>
     <string name="fuel_history">Fuel Planning History</string>
     
     <!--  Favorites -->
     <string name="favorites">Favorites</string>
+    <string name="delete_fav">Delete</string>
     
     <!-- Preferences -->
     <string name="prefs_xfuel">xFuel Preferences</string>

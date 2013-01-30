@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FuelReport extends ListActivity{
 	
@@ -101,8 +102,8 @@ public class FuelReport extends ListActivity{
 		final DbManager db = new DbManager(this);
 		AlertDialog.Builder editalert = new AlertDialog.Builder(this);
 
-		editalert.setTitle("Add to Favourites");
-		editalert.setMessage("Fuel Plan Name");
+		editalert.setTitle(getString(R.string.add_to_favs));
+		editalert.setMessage(getString(R.string.fuelplan_name));
 
 
 		final EditText input = new EditText(this);
@@ -112,14 +113,12 @@ public class FuelReport extends ListActivity{
 		input.setLayoutParams(lp);
 		editalert.setView(input);
 
-		editalert.setPositiveButton("Add to Favorites", new DialogInterface.OnClickListener() {
+		editalert.setPositiveButton(getString(R.string.calculate), new DialogInterface.OnClickListener() {
 		    public void onClick(DialogInterface dialog, int whichButton) {
-		    	
-		    	db.addFavorite(aircraft, origin, destination, bMetar,rules, units, input.getText().toString());
+		    	db.addFavorite(aircraft, origin, destination, bMetar,rules, units, input.getText().toString());		
 		    }
 		});
 		editalert.show();
-		
 	}
 	
 	/* Action on menu selection */

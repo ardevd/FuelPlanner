@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
         android:textColor="#00aeef"
         android:textSize="17sp"
@@ -21,9 +21,8 @@
         android:id="@+id/textViewFavoritesRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/textViewFavoritesName"
         android:layout_below="@+id/textViewFavoritesName"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:textColor="#ffffff"
         android:textSize="14sp"
@@ -37,7 +36,7 @@
         android:layout_alignLeft="@+id/textViewFavoritesRoute"
         android:layout_below="@+id/textViewFavoritesRoute"
         android:layout_marginTop="5dp"
-        android:textColor="#ffffff"
+        android:textColor="#b1b1b1"
         android:textSize="13sp"
         android:typeface="sans"
         android:text="Aircraft: A320" />
@@ -72,5 +71,16 @@
         android:layout_marginRight="10dp"
         android:layout_below="@+id/textViewFavoritesAircraft"
         android:background="#00aeef" />
+
+     <CheckBox
+         android:id="@+id/checkBoxFavs"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignBaseline="@+id/textViewFavoritesRoute"
+         android:layout_alignBottom="@+id/textViewFavoritesRoute"
+         android:layout_alignRight="@+id/textViewFavoritesAircraft"
+         android:focusable="false"
+         android:text="" />
 
 </RelativeLayout>

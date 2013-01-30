@@ -36,7 +36,7 @@ public class FavoritesAdapter extends ArrayAdapter<String>{
 		View rowView = convertView;
 		if (rowView == null) {
 			LayoutInflater inflater = context.getLayoutInflater();
-			rowView = inflater.inflate(R.layout.history_row, null, true);
+			rowView = inflater.inflate(R.layout.favorites_row, null, true);
 			holder = new ViewHolder();
 			holder.textViewName = (TextView) rowView.findViewById(R.id.textViewFavoritesName);
 			holder.textViewRoute = (TextView) rowView.findViewById(R.id.textViewFavoritesRoute);
@@ -52,8 +52,15 @@ public class FavoritesAdapter extends ArrayAdapter<String>{
 		String dest = arrayString[2];
 		String aircraft = arrayString[3];
 		String rules = arrayString[4];
-		holder.textViewName.setText(orig);
-		holder.textViewRoute.setText(dest);
+		String name = "N/A";
+		try{
+		 name = arrayString[7];
+		}catch(Exception ex){
+			
+		}
+		
+		holder.textViewName.setText(name);
+		holder.textViewRoute.setText(orig + " --> " + dest);
 		holder.textViewAircraft.setText(aircraft);
 		holder.textViewRules.setText(rules);
 		

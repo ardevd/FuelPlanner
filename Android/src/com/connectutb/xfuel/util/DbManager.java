@@ -2,11 +2,14 @@ package com.connectutb.xfuel.util;
 
 import java.util.ArrayList;
 
+import com.connectutb.xfuel.R;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class DbManager extends SQLiteOpenHelper{
 	
@@ -60,7 +63,7 @@ public class DbManager extends SQLiteOpenHelper{
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// Drop tables and create a new ones
-		//db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAV);
 		//The create a new one
 		onCreate(db);
@@ -86,6 +89,18 @@ public class DbManager extends SQLiteOpenHelper{
 		//Inserting the record
 		db.insert(TABLE_FAV, null, values);
 		db.close();
+		
+		//Toast
+		Toast.makeText(context, context.getString(R.string.added_favorite), Toast.LENGTH_SHORT).show();
+	}
+	
+	public void deleteFavorite(String id){
+		//Delete item from favorites 
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		String sql = "DELETE FROM " + TABLE_FAV + " WHERE " + FAV_ID + "=" + id;
+		db.execSQL(sql);
 	}
 	
     
