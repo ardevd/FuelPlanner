@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1a" >
+
+    <TextView
+        android:id="@+id/textViewFavoritesName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#00aeef"
+        android:textSize="17sp"
+        android:typeface="sans"
+        android:text="Oslo to Sola" />
+    
+    <TextView
+        android:id="@+id/textViewFavoritesRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewFavoritesName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:typeface="sans"
+        android:text="EDDF --> ENGM" />
+
+    <TextView
+        android:id="@+id/textViewFavoritesAircraft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewFavoritesRoute"
+        android:layout_below="@+id/textViewFavoritesRoute"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffff"
+        android:textSize="13sp"
+        android:typeface="sans"
+        android:text="Aircraft: A320" />
+    
+    <TextView
+        android:id="@+id/textViewFavoritesRules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#9b9b9b"
+        android:textSize="12sp"
+        android:typeface="sans"
+        android:text="JDOM" />
+    
+    <ProgressBar
+	    android:id="@+id/progressFavorites"
+	    style="?android:attr/progressBarStyleLarge"
+	    android:layout_width="wrap_content"
+	    android:layout_height="fill_parent"
+	    android:layout_centerInParent="true"
+	    android:layout_gravity="center_vertical|center_horizontal"
+	    android:visibility="gone" />
+    
+     <View
+        android:id="@+id/separatorFavType"
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/textViewFavoritesAircraft"
+        android:background="#00aeef" />
+
+</RelativeLayout>

@@ -159,6 +159,11 @@ public class MainActivity extends Activity {
         	startActivity(historyIntent);	 
     		return true;
     	
+    	case R.id.menu_favourites:
+    		Intent favsIntent = new Intent(this, Favorites.class);
+        	startActivity(favsIntent);	 
+    		return true;
+    	
     	case R.id.menu_rate:
     		/* Show app listing */
         	Intent intent = new Intent(Intent.ACTION_VIEW); 

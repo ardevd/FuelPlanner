@@ -52,7 +52,6 @@ public class FuelHistoryAdapter extends ArrayAdapter<String>{
 		String dest = arrayString[2];
 		String aircraft = arrayString[3];
 		String rules = arrayString[4];
-		String resIDString = arrayString[1];
 		holder.textViewOrig.setText(orig);
 		holder.textViewDest.setText(dest);
 		holder.textViewAircraft.setText(aircraft);

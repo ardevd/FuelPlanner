@@ -2,7 +2,7 @@
 
     <item
         android:id="@+id/menu_settings"
-        android:orderInCategory="101"
+        android:orderInCategory="102"
         android:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_settings"
         android:title="@string/menu_settings"/>
@@ -12,10 +12,16 @@
         android:showAsAction="ifRoom|withText"
         android:icon="@drawable/ic_action_go_to_today"
         android:title="@string/history"/>
+    <item
+        android:id="@+id/menu_favourites"
+        android:orderInCategory="101"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_important"
+        android:title="@string/favorites"/>
     
     <item
         android:id="@+id/menu_rate"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_good"
         android:title="@string/menu_rate"/>
