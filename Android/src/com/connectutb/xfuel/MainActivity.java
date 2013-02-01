@@ -116,13 +116,11 @@ public class MainActivity extends Activity {
 		
 		//Get last used ruleset
 		int lastRuleSet = settings.getInt("last_ruleset", 0);
-		if (lastRuleSet == 0){
-			rulesSpinner.setSelection(0);
-		}else if (lastRuleSet == 1){
-			rulesSpinner.setSelection(1);
-		}else if (lastRuleSet == 2){
-			rulesSpinner.setSelection(2);
-		}
+		rulesSpinner.setSelection(lastRuleSet);
+		
+		//Get last used aircraft
+		int lastAircraft = settings.getInt("last_aircraft", 0);
+		aircraftSpinner.setSelection(lastAircraft);
 	}
 	
 	@Override
@@ -191,6 +189,7 @@ public class MainActivity extends Activity {
     	
     	int selectedRule = rulesSpinner.getSelectedItemPosition();
     	editor.putInt("last_ruleset", selectedRule);
+    	editor.putInt("last_aircraft", aircraftSpinner.getSelectedItemPosition());
     	editor.commit();
     	
         //Define progressDialog
