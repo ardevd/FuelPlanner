@@ -187,6 +187,7 @@ public class MainActivity extends Activity {
     		units = "METRIC";
     	}
     	
+    	//Set last rule and aircraft setting
     	int selectedRule = rulesSpinner.getSelectedItemPosition();
     	editor.putInt("last_ruleset", selectedRule);
     	editor.putInt("last_aircraft", aircraftSpinner.getSelectedItemPosition());
