@@ -45,9 +45,11 @@
     <string name="added_favorite">Added To Favorites!</string>
     <string name="add_to_favs">Add to Favorites</string>
     <string name="fuelplan_name">Fuelplan name</string>
+    
     <!--  History -->
     <string name="history">History</string>
     <string name="fuel_history">Fuel Planning History</string>
+    <string name="delete_history">Clear History</string>
     
     <!--  Favorites -->
     <string name="favorites">Favorites</string>

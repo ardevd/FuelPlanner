@@ -7,6 +7,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -55,6 +56,13 @@ public class FuelHistory extends ListActivity{
     	fp.wantFuelInfo();
     }
 	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.history_menu, menu);
+		return true;
+	}
+	
 	/* Action on menu selection */
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -64,6 +72,11 @@ public class FuelHistory extends ListActivity{
     		Intent i = new Intent(this, MainActivity.class);
         	startActivity(i);	 
     		return true;
+    	//Delete history
+    	case R.id.menu_delete_history:
+    		db.deleteHistory();
+    		history_array = db.listHistory();
+    		setListAdapter(new FuelHistoryAdapter(this, history_array));
     	default:
     		return super.onOptionsItemSelected(item);
     	}

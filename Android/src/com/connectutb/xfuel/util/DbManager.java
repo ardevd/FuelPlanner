@@ -103,6 +103,12 @@ public class DbManager extends SQLiteOpenHelper{
 		db.execSQL(sql);
 	}
 	
+	public void deleteHistory(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		String sql = "DELETE FROM " + TABLE_HISTORY;
+		db.execSQL(sql);
+	}
     
 	public void addToHistory(String aircraft, String orig, String dest, boolean metar, String rules, String units){
 		SQLiteDatabase db = this.getWritableDatabase();
