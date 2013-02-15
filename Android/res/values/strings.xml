@@ -6,6 +6,7 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_rate">Feedback</string>
     <string name="post_url">http://fuelplanner.com/api/fuelapi.php</string>
+    <string name="error_empty_request">Please fill out origin and destination airport ICAO</string>
     
     <!-- API License -->
     <string name="account">881970FF</string>
@@ -70,4 +71,6 @@
     <string name="prefs_default_dest_airport_summary">Default Desitnation Airport ICAO</string>
     <string name="prefs_use_default_airports">Auto fill defaults</string>
     <string name="prefs_use_default_airports_summary">Always fill in default airports</string>
+    <string name="prefs_fill_last_airports">Remember airports</string>
+    <string name="prefs_fill_last_airports_summary">Automatically fill in the last used airports</string>
 </resources>

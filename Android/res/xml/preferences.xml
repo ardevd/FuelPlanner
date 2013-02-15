@@ -20,6 +20,12 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/prefs_airports">
+        <CheckBoxPreference
+            android:key="remember_airports"
+            android:disableDependentsState="true"
+            android:title="@string/prefs_fill_last_airports"
+            android:summary="@string/prefs_fill_last_airports_summary"
+            android:defaultValue="True"/>
          <EditTextPreference
              android:key="default_origin"
              android:title="@string/prefs_default_orig_airport"
@@ -33,6 +39,7 @@
         <CheckBoxPreference 
              android:key="use_default_airports"
              android:title="@string/prefs_use_default_airports"
+             android:dependency="remember_airports"
              android:summary="@string/prefs_use_default_airports_summary"
              android:defaultValue="False"/>
     </PreferenceCategory>

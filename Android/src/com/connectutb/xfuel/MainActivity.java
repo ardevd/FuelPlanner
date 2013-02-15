@@ -25,6 +25,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -121,6 +122,12 @@ public class MainActivity extends Activity {
 		//Get last used aircraft
 		int lastAircraft = settings.getInt("last_aircraft", 0);
 		aircraftSpinner.setSelection(lastAircraft);
+		
+		//Get last used airports if set to do so
+		if (settings.getBoolean("remember_airports", true) == true){
+			orig.setText(settings.getString("last_origin", ""));
+			dest.setText(settings.getString("last_dest", ""));
+		}
 	}
 	
 	@Override
@@ -175,7 +182,9 @@ public class MainActivity extends Activity {
     
     //Post Fuel request
     public void postFuelRequest(View view){
+    	//Check if user actually entered the required information
     	
+    	if(orig.getText().toString().length()==4 && dest.getText().toString().length()==4){
     	//Do we request weather?
     	boolean getMetar = false;
     	if (metar.isChecked()){
@@ -191,6 +200,8 @@ public class MainActivity extends Activity {
     	int selectedRule = rulesSpinner.getSelectedItemPosition();
     	editor.putInt("last_ruleset", selectedRule);
     	editor.putInt("last_aircraft", aircraftSpinner.getSelectedItemPosition());
+    	editor.putString("last_origin", orig.getText().toString());
+    	editor.putString("last_dest", dest.getText().toString());
     	editor.commit();
     	
         //Define progressDialog
@@ -202,5 +213,10 @@ public class MainActivity extends Activity {
         
         db.addToHistory(mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
     	fp.wantFuelInfo();
+    	}
+    	else{
+    		//Show toast to notify user that orig and destination ICAO needs to be filled
+    		 Toast.makeText(this, R.string.error_empty_request, Toast.LENGTH_SHORT).show();
+    	}
     }   
 }
