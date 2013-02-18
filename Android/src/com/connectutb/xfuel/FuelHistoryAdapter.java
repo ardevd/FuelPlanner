@@ -18,8 +18,7 @@ public class FuelHistoryAdapter extends ArrayAdapter<String>{
 	}
 	
 	static class ViewHolder{
-		public TextView textViewOrig;
-		public TextView textViewDest;
+		public TextView textViewAirports;
 		public TextView textViewAircraft;
 		public TextView textViewRules;
 	}
@@ -38,8 +37,7 @@ public class FuelHistoryAdapter extends ArrayAdapter<String>{
 			LayoutInflater inflater = context.getLayoutInflater();
 			rowView = inflater.inflate(R.layout.history_row, null, true);
 			holder = new ViewHolder();
-			holder.textViewOrig = (TextView) rowView.findViewById(R.id.textViewHistoryOrigin);
-			holder.textViewDest = (TextView) rowView.findViewById(R.id.textViewHistoryDest);
+			holder.textViewAirports = (TextView) rowView.findViewById(R.id.textViewHistoryAirports);
 			holder.textViewAircraft = (TextView) rowView.findViewById(R.id.textViewHistoryAircraft);
 			holder.textViewRules = (TextView) rowView.findViewById(R.id.textViewHistoryRules);
 			rowView.setTag(holder);
@@ -52,8 +50,7 @@ public class FuelHistoryAdapter extends ArrayAdapter<String>{
 		String dest = arrayString[2];
 		String aircraft = arrayString[3];
 		String rules = arrayString[4];
-		holder.textViewOrig.setText(orig);
-		holder.textViewDest.setText(dest);
+		holder.textViewAirports.setText(orig + " --> " + dest);
 		holder.textViewAircraft.setText(aircraft);
 		holder.textViewRules.setText(rules);
 		
