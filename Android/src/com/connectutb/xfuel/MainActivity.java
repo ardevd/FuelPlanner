@@ -79,7 +79,7 @@ public class MainActivity extends Activity {
 	    
 	    //Prepare the Rules spinner
 		rulesSpinner = (Spinner)findViewById(R.id.spinnerRules);
-	    ArrayAdapter rulesSpinnerArrayAdapter = ArrayAdapter.createFromResource( this, R.array.rules , R.layout.spinner_white); 
+	    ArrayAdapter rulesSpinnerArrayAdapter = ArrayAdapter.createFromResource( this, R.array.rules_array , R.layout.spinner_white); 
 	    rulesSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	    rulesSpinner.setAdapter(rulesSpinnerArrayAdapter);
 	    

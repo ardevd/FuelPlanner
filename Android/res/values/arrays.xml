@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="planetypes">
+    <string-array translatable="false" name="planetypes">
+        
         <item>Airbus A300;A300</item>
         <item>Airbus A310&#8211;300;A310</item>
         <item>Airbus A318;A318</item>
@@ -52,7 +53,7 @@
         <item>BAe Jetstream 41;JS41</item>
     </string-array>
     
-    <string-array name="units">
+   <string-array translatable="false" name="units">
         <item>Metrics</item>
         <item>Imperial</item>
     </string-array>
@@ -63,7 +64,7 @@
         <item>Favorites</item>
     </string-array>
     
-    <string-array name="rules">
+    <string-array translatable="false" name="rules_array">
         <item>FARDOM</item>
         <item>INTL</item>
         <item>JAR</item>

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class FuelHistory extends ListActivity{
 
@@ -77,6 +78,8 @@ public class FuelHistory extends ListActivity{
     		db.deleteHistory();
     		history_array = db.listHistory();
     		setListAdapter(new FuelHistoryAdapter(this, history_array));
+    		//Show toast to confirm history deletion
+   		 	Toast.makeText(this, R.string.history_deleted, Toast.LENGTH_SHORT).show();
     	default:
     		return super.onOptionsItemSelected(item);
     	}

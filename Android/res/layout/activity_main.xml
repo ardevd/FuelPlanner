@@ -179,7 +179,7 @@
         android:layout_below="@+id/switchWeather"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:entries="@array/rules" />
+        android:entries="@array/rules_array" />
      
       <TextView
         android:id="@+id/TextViewRules"
