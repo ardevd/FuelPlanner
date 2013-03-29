@@ -20,7 +20,7 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 public class FuelReport extends ListActivity{
-	
+	private final String TAG ="xFuel";
 	private String[] fuelData = new String[0];
 	private String aircraft;
 	private String origin;
@@ -79,7 +79,6 @@ public class FuelReport extends ListActivity{
 		load_sheet += origin + "->" + destination + " (" + aircraft + ")" + System.getProperty("line.separator");
 		for (int i = 0; i < getListView().getLastVisiblePosition(); i++){
 			Object o = getListAdapter().getItem(i);
-	    	Log.d("XFUEL", o.toString());
 	    	load_sheet += o.toString().replace("-", ":") + System.getProperty("line.separator");
 		}
 		Intent I= new Intent(Intent.ACTION_SEND);

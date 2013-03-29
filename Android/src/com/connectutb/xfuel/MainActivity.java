@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+	private final String TAG ="xFuel";
 
 	/* Our preferences */
 	public SharedPreferences settings;
@@ -140,7 +141,7 @@ public class MainActivity extends Activity {
 	public void grabDefaults(){
 		radioMetrics = (RadioButton)findViewById(R.id.radioMetrics);
 		radioImperial = (RadioButton)findViewById(R.id.radioImperial);
-		Log.d("XFUEL", settings.getString("def_units", "Metrics"));
+		Log.d(TAG, settings.getString("def_units", "Metrics"));
 		if (settings.getString("def_units", "Metrics").equals("Metrics")){
 				radioMetrics.setChecked(true);
 				

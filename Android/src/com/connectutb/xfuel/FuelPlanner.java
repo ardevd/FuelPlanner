@@ -38,6 +38,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class FuelPlanner {
+	/* Log Tag */
+	private final String TAG ="xFuel";
 	
 	/* Define our variables */
 	private final Activity context;
@@ -122,7 +124,7 @@ public class FuelPlanner {
 			}
 		//Close the </DATA> tag
 		fixed_response += "</DATA>" + System.getProperty("line.separator");
-		Log.d("XFUEL", fixed_response);		
+		Log.d(TAG, fixed_response);		
 		
 		//Parse the response string and set values
 		//Parse XML Response
@@ -137,17 +139,17 @@ public class FuelPlanner {
                 doc = db.parse(is); 
  
             } catch (ParserConfigurationException e) {
-                Log.e("XFUEL: ", e.getMessage());
+                Log.e(TAG, e.getMessage());
                 return null;
             } catch (SAXException e) {
-                Log.e("XFUEL: ", e.getMessage());
+                Log.e(TAG, e.getMessage());
                 return null;
             } catch (IOException e) {
-                Log.e("XFUEL: ", e.getMessage());
+                Log.e(TAG, e.getMessage());
                 return null;
             }
                 // return DOM
-        	Log.d("XFUEL", "XML parsing completed successfully");
+        	Log.d(TAG, "XML parsing completed successfully");
             return doc;      
 	}
 	
@@ -222,7 +224,6 @@ public class FuelPlanner {
 						 */
 						Element e = (Element) nl.item(i);
 					    distance = getValue(e, "NM"); // name child value
-					    Log.d("XFUEL", "NM : " + distance);
 					    estimated_fuel_usage = getValue(e, "FUEL_EFU");
 					    reserve_fuel = getValue(e, "FUEL_RSV");
 					    takeoff_fuel = getValue(e, "FUEL_TOF");
@@ -263,11 +264,14 @@ public class FuelPlanner {
 					    //Convert the ArrayList to String Array
 					    fuelData = (String[]) fuelData_array.toArray(fuelData);
 					}
-					//Log.d("XFUEL", "Server Response: " + response);
 				}catch(ClientProtocolException e){
 					//TODO catch block
+					Log.d(TAG,"Protocol Error: "+ e.getMessage());
 				}catch(IOException e){
 					//TODO: catch block
+					Log.d(TAG, "IO Error: " + e.getMessage());
+				}catch(NullPointerException e){
+					Log.d(TAG, "NullPointer Error: " + e.getMessage());
 				}
 			    //Start FuelReport activity
 			    Intent frIntent = new Intent(context, FuelReport.class);

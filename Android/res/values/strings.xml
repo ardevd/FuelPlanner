@@ -63,7 +63,7 @@
     <string name="prefs_def_units">Default unit</string>
     <string name="prefs_def_units_summary">Default unit of measurements</string>
     <string name="prefs_show_units">Show units</string>
-    <string name="prefs_show_units_summary">Show unit notation in load sheet</string>
+    <string name="prefs_show_units_summary">Show unit notations on load sheet</string>
     <string name="prefs_airports">Airports</string>
     <string name="prefs_default_orig_airport">Default Origin</string>
     <string name="prefs_default_orig_airport_summary">Default Origin Airport ICAO</string>

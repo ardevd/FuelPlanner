@@ -6,7 +6,6 @@ import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class FuelHistory extends ListActivity{
-
 	//Define database manager
 	DbManager db = new DbManager(this);
 	
@@ -36,7 +34,6 @@ public class FuelHistory extends ListActivity{
     	// We retrieve the info for the item that was clicked
     	
     	Object o = this.getListAdapter().getItem(position);
-    	Log.d("XFUEL", o.toString());
     	String[] keyword = o.toString().split(";");
     	
     	//ORIG - DEST - AIRCRAFT - RULES - UNITS - METAR

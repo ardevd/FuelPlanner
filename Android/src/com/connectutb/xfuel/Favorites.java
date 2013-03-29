@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 public class Favorites extends ListActivity{
-	
+	private final String TAG ="xFuel";
 	//Define database manager
 		DbManager db = new DbManager(this);
 		
@@ -68,7 +68,7 @@ public class Favorites extends ListActivity{
 		    		if( cbox.isChecked() ) { 
 		    			String[] keywordArray = o.toString().split(";");
 		    			db.deleteFavorite(keywordArray[0]);
-		    			Log.d("XFUEL", "DELETED: " + keywordArray[0]);
+		    			Log.d(TAG, "DELETED: " + keywordArray[0]);
 		    		}
 	    	}
 	    	//Reload the list of favorites
@@ -81,7 +81,6 @@ public class Favorites extends ListActivity{
 	    	// We retrieve the info for the item that was clicked
 	    	
 	    	Object o = this.getListAdapter().getItem(position);
-	    	Log.d("XFUEL", o.toString());
 	    	String[] keyword = o.toString().split(";");
 	    	
 	    	//ORIG - DEST - AIRCRAFT - RULES - UNITS - METAR
