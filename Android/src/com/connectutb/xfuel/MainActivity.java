@@ -99,13 +99,15 @@ public class MainActivity extends Activity {
 		TextView rules = (TextView)findViewById(R.id.TextViewRules);
 		Typeface tf = Typeface.createFromAsset(getAssets(),
 	            "fonts/Roboto-Light.ttf");
+		Typeface tfq = Typeface.createFromAsset(getAssets(),
+	            "fonts/quartz.ttf");
 		xfuel_title.setTypeface(tf);
 		aircraft_title.setTypeface(tf);
 		orig_title.setTypeface(tf);
 		dest_title.setTypeface(tf);
 		metar.setTypeface(tf);
-		orig.setTypeface(tf);
-		dest.setTypeface(tf);
+		orig.setTypeface(tfq);
+		dest.setTypeface(tfq);
 		radioMetrics.setTypeface(tf);
 		radioImperial.setTypeface(tf);
 		rules.setTypeface(tf);
