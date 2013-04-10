@@ -1009,7 +1009,7 @@ com.connectutb.xfuel.FuelReportListAdapter$ViewHolder -> com.connectutb.xfuel.j:
     android.widget.TextView textViewKey -> a
     android.widget.TextView textViewValue -> b
 com.connectutb.xfuel.MainActivity -> com.connectutb.xfuel.MainActivity:
-    java.lang.String TAG -> k
+    java.lang.String TAG -> l
     android.content.SharedPreferences settings -> a
     android.content.SharedPreferences$Editor editor -> b
     android.widget.Spinner aircraftSpinner -> c
@@ -1019,7 +1019,8 @@ com.connectutb.xfuel.MainActivity -> com.connectutb.xfuel.MainActivity:
     android.widget.Switch metar -> g
     android.widget.RadioButton radioMetrics -> h
     android.widget.RadioButton radioImperial -> i
-    java.util.Map mMap -> j
+    com.connectutb.xfuel.util.DbManager db -> j
+    java.util.Map mMap -> k
     void onCreate(android.os.Bundle) -> onCreate
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     void grabDefaults() -> a

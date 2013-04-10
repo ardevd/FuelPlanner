@@ -42047,7 +42047,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 383):
+Constant Pool (count = 387):
   + Integer [17367049]
   + Integer [2130903040]
   + Integer [2130903046]
@@ -42064,10 +42064,10 @@ Constant Pool (count = 383):
   + Integer [2131296263]
   + Integer [2131296266]
   + Integer [2131296267]
+  + Integer [2131296268]
   + Integer [2131296269]
   + Integer [2131296270]
   + Integer [2131296271]
-  + Integer [2131296272]
   + String []
   + String [;]
   + String [LBS]
@@ -42130,8 +42130,9 @@ Constant Pool (count = 383):
   + Fieldref [com/connectutb/xfuel/MainActivity.g Landroid/widget/Switch;]
   + Fieldref [com/connectutb/xfuel/MainActivity.h Landroid/widget/RadioButton;]
   + Fieldref [com/connectutb/xfuel/MainActivity.i Landroid/widget/RadioButton;]
-  + Fieldref [com/connectutb/xfuel/MainActivity.j Ljava/util/Map;]
-  + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/lang/String;]
+  + Fieldref [com/connectutb/xfuel/MainActivity.j Lcom/connectutb/xfuel/a/a;]
+  + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/util/Map;]
+  + Fieldref [com/connectutb/xfuel/MainActivity.l Ljava/lang/String;]
   + Methodref [android/app/Activity.<init> ()V]
   + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
   + Methodref [android/app/Activity.onOptionsItemSelected (Landroid/view/MenuItem;)Z]
@@ -42236,8 +42237,9 @@ Constant Pool (count = 383):
   + NameAndType [i Landroid/widget/RadioButton;]
   + NameAndType [inflate (ILandroid/view/Menu;)V]
   + NameAndType [isChecked ()Z]
-  + NameAndType [j Ljava/util/Map;]
-  + NameAndType [k Ljava/lang/String;]
+  + NameAndType [j Lcom/connectutb/xfuel/a/a;]
+  + NameAndType [k Ljava/util/Map;]
+  + NameAndType [l Ljava/lang/String;]
   + NameAndType [length ()I]
   + NameAndType [makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
   + NameAndType [onCreate (Landroid/os/Bundle;)V]
@@ -42319,6 +42321,7 @@ Constant Pool (count = 383):
   + Utf8 [Landroid/widget/RadioButton;]
   + Utf8 [Landroid/widget/Spinner;]
   + Utf8 [Landroid/widget/Switch;]
+  + Utf8 [Lcom/connectutb/xfuel/a/a;]
   + Utf8 [Ljava/lang/String;]
   + Utf8 [Ljava/util/Map;]
   + Utf8 [METRIC]
@@ -42399,6 +42402,7 @@ Constant Pool (count = 383):
   + Utf8 [java/util/HashMap]
   + Utf8 [java/util/Map]
   + Utf8 [k]
+  + Utf8 [l]
   + Utf8 [last_aircraft]
   + Utf8 [last_dest]
   + Utf8 [last_origin]
@@ -42431,10 +42435,10 @@ Constant Pool (count = 383):
   + Utf8 [use_default_airports]
   + Utf8 [xFuel]
 
-Fields (count = 11):
-  + Field:        k Ljava/lang/String;
+Fields (count = 12):
+  + Field:        l Ljava/lang/String;
     Access flags: 0x12
-      = private final java.lang.String k
+      = private final java.lang.String l
     Class member attributes (count = 1):
     + Constant value attribute:
     + String [xFuel]
@@ -42465,25 +42469,37 @@ Fields (count = 11):
   + Field:        i Landroid/widget/RadioButton;
     Access flags: 0x1
       = public android.widget.RadioButton i
-  + Field:        j Ljava/util/Map;
+  + Field:        j Lcom/connectutb/xfuel/a/a;
+    Access flags: 0x0
+      = com.connectutb.xfuel.a.a j
+  + Field:        k Ljava/util/Map;
     Access flags: 0x1
-      = public java.util.Map j
+      = public java.util.Map k
 
 Methods (count = 6):
   - Method:       <init>()V
     Access flags: 0x1
       = public MainActivity()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 11, locals = 1, stack = 2):
+    + Code attribute instructions (code length = 23, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #85
+      [1] invokespecial #86
         + Methodref [android/app/Activity.<init> ()V]
       [4] aload_0 v0
       [5] ldc #39
         + String [xFuel]
-      [7] putfield #84
-        + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/lang/String;]
-      [10] return
+      [7] putfield #85
+        + Fieldref [com/connectutb/xfuel/MainActivity.l Ljava/lang/String;]
+      [10] aload_0 v0
+      [11] new #67
+        + Class [com/connectutb/xfuel/a/a]
+      [14] dup
+      [15] aload_0 v0
+      [16] invokespecial #125
+        + Methodref [com/connectutb/xfuel/a/a.<init> (Landroid/content/Context;)V]
+      [19] putfield #83
+        + Fieldref [com/connectutb/xfuel/MainActivity.j Lcom/connectutb/xfuel/a/a;]
+      [22] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       onCreate(Landroid/os/Bundle;)V
@@ -42493,18 +42509,18 @@ Methods (count = 6):
     + Code attribute instructions (code length = 570, locals = 15, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #86
+      [2] invokespecial #87
         + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] ldc #2
         + Integer [2130903040]
-      [8] invokevirtual #122
+      [8] invokevirtual #123
         + Methodref [com/connectutb/xfuel/MainActivity.setContentView (I)V]
       [11] aload_0 v0
       [12] aload_0 v0
       [13] ldc #12
         + Integer [2131296261]
-      [15] invokevirtual #117
+      [15] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [18] checkcast #56
         + Class [android/widget/EditText]
@@ -42514,7 +42530,7 @@ Methods (count = 6):
       [25] aload_0 v0
       [26] ldc #14
         + Integer [2131296263]
-      [28] invokevirtual #117
+      [28] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [31] checkcast #56
         + Class [android/widget/EditText]
@@ -42522,40 +42538,40 @@ Methods (count = 6):
         + Fieldref [com/connectutb/xfuel/MainActivity.f Landroid/widget/EditText;]
       [37] aload_0 v0
       [38] aload_0 v0
-      [39] ldc #18
-        + Integer [2131296270]
-      [41] invokevirtual #117
+      [39] ldc #17
+        + Integer [2131296268]
+      [41] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [44] checkcast #60
         + Class [android/widget/Switch]
       [47] putfield #80
         + Fieldref [com/connectutb/xfuel/MainActivity.g Landroid/widget/Switch;]
       [50] aload_0 v0
-      [51] invokevirtual #121
+      [51] invokevirtual #122
         + Methodref [com/connectutb/xfuel/MainActivity.getWindow ()Landroid/view/Window;]
       [54] iconst_3
-      [55] invokevirtual #97
+      [55] invokevirtual #98
         + Methodref [android/view/Window.setSoftInputMode (I)V]
       [58] aload_0 v0
       [59] new #72
         + Class [java/util/HashMap]
       [62] dup
-      [63] invokespecial #136
+      [63] invokespecial #137
         + Methodref [java/util/HashMap.<init> ()V]
-      [66] putfield #83
-        + Fieldref [com/connectutb/xfuel/MainActivity.j Ljava/util/Map;]
+      [66] putfield #84
+        + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/util/Map;]
       [69] aload_0 v0
-      [70] invokevirtual #120
+      [70] invokevirtual #121
         + Methodref [com/connectutb/xfuel/MainActivity.getResources ()Landroid/content/res/Resources;]
       [73] ldc #4
         + Integer [2131034112]
-      [75] invokevirtual #91
+      [75] invokevirtual #92
         + Methodref [android/content/res/Resources.getStringArray (I)[Ljava/lang/String;]
       [78] astore_2 v2
       [79] new #71
         + Class [java/util/ArrayList]
       [82] dup
-      [83] invokespecial #133
+      [83] invokespecial #134
         + Methodref [java/util/ArrayList.<init> ()V]
       [86] astore_3 v3
       [87] iconst_0
@@ -42566,26 +42582,26 @@ Methods (count = 6):
       [96] aaload
       [97] ldc #22
         + String [;]
-      [99] invokevirtual #131
+      [99] invokevirtual #132
         + Methodref [java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;]
       [102] astore v5
       [104] aload_3 v3
       [105] aload v5
       [107] iconst_0
       [108] aaload
-      [109] invokevirtual #134
+      [109] invokevirtual #135
         + Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
       [112] pop
       [113] aload_0 v0
-      [114] getfield #83
-        + Fieldref [com/connectutb/xfuel/MainActivity.j Ljava/util/Map;]
+      [114] getfield #84
+        + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/util/Map;]
       [117] aload v5
       [119] iconst_0
       [120] aaload
       [121] aload v5
       [123] iconst_1
       [124] aaload
-      [125] invokeinterface #147
+      [125] invokeinterface #148
         + InterfaceMethodref [java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
       [130] pop
       [131] iinc v4, 1
@@ -42595,7 +42611,7 @@ Methods (count = 6):
       [138] ificmplt -45 (target=93)
       [141] aload_3 v3
       [142] aload_2 v2
-      [143] invokevirtual #135
+      [143] invokevirtual #136
         + Methodref [java/util/ArrayList.toArray ([Ljava/lang/Object;)[Ljava/lang/Object;]
       [146] checkcast #40
         + Class [[Ljava/lang/String;]
@@ -42604,7 +42620,7 @@ Methods (count = 6):
       [151] aload_0 v0
       [152] ldc #10
         + Integer [2131296258]
-      [154] invokevirtual #117
+      [154] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [157] checkcast #59
         + Class [android/widget/Spinner]
@@ -42617,25 +42633,25 @@ Methods (count = 6):
       [168] ldc #3
         + Integer [2130903046]
       [170] aload_2 v2
-      [171] invokespecial #98
+      [171] invokespecial #99
         + Methodref [android/widget/ArrayAdapter.<init> (Landroid/content/Context;I[Ljava/lang/Object;)V]
       [174] astore v4
       [176] aload v4
       [178] ldc #1
         + Integer [17367049]
-      [180] invokevirtual #100
+      [180] invokevirtual #101
         + Methodref [android/widget/ArrayAdapter.setDropDownViewResource (I)V]
       [183] aload_0 v0
       [184] getfield #76
         + Fieldref [com/connectutb/xfuel/MainActivity.c Landroid/widget/Spinner;]
       [187] aload v4
-      [189] invokevirtual #109
+      [189] invokevirtual #110
         + Methodref [android/widget/Spinner.setAdapter (Landroid/widget/SpinnerAdapter;)V]
       [192] aload_0 v0
       [193] aload_0 v0
-      [194] ldc #17
-        + Integer [2131296269]
-      [196] invokevirtual #117
+      [194] ldc #19
+        + Integer [2131296270]
+      [196] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [199] checkcast #59
         + Class [android/widget/Spinner]
@@ -42646,23 +42662,23 @@ Methods (count = 6):
         + Integer [2131034115]
       [208] ldc #3
         + Integer [2130903046]
-      [210] invokestatic #99
+      [210] invokestatic #100
         + Methodref [android/widget/ArrayAdapter.createFromResource (Landroid/content/Context;II)Landroid/widget/ArrayAdapter;]
       [213] astore v5
       [215] aload v5
       [217] ldc #1
         + Integer [17367049]
-      [219] invokevirtual #100
+      [219] invokevirtual #101
         + Methodref [android/widget/ArrayAdapter.setDropDownViewResource (I)V]
       [222] aload_0 v0
       [223] getfield #77
         + Fieldref [com/connectutb/xfuel/MainActivity.d Landroid/widget/Spinner;]
       [226] aload v5
-      [228] invokevirtual #109
+      [228] invokevirtual #110
         + Methodref [android/widget/Spinner.setAdapter (Landroid/widget/SpinnerAdapter;)V]
       [231] aload_0 v0
       [232] aload_0 v0
-      [233] invokestatic #94
+      [233] invokestatic #95
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
       [236] putfield #74
         + Fieldref [com/connectutb/xfuel/MainActivity.a Landroid/content/SharedPreferences;]
@@ -42670,17 +42686,17 @@ Methods (count = 6):
       [240] aload_0 v0
       [241] getfield #74
         + Fieldref [com/connectutb/xfuel/MainActivity.a Landroid/content/SharedPreferences;]
-      [244] invokeinterface #137
+      [244] invokeinterface #138
         + InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
       [249] putfield #75
         + Fieldref [com/connectutb/xfuel/MainActivity.b Landroid/content/SharedPreferences$Editor;]
       [252] aload_0 v0
-      [253] invokevirtual #116
+      [253] invokevirtual #117
         + Methodref [com/connectutb/xfuel/MainActivity.a ()V]
       [256] aload_0 v0
       [257] ldc #8
         + Integer [2131296256]
-      [259] invokevirtual #117
+      [259] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [262] checkcast #61
         + Class [android/widget/TextView]
@@ -42688,7 +42704,7 @@ Methods (count = 6):
       [267] aload_0 v0
       [268] ldc #9
         + Integer [2131296257]
-      [270] invokevirtual #117
+      [270] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [273] checkcast #61
         + Class [android/widget/TextView]
@@ -42696,7 +42712,7 @@ Methods (count = 6):
       [278] aload_0 v0
       [279] ldc #11
         + Integer [2131296260]
-      [281] invokevirtual #117
+      [281] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [284] checkcast #61
         + Class [android/widget/TextView]
@@ -42704,84 +42720,84 @@ Methods (count = 6):
       [289] aload_0 v0
       [290] ldc #13
         + Integer [2131296262]
-      [292] invokevirtual #117
+      [292] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [295] checkcast #61
         + Class [android/widget/TextView]
       [298] astore v9
       [300] aload_0 v0
-      [301] ldc #19
-        + Integer [2131296271]
-      [303] invokevirtual #117
+      [301] ldc #18
+        + Integer [2131296269]
+      [303] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [306] checkcast #61
         + Class [android/widget/TextView]
       [309] astore v10
       [311] aload_0 v0
-      [312] invokevirtual #118
+      [312] invokevirtual #119
         + Methodref [com/connectutb/xfuel/MainActivity.getAssets ()Landroid/content/res/AssetManager;]
       [315] ldc #30
         + String [fonts/Roboto-Light.ttf]
-      [317] invokestatic #92
+      [317] invokestatic #93
         + Methodref [android/graphics/Typeface.createFromAsset (Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;]
       [320] astore v11
       [322] aload_0 v0
-      [323] invokevirtual #118
+      [323] invokevirtual #119
         + Methodref [com/connectutb/xfuel/MainActivity.getAssets ()Landroid/content/res/AssetManager;]
       [326] ldc #31
         + String [fonts/quartz.ttf]
-      [328] invokestatic #92
+      [328] invokestatic #93
         + Methodref [android/graphics/Typeface.createFromAsset (Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;]
       [331] astore v12
       [333] aload v6
       [335] aload v11
-      [337] invokevirtual #113
+      [337] invokevirtual #114
         + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
       [340] aload v7
       [342] aload v11
-      [344] invokevirtual #113
+      [344] invokevirtual #114
         + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
       [347] aload v8
       [349] aload v11
-      [351] invokevirtual #113
+      [351] invokevirtual #114
         + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
       [354] aload v9
       [356] aload v11
-      [358] invokevirtual #113
+      [358] invokevirtual #114
         + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
       [361] aload_0 v0
       [362] getfield #80
         + Fieldref [com/connectutb/xfuel/MainActivity.g Landroid/widget/Switch;]
       [365] aload v11
-      [367] invokevirtual #112
+      [367] invokevirtual #113
         + Methodref [android/widget/Switch.setTypeface (Landroid/graphics/Typeface;)V]
       [370] aload_0 v0
       [371] getfield #78
         + Fieldref [com/connectutb/xfuel/MainActivity.e Landroid/widget/EditText;]
       [374] aload v12
-      [376] invokevirtual #103
+      [376] invokevirtual #104
         + Methodref [android/widget/EditText.setTypeface (Landroid/graphics/Typeface;)V]
       [379] aload_0 v0
       [380] getfield #79
         + Fieldref [com/connectutb/xfuel/MainActivity.f Landroid/widget/EditText;]
       [383] aload v12
-      [385] invokevirtual #103
+      [385] invokevirtual #104
         + Methodref [android/widget/EditText.setTypeface (Landroid/graphics/Typeface;)V]
       [388] aload_0 v0
       [389] getfield #81
         + Fieldref [com/connectutb/xfuel/MainActivity.h Landroid/widget/RadioButton;]
       [392] aload v11
-      [394] invokevirtual #106
+      [394] invokevirtual #107
         + Methodref [android/widget/RadioButton.setTypeface (Landroid/graphics/Typeface;)V]
       [397] aload_0 v0
       [398] getfield #82
         + Fieldref [com/connectutb/xfuel/MainActivity.i Landroid/widget/RadioButton;]
       [401] aload v11
-      [403] invokevirtual #106
+      [403] invokevirtual #107
         + Methodref [android/widget/RadioButton.setTypeface (Landroid/graphics/Typeface;)V]
       [406] aload v10
       [408] aload v11
-      [410] invokevirtual #113
+      [410] invokevirtual #114
         + Methodref [android/widget/TextView.setTypeface (Landroid/graphics/Typeface;)V]
       [413] aload_0 v0
       [414] getfield #74
@@ -42789,7 +42805,7 @@ Methods (count = 6):
       [417] ldc #38
         + String [use_default_airports]
       [419] iconst_0
-      [420] invokeinterface #138
+      [420] invokeinterface #139
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [425] ifeq +43 (target=468)
       [428] aload_0 v0
@@ -42802,9 +42818,9 @@ Methods (count = 6):
         + String [default_origin]
       [438] ldc #21
         + String []
-      [440] invokeinterface #140
+      [440] invokeinterface #141
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [445] invokevirtual #102
+      [445] invokevirtual #103
         + Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [448] aload_0 v0
       [449] getfield #79
@@ -42816,9 +42832,9 @@ Methods (count = 6):
         + String [default_destination]
       [458] ldc #21
         + String []
-      [460] invokeinterface #140
+      [460] invokeinterface #141
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [465] invokevirtual #102
+      [465] invokevirtual #103
         + Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [468] aload_0 v0
       [469] getfield #74
@@ -42826,14 +42842,14 @@ Methods (count = 6):
       [472] ldc #36
         + String [last_ruleset]
       [474] iconst_0
-      [475] invokeinterface #139
+      [475] invokeinterface #140
         + InterfaceMethodref [android/content/SharedPreferences.getInt (Ljava/lang/String;I)I]
       [480] istore v13
       [482] aload_0 v0
       [483] getfield #77
         + Fieldref [com/connectutb/xfuel/MainActivity.d Landroid/widget/Spinner;]
       [486] iload v13
-      [488] invokevirtual #110
+      [488] invokevirtual #111
         + Methodref [android/widget/Spinner.setSelection (I)V]
       [491] aload_0 v0
       [492] getfield #74
@@ -42841,14 +42857,14 @@ Methods (count = 6):
       [495] ldc #33
         + String [last_aircraft]
       [497] iconst_0
-      [498] invokeinterface #139
+      [498] invokeinterface #140
         + InterfaceMethodref [android/content/SharedPreferences.getInt (Ljava/lang/String;I)I]
       [503] istore v14
       [505] aload_0 v0
       [506] getfield #76
         + Fieldref [com/connectutb/xfuel/MainActivity.c Landroid/widget/Spinner;]
       [509] iload v14
-      [511] invokevirtual #110
+      [511] invokevirtual #111
         + Methodref [android/widget/Spinner.setSelection (I)V]
       [514] aload_0 v0
       [515] getfield #74
@@ -42856,7 +42872,7 @@ Methods (count = 6):
       [518] ldc #37
         + String [remember_airports]
       [520] iconst_1
-      [521] invokeinterface #138
+      [521] invokeinterface #139
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [526] ifeq +43 (target=569)
       [529] aload_0 v0
@@ -42869,9 +42885,9 @@ Methods (count = 6):
         + String [last_origin]
       [539] ldc #21
         + String []
-      [541] invokeinterface #140
+      [541] invokeinterface #141
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [546] invokevirtual #102
+      [546] invokevirtual #103
         + Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [549] aload_0 v0
       [550] getfield #79
@@ -42883,9 +42899,9 @@ Methods (count = 6):
         + String [last_dest]
       [559] ldc #21
         + String []
-      [561] invokeinterface #140
+      [561] invokeinterface #141
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [566] invokevirtual #102
+      [566] invokevirtual #103
         + Methodref [android/widget/EditText.setText (Ljava/lang/CharSequence;)V]
       [569] return
       Code attribute exceptions (count = 0):
@@ -42901,12 +42917,12 @@ Methods (count = 6):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 12, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] invokevirtual #119
+      [1] invokevirtual #120
         + Methodref [com/connectutb/xfuel/MainActivity.getMenuInflater ()Landroid/view/MenuInflater;]
       [4] ldc #7
         + Integer [2131230720]
       [6] aload_1 v1
-      [7] invokevirtual #96
+      [7] invokevirtual #97
         + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
       [10] iconst_1
       [11] ireturn
@@ -42921,7 +42937,7 @@ Methods (count = 6):
       [1] aload_0 v0
       [2] ldc #15
         + Integer [2131296266]
-      [4] invokevirtual #117
+      [4] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [7] checkcast #58
         + Class [android/widget/RadioButton]
@@ -42931,7 +42947,7 @@ Methods (count = 6):
       [14] aload_0 v0
       [15] ldc #16
         + Integer [2131296267]
-      [17] invokevirtual #117
+      [17] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [20] checkcast #58
         + Class [android/widget/RadioButton]
@@ -42946,9 +42962,9 @@ Methods (count = 6):
         + String [def_units]
       [34] ldc #25
         + String [Metrics]
-      [36] invokeinterface #140
+      [36] invokeinterface #141
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [41] invokestatic #95
+      [41] invokestatic #96
         + Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
       [44] pop
       [45] aload_0 v0
@@ -42958,25 +42974,25 @@ Methods (count = 6):
         + String [def_units]
       [51] ldc #25
         + String [Metrics]
-      [53] invokeinterface #140
+      [53] invokeinterface #141
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [58] ldc #25
         + String [Metrics]
-      [60] invokevirtual #129
+      [60] invokevirtual #130
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [63] ifeq +14 (target=77)
       [66] aload_0 v0
       [67] getfield #81
         + Fieldref [com/connectutb/xfuel/MainActivity.h Landroid/widget/RadioButton;]
       [70] iconst_1
-      [71] invokevirtual #105
+      [71] invokevirtual #106
         + Methodref [android/widget/RadioButton.setChecked (Z)V]
       [74] goto +11 (target=85)
       [77] aload_0 v0
       [78] getfield #82
         + Fieldref [com/connectutb/xfuel/MainActivity.i Landroid/widget/RadioButton;]
       [81] iconst_1
-      [82] invokevirtual #105
+      [82] invokevirtual #106
         + Methodref [android/widget/RadioButton.setChecked (Z)V]
       [85] return
       Code attribute exceptions (count = 0):
@@ -42990,7 +43006,7 @@ Methods (count = 6):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 128, locals = 6, stack = 4):
       [0] aload_1 v1
-      [1] invokeinterface #145
+      [1] invokeinterface #146
         + InterfaceMethodref [android/view/MenuItem.getItemId ()I]
       [6] tableswitch (4 offsets, default=116) (target=122)
         2131296289: offset = 30, target = 36
@@ -43004,12 +43020,12 @@ Methods (count = 6):
       [40] aload_0 v0
       [41] ldc #66
         + Class [com/connectutb/xfuel/Preferences]
-      [43] invokespecial #88
+      [43] invokespecial #89
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [46] astore_2 v2
       [47] aload_0 v0
       [48] aload_2 v2
-      [49] invokevirtual #123
+      [49] invokevirtual #124
         + Methodref [com/connectutb/xfuel/MainActivity.startActivity (Landroid/content/Intent;)V]
       [52] iconst_1
       [53] ireturn
@@ -43019,12 +43035,12 @@ Methods (count = 6):
       [58] aload_0 v0
       [59] ldc #64
         + Class [com/connectutb/xfuel/FuelHistory]
-      [61] invokespecial #88
+      [61] invokespecial #89
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [64] astore_3 v3
       [65] aload_0 v0
       [66] aload_3 v3
-      [67] invokevirtual #123
+      [67] invokevirtual #124
         + Methodref [com/connectutb/xfuel/MainActivity.startActivity (Landroid/content/Intent;)V]
       [70] iconst_1
       [71] ireturn
@@ -43034,12 +43050,12 @@ Methods (count = 6):
       [76] aload_0 v0
       [77] ldc #63
         + Class [com/connectutb/xfuel/Favorites]
-      [79] invokespecial #88
+      [79] invokespecial #89
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [82] astore v4
       [84] aload_0 v0
       [85] aload v4
-      [87] invokevirtual #123
+      [87] invokevirtual #124
         + Methodref [com/connectutb/xfuel/MainActivity.startActivity (Landroid/content/Intent;)V]
       [90] iconst_1
       [91] ireturn
@@ -43048,26 +43064,26 @@ Methods (count = 6):
       [95] dup
       [96] ldc #26
         + String [android.intent.action.VIEW]
-      [98] invokespecial #89
+      [98] invokespecial #90
         + Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
       [101] astore v5
       [103] aload v5
       [105] ldc #32
         + String [https://play.google.com/store/apps/details?id=com.connectutb.xfuel]
-      [107] invokestatic #93
+      [107] invokestatic #94
         + Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
-      [110] invokevirtual #90
+      [110] invokevirtual #91
         + Methodref [android/content/Intent.setData (Landroid/net/Uri;)Landroid/content/Intent;]
       [113] pop
       [114] aload_0 v0
       [115] aload v5
-      [117] invokevirtual #123
+      [117] invokevirtual #124
         + Methodref [com/connectutb/xfuel/MainActivity.startActivity (Landroid/content/Intent;)V]
       [120] iconst_1
       [121] ireturn
       [122] aload_0 v0
       [123] aload_1 v1
-      [124] invokespecial #87
+      [124] invokespecial #88
         + Methodref [android/app/Activity.onOptionsItemSelected (Landroid/view/MenuItem;)Z]
       [127] ireturn
       Code attribute exceptions (count = 0):
@@ -43082,35 +43098,35 @@ Methods (count = 6):
     Access flags: 0x1
       = public void postFuelRequest(android.view.View)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 347, locals = 8, stack = 10):
+    + Code attribute instructions (code length = 339, locals = 7, stack = 10):
       [0] aload_0 v0
       [1] getfield #78
         + Fieldref [com/connectutb/xfuel/MainActivity.e Landroid/widget/EditText;]
-      [4] invokevirtual #101
+      [4] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [7] invokeinterface #144
+      [7] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
-      [12] invokevirtual #130
+      [12] invokevirtual #131
         + Methodref [java/lang/String.length ()I]
       [15] iconst_4
-      [16] ificmpne +320 (target=336)
+      [16] ificmpne +312 (target=328)
       [19] aload_0 v0
       [20] getfield #79
         + Fieldref [com/connectutb/xfuel/MainActivity.f Landroid/widget/EditText;]
-      [23] invokevirtual #101
+      [23] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [26] invokeinterface #144
+      [26] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
-      [31] invokevirtual #130
+      [31] invokevirtual #131
         + Methodref [java/lang/String.length ()I]
       [34] iconst_4
-      [35] ificmpne +301 (target=336)
+      [35] ificmpne +293 (target=328)
       [38] iconst_0
       [39] istore_2 v2
       [40] aload_0 v0
       [41] getfield #80
         + Fieldref [com/connectutb/xfuel/MainActivity.g Landroid/widget/Switch;]
-      [44] invokevirtual #111
+      [44] invokevirtual #112
         + Methodref [android/widget/Switch.isChecked ()Z]
       [47] ifeq +5 (target=52)
       [50] iconst_1
@@ -43121,7 +43137,7 @@ Methods (count = 6):
       [55] aload_0 v0
       [56] getfield #81
         + Fieldref [com/connectutb/xfuel/MainActivity.h Landroid/widget/RadioButton;]
-      [59] invokevirtual #104
+      [59] invokevirtual #105
         + Methodref [android/widget/RadioButton.isChecked ()Z]
       [62] ifeq +6 (target=68)
       [65] ldc #24
@@ -43130,7 +43146,7 @@ Methods (count = 6):
       [68] aload_0 v0
       [69] getfield #77
         + Fieldref [com/connectutb/xfuel/MainActivity.d Landroid/widget/Spinner;]
-      [72] invokevirtual #108
+      [72] invokevirtual #109
         + Methodref [android/widget/Spinner.getSelectedItemPosition ()I]
       [75] istore v4
       [77] aload_0 v0
@@ -43139,7 +43155,7 @@ Methods (count = 6):
       [81] ldc #36
         + String [last_ruleset]
       [83] iload v4
-      [85] invokeinterface #142
+      [85] invokeinterface #143
         + InterfaceMethodref [android/content/SharedPreferences$Editor.putInt (Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;]
       [90] pop
       [91] aload_0 v0
@@ -43150,9 +43166,9 @@ Methods (count = 6):
       [97] aload_0 v0
       [98] getfield #76
         + Fieldref [com/connectutb/xfuel/MainActivity.c Landroid/widget/Spinner;]
-      [101] invokevirtual #108
+      [101] invokevirtual #109
         + Methodref [android/widget/Spinner.getSelectedItemPosition ()I]
-      [104] invokeinterface #142
+      [104] invokeinterface #143
         + InterfaceMethodref [android/content/SharedPreferences$Editor.putInt (Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;]
       [109] pop
       [110] aload_0 v0
@@ -43163,11 +43179,11 @@ Methods (count = 6):
       [116] aload_0 v0
       [117] getfield #78
         + Fieldref [com/connectutb/xfuel/MainActivity.e Landroid/widget/EditText;]
-      [120] invokevirtual #101
+      [120] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [123] invokeinterface #144
+      [123] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
-      [128] invokeinterface #143
+      [128] invokeinterface #144
         + InterfaceMethodref [android/content/SharedPreferences$Editor.putString (Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
       [133] pop
       [134] aload_0 v0
@@ -43178,23 +43194,23 @@ Methods (count = 6):
       [140] aload_0 v0
       [141] getfield #79
         + Fieldref [com/connectutb/xfuel/MainActivity.f Landroid/widget/EditText;]
-      [144] invokevirtual #101
+      [144] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [147] invokeinterface #144
+      [147] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
-      [152] invokeinterface #143
+      [152] invokeinterface #144
         + InterfaceMethodref [android/content/SharedPreferences$Editor.putString (Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
       [157] pop
       [158] aload_0 v0
       [159] getfield #75
         + Fieldref [com/connectutb/xfuel/MainActivity.b Landroid/content/SharedPreferences$Editor;]
-      [162] invokeinterface #141
+      [162] invokeinterface #142
         + InterfaceMethodref [android/content/SharedPreferences$Editor.commit ()Z]
       [167] pop
       [168] aload_0 v0
       [169] ldc #20
-        + Integer [2131296272]
-      [171] invokevirtual #117
+        + Integer [2131296271]
+      [171] invokevirtual #118
         + Methodref [com/connectutb/xfuel/MainActivity.findViewById (I)Landroid/view/View;]
       [174] checkcast #57
         + Class [android/widget/ProgressBar]
@@ -43204,117 +43220,112 @@ Methods (count = 6):
       [182] dup
       [183] aload_0 v0
       [184] aload_0 v0
-      [185] getfield #83
-        + Fieldref [com/connectutb/xfuel/MainActivity.j Ljava/util/Map;]
+      [185] getfield #84
+        + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/util/Map;]
       [188] aload_0 v0
       [189] getfield #76
         + Fieldref [com/connectutb/xfuel/MainActivity.c Landroid/widget/Spinner;]
-      [192] invokevirtual #107
+      [192] invokevirtual #108
         + Methodref [android/widget/Spinner.getSelectedItem ()Ljava/lang/Object;]
-      [195] invokevirtual #128
+      [195] invokevirtual #129
         + Methodref [java/lang/Object.toString ()Ljava/lang/String;]
-      [198] invokeinterface #146
+      [198] invokeinterface #147
         + InterfaceMethodref [java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object;]
       [203] checkcast #70
         + Class [java/lang/String]
-      [206] invokevirtual #132
+      [206] invokevirtual #133
         + Methodref [java/lang/String.toString ()Ljava/lang/String;]
       [209] aload_0 v0
       [210] getfield #78
         + Fieldref [com/connectutb/xfuel/MainActivity.e Landroid/widget/EditText;]
-      [213] invokevirtual #101
+      [213] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [216] invokeinterface #144
+      [216] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
       [221] aload_0 v0
       [222] getfield #79
         + Fieldref [com/connectutb/xfuel/MainActivity.f Landroid/widget/EditText;]
-      [225] invokevirtual #101
+      [225] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [228] invokeinterface #144
+      [228] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
       [233] iload_2 v2
       [234] aload_0 v0
       [235] getfield #77
         + Fieldref [com/connectutb/xfuel/MainActivity.d Landroid/widget/Spinner;]
-      [238] invokevirtual #107
+      [238] invokevirtual #108
         + Methodref [android/widget/Spinner.getSelectedItem ()Ljava/lang/Object;]
-      [241] invokevirtual #128
+      [241] invokevirtual #129
         + Methodref [java/lang/Object.toString ()Ljava/lang/String;]
       [244] aload_3 v3
       [245] aload v5
-      [247] invokespecial #126
+      [247] invokespecial #127
         + Methodref [com/connectutb/xfuel/e.<init> (Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Landroid/widget/ProgressBar;)V]
       [250] astore v6
-      [252] new #67
-        + Class [com/connectutb/xfuel/a/a]
-      [255] dup
+      [252] aload_0 v0
+      [253] getfield #83
+        + Fieldref [com/connectutb/xfuel/MainActivity.j Lcom/connectutb/xfuel/a/a;]
       [256] aload_0 v0
-      [257] invokespecial #124
-        + Methodref [com/connectutb/xfuel/a/a.<init> (Landroid/content/Context;)V]
-      [260] astore v7
-      [262] aload v7
-      [264] aload_0 v0
-      [265] getfield #83
-        + Fieldref [com/connectutb/xfuel/MainActivity.j Ljava/util/Map;]
-      [268] aload_0 v0
-      [269] getfield #76
+      [257] getfield #84
+        + Fieldref [com/connectutb/xfuel/MainActivity.k Ljava/util/Map;]
+      [260] aload_0 v0
+      [261] getfield #76
         + Fieldref [com/connectutb/xfuel/MainActivity.c Landroid/widget/Spinner;]
-      [272] invokevirtual #107
+      [264] invokevirtual #108
         + Methodref [android/widget/Spinner.getSelectedItem ()Ljava/lang/Object;]
-      [275] invokevirtual #128
+      [267] invokevirtual #129
         + Methodref [java/lang/Object.toString ()Ljava/lang/String;]
-      [278] invokeinterface #146
+      [270] invokeinterface #147
         + InterfaceMethodref [java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object;]
-      [283] checkcast #70
+      [275] checkcast #70
         + Class [java/lang/String]
-      [286] invokevirtual #132
+      [278] invokevirtual #133
         + Methodref [java/lang/String.toString ()Ljava/lang/String;]
-      [289] aload_0 v0
-      [290] getfield #78
+      [281] aload_0 v0
+      [282] getfield #78
         + Fieldref [com/connectutb/xfuel/MainActivity.e Landroid/widget/EditText;]
-      [293] invokevirtual #101
+      [285] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [296] invokeinterface #144
+      [288] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
-      [301] aload_0 v0
-      [302] getfield #79
+      [293] aload_0 v0
+      [294] getfield #79
         + Fieldref [com/connectutb/xfuel/MainActivity.f Landroid/widget/EditText;]
-      [305] invokevirtual #101
+      [297] invokevirtual #102
         + Methodref [android/widget/EditText.getText ()Landroid/text/Editable;]
-      [308] invokeinterface #144
+      [300] invokeinterface #145
         + InterfaceMethodref [android/text/Editable.toString ()Ljava/lang/String;]
-      [313] iload_2 v2
-      [314] aload_0 v0
-      [315] getfield #77
+      [305] iload_2 v2
+      [306] aload_0 v0
+      [307] getfield #77
         + Fieldref [com/connectutb/xfuel/MainActivity.d Landroid/widget/Spinner;]
-      [318] invokevirtual #107
+      [310] invokevirtual #108
         + Methodref [android/widget/Spinner.getSelectedItem ()Ljava/lang/Object;]
-      [321] invokevirtual #128
+      [313] invokevirtual #129
         + Methodref [java/lang/Object.toString ()Ljava/lang/String;]
-      [324] aload_3 v3
-      [325] invokevirtual #125
+      [316] aload_3 v3
+      [317] invokevirtual #126
         + Methodref [com/connectutb/xfuel/a/a.a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V]
-      [328] aload v6
-      [330] invokevirtual #127
+      [320] aload v6
+      [322] invokevirtual #128
         + Methodref [com/connectutb/xfuel/e.a ()V]
-      [333] goto +13 (target=346)
-      [336] aload_0 v0
-      [337] ldc #6
+      [325] goto +13 (target=338)
+      [328] aload_0 v0
+      [329] ldc #6
         + Integer [2131099652]
-      [339] iconst_0
-      [340] invokestatic #114
+      [331] iconst_0
+      [332] invokestatic #115
         + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
-      [343] invokevirtual #115
+      [335] invokevirtual #116
         + Methodref [android/widget/Toast.show ()V]
-      [346] return
+      [338] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 4):
         - [52] Var: ...[i], Stack: (empty)
         - [68] Var: ...[a:java/lang/String], Stack: (empty)
-        - [336] Var: -2, Stack: (empty)
-        - [346] Var: ..., Stack: (empty)
+        - [328] Var: -2, Stack: (empty)
+        - [338] Var: ..., Stack: (empty)
 
 Class file attributes (count = 0):
 
@@ -43695,7 +43706,7 @@ Methods (count = 9):
     Access flags: 0x1
       = public void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 18, locals = 4, stack = 2):
+    + Code attribute instructions (code length = 22, locals = 4, stack = 2):
       [0] aload_1 v1
       [1] ldc #8
         + String [DROP TABLE IF EXISTS list]
@@ -43706,11 +43717,14 @@ Methods (count = 9):
         + String [DROP TABLE IF EXISTS favorites]
       [9] invokevirtual #40
         + Methodref [android/database/sqlite/SQLiteDatabase.execSQL (Ljava/lang/String;)V]
-      [12] aload_0 v0
-      [13] aload_1 v1
-      [14] invokevirtual #47
+      [12] aload_1 v1
+      [13] invokevirtual #39
+        + Methodref [android/database/sqlite/SQLiteDatabase.close ()V]
+      [16] aload_0 v0
+      [17] aload_1 v1
+      [18] invokevirtual #47
         + Methodref [com/connectutb/xfuel/a/a.onCreate (Landroid/database/sqlite/SQLiteDatabase;)V]
-      [17] return
+      [21] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -43817,7 +43831,7 @@ Methods (count = 9):
     Access flags: 0x1
       = public void a(java.lang.String)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 28, locals = 4, stack = 3):
+    + Code attribute instructions (code length = 32, locals = 4, stack = 3):
       [0] aload_0 v0
       [1] invokevirtual #46
         + Methodref [com/connectutb/xfuel/a/a.getWritableDatabase ()Landroid/database/sqlite/SQLiteDatabase;]
@@ -43839,14 +43853,17 @@ Methods (count = 9):
       [23] aload_3 v3
       [24] invokevirtual #40
         + Methodref [android/database/sqlite/SQLiteDatabase.execSQL (Ljava/lang/String;)V]
-      [27] return
+      [27] aload_2 v2
+      [28] invokevirtual #39
+        + Methodref [android/database/sqlite/SQLiteDatabase.close ()V]
+      [31] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a()V
     Access flags: 0x1
       = public void a()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 14, locals = 3, stack = 2):
+    + Code attribute instructions (code length = 18, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] invokevirtual #46
         + Methodref [com/connectutb/xfuel/a/a.getWritableDatabase ()Landroid/database/sqlite/SQLiteDatabase;]
@@ -43858,7 +43875,10 @@ Methods (count = 9):
       [9] aload_2 v2
       [10] invokevirtual #40
         + Methodref [android/database/sqlite/SQLiteDatabase.execSQL (Ljava/lang/String;)V]
-      [13] return
+      [13] aload_1 v1
+      [14] invokevirtual #39
+        + Methodref [android/database/sqlite/SQLiteDatabase.close ()V]
+      [17] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V
@@ -43944,7 +43964,7 @@ Methods (count = 9):
     Access flags: 0x1
       = public java.lang.String[] b()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 271, locals = 6, stack = 6):
+    + Code attribute instructions (code length = 276, locals = 6, stack = 6):
       [0] new #34
         + Class [java/util/ArrayList]
       [3] dup
@@ -44098,15 +44118,18 @@ Methods (count = 9):
       [253] aload v5
       [255] invokeinterface #55
         + InterfaceMethodref [android/database/Cursor.close ()V]
-      [260] aload_1 v1
-      [261] aload_2 v2
-      [262] invokevirtual #54
+      [260] aload v4
+      [262] invokevirtual #39
+        + Methodref [android/database/sqlite/SQLiteDatabase.close ()V]
+      [265] aload_1 v1
+      [266] aload_2 v2
+      [267] invokevirtual #54
         + Methodref [java/util/ArrayList.toArray ([Ljava/lang/Object;)[Ljava/lang/Object;]
-      [265] checkcast #24
+      [270] checkcast #24
         + Class [[Ljava/lang/String;]
-      [268] astore_2 v2
-      [269] aload_2 v2
-      [270] areturn
+      [273] astore_2 v2
+      [274] aload_2 v2
+      [275] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
@@ -44116,7 +44139,7 @@ Methods (count = 9):
     Access flags: 0x1
       = public java.lang.String[] c()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 247, locals = 6, stack = 6):
+    + Code attribute instructions (code length = 252, locals = 6, stack = 6):
       [0] new #34
         + Class [java/util/ArrayList]
       [3] dup
@@ -44256,15 +44279,18 @@ Methods (count = 9):
       [229] aload v5
       [231] invokeinterface #55
         + InterfaceMethodref [android/database/Cursor.close ()V]
-      [236] aload_1 v1
-      [237] aload_2 v2
-      [238] invokevirtual #54
+      [236] aload v4
+      [238] invokevirtual #39
+        + Methodref [android/database/sqlite/SQLiteDatabase.close ()V]
+      [241] aload_1 v1
+      [242] aload_2 v2
+      [243] invokevirtual #54
         + Methodref [java/util/ArrayList.toArray ([Ljava/lang/Object;)[Ljava/lang/Object;]
-      [241] checkcast #24
+      [246] checkcast #24
         + Class [[Ljava/lang/String;]
-      [244] astore_2 v2
-      [245] aload_2 v2
-      [246] areturn
+      [249] astore_2 v2
+      [250] aload_2 v2
+      [251] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):

@@ -42,6 +42,9 @@ public class MainActivity extends Activity {
 	public RadioButton radioMetrics;
 	public RadioButton radioImperial;
 	
+	//Database manager
+	DbManager db = new DbManager(this);
+	
 	public Map<String, String> mMap;
 	
 	@Override
@@ -211,9 +214,6 @@ public class MainActivity extends Activity {
         ProgressBar progress = (ProgressBar)findViewById(R.id.progress);
     	FuelPlanner fp = new FuelPlanner(this, mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units, progress);
     	//add to history
-    	//Define our database manager
-        DbManager db = new DbManager(this);
-        
         db.addToHistory(mMap.get(aircraftSpinner.getSelectedItem().toString()).toString(), orig.getText().toString(), dest.getText().toString(), getMetar,rulesSpinner.getSelectedItem().toString(), units);
     	fp.wantFuelInfo();
     	}

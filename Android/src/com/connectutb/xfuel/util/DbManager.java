@@ -58,6 +58,7 @@ public class DbManager extends SQLiteOpenHelper{
 		//Execute db queries
 		db.execSQL(CREATE_HISTORY_TABLE);
 		db.execSQL(CREATE_FAV_TABLE);
+		
 	}
 
 	@Override
@@ -65,6 +66,7 @@ public class DbManager extends SQLiteOpenHelper{
 		// Drop tables and create a new ones
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAV);
+		db.close();
 		//The create a new one
 		onCreate(db);
 		
@@ -101,6 +103,7 @@ public class DbManager extends SQLiteOpenHelper{
 		
 		String sql = "DELETE FROM " + TABLE_FAV + " WHERE " + FAV_ID + "=" + id;
 		db.execSQL(sql);
+		db.close();
 	}
 	
 	public void deleteHistory(){
@@ -108,10 +111,11 @@ public class DbManager extends SQLiteOpenHelper{
 		
 		String sql = "DELETE FROM " + TABLE_HISTORY;
 		db.execSQL(sql);
+		db.close();
 	}
     
 	public void addToHistory(String aircraft, String orig, String dest, boolean metar, String rules, String units){
-		SQLiteDatabase db = this.getWritableDatabase();
+		SQLiteDatabase db = getWritableDatabase();
 		
 		ContentValues values = new ContentValues();
 		values.put(HISTORY_AIRCRAFT, aircraft);
@@ -132,7 +136,7 @@ public class DbManager extends SQLiteOpenHelper{
 	
 	public String[] listFavorites(){
 		//Retrieve a string array with the history
-		ArrayList temp_array = new ArrayList();
+		ArrayList<String> temp_array = new ArrayList<String>();
 		String[] fav_array = new String[0];
 		//SQL 
 		String sqlQuery = "SELECT * FROM " + TABLE_FAV;
@@ -152,8 +156,9 @@ public class DbManager extends SQLiteOpenHelper{
 			}while(c.moveToNext());
 		}
 		
-		//Close cursor
+		//Close cursor and database handle
 		c.close();
+		db.close();
 		//Transfer from arraylist to string array
 		fav_array = (String[]) temp_array.toArray(fav_array);
 		//Return the string array
@@ -162,7 +167,7 @@ public class DbManager extends SQLiteOpenHelper{
 	
 	public String[] listHistory(){
 		//Retrieve a string array with the history
-		ArrayList temp_array = new ArrayList();
+		ArrayList<String> temp_array = new ArrayList<String>();
 		String[] history_array = new String[0];
 		//SQL 
 		String sqlQuery = "SELECT * FROM " + TABLE_HISTORY;
@@ -181,13 +186,12 @@ public class DbManager extends SQLiteOpenHelper{
 			}while(c.moveToNext());
 		}
 		
-		//Close cursor
+		//Close cursor and database handle
 		c.close();
+		db.close();
 		//Transfer from arraylist to string array
 		history_array = (String[]) temp_array.toArray(history_array);
 		//Return the string array
 		return history_array;
 	}
-
-
 }
