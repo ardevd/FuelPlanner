@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +19,6 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 public class FuelReport extends ListActivity{
-	private final String TAG ="xFuel";
 	private String[] fuelData = new String[0];
 	private String aircraft;
 	private String origin;
