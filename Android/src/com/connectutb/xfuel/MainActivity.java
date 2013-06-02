@@ -194,7 +194,7 @@ public class MainActivity extends Activity {
 	        		startActivity(emailIntent);
 	        	}catch(ActivityNotFoundException ex){
 	        		//Didnt find a suitable activity, show Toast
-	        		
+	        		Toast.makeText(this, R.string.error_support,Toast.LENGTH_SHORT).show();
 	        	}
 	        	return true;
     	default:

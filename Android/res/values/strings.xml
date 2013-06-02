@@ -26,7 +26,7 @@
     <string name="use_weather">METAR</string>
     
     <string name="error_network">An active internet connection is required to request fuel plans</string>
-
+	<string name="error_support">Could not find a suitable messaging app.. </string>
     <!--  Fuel Report -->
     <string name="fuel_report">Fuel Report</string>
     <string name="load_sheet">Load Sheet</string>
