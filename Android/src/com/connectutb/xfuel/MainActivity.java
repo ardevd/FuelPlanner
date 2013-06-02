@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -181,6 +182,21 @@ public class MainActivity extends Activity {
         	intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.connectutb.xfuel")); 
         	startActivity(intent);
         	return true;
+        	
+    	 case R.id.menu_support:
+	        	/*Create a support email */
+	        	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+	        	String aEmailList[] = { "premium@connect-utb.com" };
+	        	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+	        	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "[Support] xFuel");
+	        	emailIntent.setType("plain/text");
+	        	try{
+	        		startActivity(emailIntent);
+	        	}catch(ActivityNotFoundException ex){
+	        		//Didnt find a suitable activity, show Toast
+	        		
+	        	}
+	        	return true;
     	default:
     		return super.onOptionsItemSelected(item);
     	}
