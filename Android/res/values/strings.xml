@@ -4,6 +4,7 @@
     <string translatable="false" name="app_name">xFuel</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_rate">Give Feedback</string>
+    <string name="menu_support">Support</string>
     <string translatable="false" name="post_url">http://fuelplanner.com/api/fuelapi.php</string>
     <string name="error_empty_request">Please fill out origin and destination airport ICAO</string>
     

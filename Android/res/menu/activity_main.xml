@@ -25,4 +25,10 @@
         android:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_good"
         android:title="@string/menu_rate"/>
+    <item
+        android:id="@+id/menu_support"
+        android:orderInCategory="104"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_support"
+        android:title="@string/menu_support"/>
 </menu>
