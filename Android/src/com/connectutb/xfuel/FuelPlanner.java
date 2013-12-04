@@ -126,7 +126,7 @@ public class FuelPlanner {
 		fixed_response += "</DATA>" + System.getProperty("line.separator");
 		//Close the XML tag if necessary
 		if (fixed_response.contains("</xml>") == false){
-		fixed_response += "</xml>" + System.getProperty("line.separator");
+		fixed_response += "</XML>" + System.getProperty("line.separator");
 		}
 		Log.d(TAG, fixed_response);		
 		
