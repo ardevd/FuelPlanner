@@ -16,4 +16,3 @@ You can either grab xFuel for free or you can support development by buying it f
 
 Grab it from the Play Store (appreciated): https://play.google.com/store/apps/details?id=com.connectutb.xfuel 
 
-Grab it for free: http://xfuel.connect-utb.com/download
