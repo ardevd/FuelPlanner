@@ -12,7 +12,7 @@ xFuel is an open source fuel planning app for Android and is now available at th
 Installation
 ====
 
-You can either grab xFuel for free or you can support development by buying it for a tiny fee from the Play Store. By doing so you will also get automatic updates!
+You can either grab xFuel for free here or you can support development by buying it for a tiny fee from the Play Store. By doing so you will also get automatic updates!
 
 Grab it from the Play Store (appreciated): https://play.google.com/store/apps/details?id=com.connectutb.xfuel 
 
