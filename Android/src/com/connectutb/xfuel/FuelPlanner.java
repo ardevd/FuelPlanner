@@ -78,6 +78,9 @@ public class FuelPlanner {
 	/* Fuel Data Array */
 	private String[] fuelData = new String[0];
 	
+	private String metarOrig = "";
+	private String metarDest = "";
+	
 	public FuelPlanner (Activity context, String aircraft, String orig, String dest, boolean metar, String rules, String units, ProgressBar loading){
 		/* Assign variables */
 		this.context = context;
@@ -218,7 +221,7 @@ public class FuelPlanner {
 					ResponseHandler<String> responseHandler = new BasicResponseHandler();
 					//Execute HTTP Post
 					String response = httpclient.execute(httppost,responseHandler);
-					
+
 					Document doc = parseFuelResponse(response);
 					NodeList nl = doc.getElementsByTagName("DATA");
 					// looping through all item nodes <item>
@@ -261,8 +264,8 @@ public class FuelPlanner {
 					    fuelData_array.add(context.getString(R.string.total_fuel_time) + "-" + total_fuel_time);
 					    //METAR might not always be included
 					    if(bMetar){
-					    fuelData_array.add(context.getString(R.string.metar_orig) + "-" + metar_orig);
-					    fuelData_array.add(context.getString(R.string.metar_dest) + "-" + metar_dest);
+					    	metarOrig = metar_orig;
+							metarDest = metar_dest;
 					    }
 					    //Convert ArrayList to String Array
 					    //Convert the ArrayList to String Array
@@ -286,6 +289,8 @@ public class FuelPlanner {
 			    frIntent.putExtra("rules",rules);
 			    frIntent.putExtra("units", units);
 			    frIntent.putExtra("metar", bMetar);
+			    frIntent.putExtra("metarOrig", metarOrig);
+			    frIntent.putExtra("metarDest", metarDest);
 	        	context.startActivity(frIntent);	
 	        	
 	        	 loading.post(new Runnable() {

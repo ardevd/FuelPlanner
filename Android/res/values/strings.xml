@@ -9,8 +9,8 @@
     <string name="error_empty_request">Please fill out origin and destination airport ICAO</string>
     
     <!-- API License -->
-    <string translatable="false" name="account">881970FF</string>
-    <string translatable="false" name="license">438b83bceeeb06fc3932c225c2965798</string>
+    <string translatable="false" name="account">E5A1B183</string>
+    <string translatable="false" name="license">d55134a45df6d8ab37d6186284bfb775</string>
     <string translatable="false" name="email">xfuel@connect-utb.com</string>
     
     <!-- Fuel Planning -->

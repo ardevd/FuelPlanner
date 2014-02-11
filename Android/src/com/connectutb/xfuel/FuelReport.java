@@ -27,6 +27,8 @@ public class FuelReport extends ListActivity{
 	private String units;
 	private boolean bMetar;
 	private ShareActionProvider mShareActionProvider;
+    TextView tvMetarDest;
+    TextView tvMetarOrig;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -40,12 +42,18 @@ public class FuelReport extends ListActivity{
 	    rules = getIntent().getStringExtra("rules");
 	    units = getIntent().getStringExtra("units");
 	    bMetar = getIntent().getBooleanExtra("metar", false);
+	    String metarOrig = getIntent().getStringExtra("metarOrig");
+	    String metarDest = getIntent().getStringExtra("metarDest");
 	    //Add header view
 	    View header = getLayoutInflater().inflate(R.layout.fuel_report_header, null);
 	    ListView listView = getListView();
 	    listView.addHeaderView(header);
 	    TextView headerTv = (TextView)findViewById(R.id.textViewFuelReportHeader);
 	    TextView subHeaderTv = (TextView)findViewById(R.id.textViewFuelReportSubHeader);
+	    tvMetarDest = (TextView)findViewById(R.id.textViewMetarDest);
+	    tvMetarOrig = (TextView)findViewById(R.id.textViewMetarOrig);
+	    tvMetarDest.setText(metarDest);
+	    tvMetarOrig.setText(metarOrig);
 	    Typeface tf = Typeface.createFromAsset(getAssets(),
 	            "fonts/Roboto-Light.ttf");
 	    headerTv.setTypeface(tf);
