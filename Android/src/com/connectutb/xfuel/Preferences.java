@@ -2,6 +2,7 @@ package com.connectutb.xfuel;
 
 import java.util.List;
 
+
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +41,16 @@ public class Preferences extends PreferenceActivity{
         loadHeadersFromResource(R.xml.preferences_headers, target);
     }
     
+    @Override
+    protected boolean isValidFragment (String fragmentName)
+    {
+      if(Preferences.class.getName().equals(fragmentName))
+          return true;
+      //TODO it should return false if fragment is not valid
+      return true;
+
+    }
+    
     /**
      * This fragment shows the preferences for the first header.
      */
@@ -47,9 +58,6 @@ public class Preferences extends PreferenceActivity{
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
-            // Make sure default values are applied.
-
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
         }
