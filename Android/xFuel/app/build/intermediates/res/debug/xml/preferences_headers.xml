@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        
+    <header android:fragment="com.connectutb.xfuel.Preferences$Prefs1Fragment"
+            android:title="@string/prefs_xfuel"
+            android:summary="@string/prefs_summary" />
+
+</preference-headers><!-- From: file:/home/eholst/AndroidStudioProjects/xFuel/app/src/main/res/xml/preferences_headers.xml -->

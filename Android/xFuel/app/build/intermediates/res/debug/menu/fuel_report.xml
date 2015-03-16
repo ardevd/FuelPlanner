@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item android:id="@+id/menu_item_share"
+        android:orderInCategory="111"
+        android:showAsAction="ifRoom"
+        android:title="@string/share"
+        android:actionProviderClass="android.widget.ShareActionProvider" />
+    
+    <item android:id="@+id/menu_add_favorite"
+        android:orderInCategory="110"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_favourite"
+        android:title="@string/add_favourite" />
+
+</menu><!-- From: file:/home/eholst/AndroidStudioProjects/xFuel/app/src/main/res/menu/fuel_report.xml -->
