@@ -22,9 +22,9 @@
     <!-- Fuel Planning -->
     <string name="aircaft_type">Aircraft</string>
     <string name="origin_airport">ICAO</string>
-    <string name="origin">Departure ICAO</string>
+    <string name="origin">Departure Airport</string>
     <string name="dest">DEST</string>
-    <string name="destination_airpot">ICAO</string>
+    <string name="destination_airport">Arrival Airport</string>
     <string name="calculate">Submit</string>
     <string name="units">Units</string>
     <string name="metric">Metric</string>

@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Planner-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="xFuel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="PlannerViewController" customModule="xFuel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,58 +17,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Origin" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AHM-nM-5U3">
-                                <rect key="frame" x="252" y="109" width="97" height="30"/>
-                                <accessibility key="accessibilityConfiguration" hint="Origin" label="text_field_origin"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="6BG-wa-UpB">
-                                <rect key="frame" x="252" y="51" width="97" height="21"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9m-y4-xVQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="81"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQh-M5-jCm">
+                                        <rect key="frame" x="527" y="34" width="65" height="30"/>
+                                        <state key="normal" title="Calculate">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Fuel Planning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep4-8o-CYe">
+                                        <rect key="frame" x="8" y="38" width="104" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16470588235294117" green="0.1803921568627451" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="5Xe-FL-s1I"/>
-                                    <constraint firstAttribute="width" constant="97" id="VL4-qE-cgM"/>
+                                    <constraint firstAttribute="trailing" secondItem="uQh-M5-jCm" secondAttribute="trailing" constant="8" id="Ixq-Rh-9gG"/>
+                                    <constraint firstItem="ep4-8o-CYe" firstAttribute="leading" secondItem="C9m-y4-xVQ" secondAttribute="leading" constant="38" id="eWA-ZJ-NTu"/>
+                                    <constraint firstItem="ep4-8o-CYe" firstAttribute="top" secondItem="C9m-y4-xVQ" secondAttribute="top" constant="38" id="wSp-ZI-qea"/>
+                                    <constraint firstItem="uQh-M5-jCm" firstAttribute="top" secondItem="C9m-y4-xVQ" secondAttribute="top" constant="34" id="zrs-VY-IpB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-Dg-LXA" userLabel="AircraftPicker">
-                                <rect key="frame" x="-27" y="198" width="600" height="162"/>
-                                <color key="backgroundColor" red="0.93272569444444442" green="0.93272569444444442" blue="0.93272569444444442" alpha="0.39000000000000001" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="Jhh-VC-vEE"/>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="qVK-Cu-xs8"/>
-                                </connections>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="svm-Ck-bHI">
-                                <rect key="frame" x="252" y="147" width="97" height="30"/>
-                                <accessibility key="accessibilityConfiguration" hint="Origin" label="text_field_origin"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
-                            </textField>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-dq-lyy">
+                                <rect key="frame" x="7" y="89" width="586" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Airport" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQL-2g-WJ0">
+                                        <rect key="frame" x="49" y="17" width="133" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.64313725490196083" green="0.65098039215686276" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ICAO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="a6j-hk-wxX">
+                                        <rect key="frame" x="49" y="46" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arrival Airport" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rq-GM-4UY">
+                                        <rect key="frame" x="49" y="92" width="105" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.64313725490196083" green="0.65098039215686276" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ICAO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yAP-HO-bVT">
+                                        <rect key="frame" x="49" y="121" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_dep" translatesAutoresizingMaskIntoConstraints="NO" id="X9u-T8-ESh">
+                                        <rect key="frame" x="11" y="15" width="25" height="25"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_arr" translatesAutoresizingMaskIntoConstraints="NO" id="kWy-P8-e3Y">
+                                        <rect key="frame" x="11" y="90" width="25" height="25"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVV-JU-DfQ">
+                                <rect key="frame" x="7" y="290" width="586" height="108"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-CO-EIF">
+                                        <rect key="frame" x="46" y="8" width="40" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.64313725489999995" green="0.65098039220000004" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uqe-46-iTW">
+                                        <rect key="frame" x="46" y="43" width="125" height="29"/>
+                                        <segments>
+                                            <segment title="Imperial"/>
+                                            <segment title="Metric"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0091366065312718861" green="0.094970165045305324" blue="0.18659248737373735" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.88735516447769969" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="svm-Ck-bHI" firstAttribute="top" secondItem="AHM-nM-5U3" secondAttribute="bottom" constant="8" symbolic="YES" id="8d0-Se-PAj"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Dx2-9K-ie7"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="top" secondItem="6BG-wa-UpB" secondAttribute="bottom" constant="37" id="OQU-un-bRb"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="trailing" secondItem="6BG-wa-UpB" secondAttribute="trailing" id="Rxj-xs-JMW"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="top" secondItem="6BG-wa-UpB" secondAttribute="bottom" constant="25" id="SCr-C4-xx8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cd1-Dg-LXA" secondAttribute="trailing" constant="-16" id="U0p-iY-CeA"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="leading" secondItem="6BG-wa-UpB" secondAttribute="leading" id="gEL-GH-0qA"/>
-                            <constraint firstItem="cd1-Dg-LXA" firstAttribute="top" secondItem="svm-Ck-bHI" secondAttribute="bottom" constant="8" id="jX1-hx-ApV"/>
-                            <constraint firstItem="6BG-wa-UpB" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="31" id="jah-RS-wIj"/>
-                            <constraint firstItem="cd1-Dg-LXA" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="mO5-Xd-IfB"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="top" secondItem="6BG-wa-UpB" secondAttribute="bottom" constant="25" id="nGc-3c-jbY"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="leading" secondItem="svm-Ck-bHI" secondAttribute="leading" id="tiB-WF-Ln3"/>
-                            <constraint firstItem="AHM-nM-5U3" firstAttribute="trailing" secondItem="svm-Ck-bHI" secondAttribute="trailing" id="xgx-fb-fd4"/>
+                            <constraint firstItem="h2p-dq-lyy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-9" id="1sc-gm-rNO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C9m-y4-xVQ" secondAttribute="trailing" constant="-16" id="2lT-8J-CLd"/>
+                            <constraint firstItem="C9m-y4-xVQ" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-20" id="BdX-1g-7hd"/>
+                            <constraint firstItem="h2p-dq-lyy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="69" id="hkQ-Q4-U4X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h2p-dq-lyy" secondAttribute="trailing" constant="-9" id="xTd-fS-OP8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Planner" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="destinationText" destination="svm-Ck-bHI" id="0Ra-58-srb"/>
-                        <outlet property="originText" destination="AHM-nM-5U3" id="u5r-46-Qyq"/>
+                        <outlet property="textFieldArrival" destination="yAP-HO-bVT" id="oHD-Ox-B9n"/>
+                        <outlet property="textFieldDeparture" destination="a6j-hk-wxX" id="UQS-fj-zPD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -78,7 +117,7 @@
         <!--Favorites-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="xFuel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="FavoritesViewController" customModule="xFuel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -134,9 +173,30 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="PWQ-82-GQF">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fzh-i9-1z5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iz8-A1-lAc"/>
+                        <viewControllerLayoutGuide type="bottom" id="pfI-sO-hhy"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nCk-Ye-9fj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckD-GC-jyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="ic_arr" width="94" height="73"/>
+        <image name="ic_dep" width="91" height="72"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.78203914141414144" green="0.16622110762935977" blue="0.22175794420386619" alpha="1" colorSpace="calibratedRGB"/>
 </document>

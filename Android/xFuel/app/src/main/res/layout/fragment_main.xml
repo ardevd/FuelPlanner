@@ -112,7 +112,7 @@
                         android:layout_alignTop="@id/imageArrival"
                         android:layout_toRightOf="@id/imageArrival"
                         android:layout_marginLeft="15dp"
-                        android:text="@string/origin"
+                        android:text="@string/destination_airport"
                         android:textColor="@color/accent_light_gray"
                         android:textSize="15sp"
                         android:textStyle="bold" />

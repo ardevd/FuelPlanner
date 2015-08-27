@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E5B1E201B822AFC0087D21A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B1E1F1B822AFC0087D21A /* AppDelegate.swift */; };
-		5E5B1E221B822AFC0087D21A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B1E211B822AFC0087D21A /* FirstViewController.swift */; };
-		5E5B1E241B822AFC0087D21A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B1E231B822AFC0087D21A /* SecondViewController.swift */; };
+		5E5B1E221B822AFC0087D21A /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B1E211B822AFC0087D21A /* PlannerViewController.swift */; };
+		5E5B1E241B822AFC0087D21A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B1E231B822AFC0087D21A /* FavoritesViewController.swift */; };
 		5E5B1E271B822AFC0087D21A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5B1E251B822AFC0087D21A /* Main.storyboard */; };
 		5E5B1E291B822AFC0087D21A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5B1E281B822AFC0087D21A /* Images.xcassets */; };
 		5E5B1E2C1B822AFC0087D21A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5B1E2A1B822AFC0087D21A /* LaunchScreen.xib */; };
@@ -30,8 +30,8 @@
 		5E5B1E1A1B822AFC0087D21A /* xFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5B1E1E1B822AFC0087D21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5B1E1F1B822AFC0087D21A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E5B1E211B822AFC0087D21A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		5E5B1E231B822AFC0087D21A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5E5B1E211B822AFC0087D21A /* PlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
+		5E5B1E231B822AFC0087D21A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		5E5B1E261B822AFC0087D21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E5B1E281B822AFC0087D21A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5E5B1E2B1B822AFC0087D21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				5E5B1E1F1B822AFC0087D21A /* AppDelegate.swift */,
-				5E5B1E211B822AFC0087D21A /* FirstViewController.swift */,
-				5E5B1E231B822AFC0087D21A /* SecondViewController.swift */,
+				5E5B1E211B822AFC0087D21A /* PlannerViewController.swift */,
+				5E5B1E231B822AFC0087D21A /* FavoritesViewController.swift */,
 				5E5B1E251B822AFC0087D21A /* Main.storyboard */,
 				5E5B1E281B822AFC0087D21A /* Images.xcassets */,
 				5E5B1E2A1B822AFC0087D21A /* LaunchScreen.xib */,
@@ -164,6 +164,7 @@
 				TargetAttributes = {
 					5E5B1E191B822AFC0087D21A = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = WAEHDX6R94;
 					};
 					5E5B1E301B822AFC0087D21A = {
 						CreatedOnToolsVersion = 6.4;
@@ -215,9 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E5B1E241B822AFC0087D21A /* SecondViewController.swift in Sources */,
+				5E5B1E241B822AFC0087D21A /* FavoritesViewController.swift in Sources */,
 				5E5B1E201B822AFC0087D21A /* AppDelegate.swift in Sources */,
-				5E5B1E221B822AFC0087D21A /* FirstViewController.swift in Sources */,
+				5E5B1E221B822AFC0087D21A /* PlannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,9 +345,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = xFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -354,9 +358,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = xFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -413,6 +420,7 @@
 				5E5B1E3D1B822AFC0087D21A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E5B1E3E1B822AFC0087D21A /* Build configuration list for PBXNativeTarget "xFuelTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +429,7 @@
 				5E5B1E401B822AFC0087D21A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
