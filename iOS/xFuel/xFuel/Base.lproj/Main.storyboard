@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9m-y4-xVQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="81"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQh-M5-jCm">
                                         <rect key="frame" x="527" y="34" width="65" height="30"/>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-dq-lyy">
-                                <rect key="frame" x="7" y="89" width="586" height="193"/>
+                                <rect key="frame" x="7" y="78" width="586" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Airport" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQL-2g-WJ0">
                                         <rect key="frame" x="49" y="17" width="133" height="21"/>
@@ -76,7 +76,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVV-JU-DfQ">
-                                <rect key="frame" x="7" y="290" width="586" height="108"/>
+                                <rect key="frame" x="7" y="279" width="586" height="108"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Units" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-CO-EIF">
                                         <rect key="frame" x="46" y="8" width="40" height="21"/>
@@ -100,6 +100,7 @@
                             <constraint firstItem="h2p-dq-lyy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-9" id="1sc-gm-rNO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C9m-y4-xVQ" secondAttribute="trailing" constant="-16" id="2lT-8J-CLd"/>
                             <constraint firstItem="C9m-y4-xVQ" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-20" id="BdX-1g-7hd"/>
+                            <constraint firstItem="h2p-dq-lyy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="58" id="Bna-dP-pfQ"/>
                             <constraint firstItem="h2p-dq-lyy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="69" id="hkQ-Q4-U4X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h2p-dq-lyy" secondAttribute="trailing" constant="-9" id="xTd-fS-OP8"/>
                         </constraints>
@@ -172,24 +173,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="PWQ-82-GQF">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fzh-i9-1z5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Iz8-A1-lAc"/>
-                        <viewControllerLayoutGuide type="bottom" id="pfI-sO-hhy"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nCk-Ye-9fj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ckD-GC-jyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
