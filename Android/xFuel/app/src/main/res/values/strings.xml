@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">xFuel</string>
 
-    <string name="title_section1">Fuel Planning</string>
-    <string name="title_section2">History</string>
-    <string name="title_section3">Settings</string>
+    <string name="fuel_planning_title">Fuel Planning</string>
+
+    <string name="title_section1">xFuel</string>
+    <string name="title_section2">xFuel</string>
+    <string name="title_section3">xFuel</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -20,11 +22,12 @@
     <!-- Fuel Planning -->
     <string name="aircaft_type">Aircraft</string>
     <string name="origin_airport">ICAO</string>
-    <string name="origin">ORIG</string>
+    <string name="origin">Departure ICAO</string>
     <string name="dest">DEST</string>
     <string name="destination_airpot">ICAO</string>
     <string name="calculate">Submit</string>
-    <string name="metrics">Metrics</string>
+    <string name="units">Units</string>
+    <string name="metric">Metric</string>
     <string name="imperial">Imperial</string>
     <string name="rules">Rules</string>
     <string name="use_weather">METAR</string>

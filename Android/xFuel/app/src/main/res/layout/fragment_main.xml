@@ -1,137 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:background="#1a1a1a">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="#e5e7ee"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#1a1a1a" >
+        android:id="@+id/headerLayout"
+        android:layout_width="fill_parent"
+        android:background="@color/accent_blue"
+        android:elevation="10dp"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/fuelTitle"
+            android:id="@+id/fuelPlanningTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
+            android:layout_margin="15dp"
             android:layout_marginTop="12dp"
-            android:text="@string/app_name"
-            android:textColor="#00aeef"
-            android:textSize="28sp"
+            android:text="@string/fuel_planning_title"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
             android:typeface="sans" />
 
-        <TextView
-            android:id="@+id/textViewPlanesTitle"
-            android:layout_width="wrap_content"
+    </RelativeLayout>
+
+
+
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_below="@id/headerLayout">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:id="@+id/layout_fuel_plan_card"
+            android:layout_height="wrap_content">
+
+            <!-- A CardView that contains a TextView -->
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_plan_view"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/layout_fuel_elements"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/imageDeparture"
+                        android:layout_width="30dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_dep"/>
+
+                    <TextView
+                        android:id="@+id/textViewOrigin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/imageDeparture"
+                        android:layout_toRightOf="@id/imageDeparture"
+                        android:layout_marginLeft="15dp"
+                        android:text="@string/origin"
+                        android:textColor="@color/accent_light_gray"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextOrigin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewOrigin"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="4"
+                        android:gravity="right"
+                        android:hint="@string/origin_airport"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:maxLength="4"
+                        android:textColor="@color/accent_dark_gray"
+                        android:textSize="25sp" />
+
+                    <ImageView
+                        android:id="@+id/imageArrival"
+                        android:layout_width="30dp"
+                        android:layout_below="@id/editTextOrigin"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_arr"/>
+
+                    <TextView
+                        android:id="@+id/textViewDeparture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/imageArrival"
+                        android:layout_toRightOf="@id/imageArrival"
+                        android:layout_marginLeft="15dp"
+                        android:text="@string/origin"
+                        android:textColor="@color/accent_light_gray"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editTextDepature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewDeparture"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="4"
+                        android:gravity="right"
+                        android:hint="@string/origin_airport"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:maxLength="4"
+                        android:textColor="@color/accent_dark_gray"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAircraft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/imageArrival"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/editTextDepature"
+                        android:text="@string/aircaft_type"
+                        android:textColor="@color/accent_light_gray"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinnerPlanes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/textViewAircraft"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/imageArrival" />
+
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/fuelTitle"
-            android:layout_alignTop="@+id/spinnerPlanes"
-            android:layout_marginTop="10dp"
-            android:text="@string/aircaft_type"
-            android:textColor="#00aeef"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_below="@id/layout_fuel_plan_card">
 
-        <Spinner
-            android:id="@+id/spinnerPlanes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/fuelTitle"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/textViewPlanesTitle" />
-        <requestFocus/>
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_aircraft_view"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:padding="15dp"
 
-        <View
-            android:id="@+id/separatorType"
-            android:layout_width="fill_parent"
-            android:layout_height="0.5dp"
-            android:layout_below="@+id/spinnerPlanes"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@android:color/darker_gray" />
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp">
 
-        <TextView
-            android:id="@+id/TextViewOrigin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textViewPlanesTitle"
-            android:layout_below="@+id/separatorType"
-            android:layout_marginTop="10dp"
-            android:text="@string/origin"
-            android:textColor="#00aeef"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="15dp">
 
-        <EditText
-            android:id="@+id/editTextOrigin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/TextViewOrigin"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:ems="4"
-            android:gravity="right"
-            android:hint="@string/origin_airport"
-            android:inputType="textCapCharacters|textNoSuggestions"
-            android:maxLength="4"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp" />
+                <TextView
+                    android:id="@+id/textViewUnits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/units"
+                    android:textColor="@color/accent_light_gray"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/TextViewDest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/TextViewOrigin"
-            android:layout_below="@+id/TextViewOrigin"
-            android:layout_marginTop="30dp"
-            android:text="@string/dest"
-            android:textColor="#00aeef"
-            android:textSize="15sp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/textViewUnits">
 
-        <EditText
-            android:id="@+id/editTextDest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/TextViewDest"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:ems="4"
-            android:gravity="right"
-            android:hint="@string/destination_airpot"
-            android:inputType="textCapCharacters|textNoSuggestions"
-            android:maxLength="4"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:imeOptions="actionDone">
-        </EditText>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/accent_red"
+                        android:text="@string/metric"
+                        android:id="@+id/radioButtonMetric"
+                        android:layout_below="@id/textViewUnits" />
 
-        <View
-            android:id="@+id/separatorAirports"
-            android:layout_width="fill_parent"
-            android:layout_height="0.5dp"
-            android:layout_below="@+id/TextViewDest"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:buttonTint="@color/accent_red"
+                        android:text="@string/imperial"
+                        android:layout_toRightOf="@id/radioButtonMetric"
+                        android:id="@+id/radioButtonImperial"
+                        android:layout_below="@id/textViewUnits" />
 
+                </RadioGroup>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
 
-
-        <Button
-            android:id="@+id/buttonCalculate"
-            style="@android:style/Widget.Holo.Button.Borderless"
-            android:background="#00aeef"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/separatorAirports"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="30dp"
-            android:onClick="postFuelRequest"
-            android:text="@string/calculate" />
 
     </RelativeLayout>
 </ScrollView>
+
+
+
+</RelativeLayout>
