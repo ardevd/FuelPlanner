@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">xFuel</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Fuel Planning</string>
+    <string name="title_section2">History</string>
+    <string name="title_section3">Settings</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,4 +11,71 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- API License -->
+    <string translatable="false" name="account">E5A1B183</string>
+    <string translatable="false" name="license">d55134a45df6d8ab37d6186284bfb775</string>
+    <string translatable="false" name="email">xfuel@connect-utb.com</string>
+
+    <!-- Fuel Planning -->
+    <string name="aircaft_type">Aircraft</string>
+    <string name="origin_airport">ICAO</string>
+    <string name="origin">ORIG</string>
+    <string name="dest">DEST</string>
+    <string name="destination_airpot">ICAO</string>
+    <string name="calculate">Submit</string>
+    <string name="metrics">Metrics</string>
+    <string name="imperial">Imperial</string>
+    <string name="rules">Rules</string>
+    <string name="use_weather">METAR</string>
+
+    <string name="error_network">An active internet connection is required to request fuel plans</string>
+    <string name="error_support">Could not find a suitable messaging app.. </string>
+    <!--  Fuel Report -->
+    <string name="fuel_report">Fuel Report</string>
+    <string name="load_sheet">Load Sheet</string>
+    <string name="distance">Distance</string>
+    <string name="est_fuel_usage">Est. Fuel Usage</string>
+    <string name="reserve_fuel">Reserve Fuel</string>
+    <string name="takeoff_fuel">Takeoff Fuel</string>
+    <string name="estimated_landing_weight">Est. Landing Weight</string>
+    <string name="estimated_time_enroute">Est. Time Enroute</string>
+    <string name="reserve_fuel_time">Reserve Fuel Time</string>
+    <string name="total_fuel_time">Total Fuel Time</string>
+    <string name="metar_orig">METAR Origin</string>
+    <string name="metar_dest">METAR Destination</string>
+    <string name="zero_fuel_weight">Zero Fuel Weight</string>
+    <string name="share">Share</string>
+    <string name="add_favourite">Favorite</string>
+    <string name="added_favorite">Added To Favorites!</string>
+    <string name="add_to_favs">Add to Favorites</string>
+    <string name="fuelplan_name">Fuelplan Name</string>
+
+    <!--  History -->
+    <string name="history">History</string>
+    <string name="fuel_history">Fuel Planning History</string>
+    <string name="delete_history">Clear History</string>
+    <string name="history_deleted">History cleared!</string>
+
+    <!--  Favorites -->
+    <string name="favorites">Favorites</string>
+    <string name="delete_fav">Delete</string>
+
+    <!-- Preferences -->
+    <string name="prefs_xfuel">xFuel Preferences</string>
+    <string name="prefs_summary">Preferences for xFuel</string>
+    <string name="prefs_general">General</string>
+    <string name="prefs_def_units">Default unit</string>
+    <string name="prefs_def_units_summary">Default unit of measurements</string>
+    <string name="prefs_show_units">Show units</string>
+    <string name="prefs_show_units_summary">Show unit notations on load sheet</string>
+    <string name="prefs_airports">Airports</string>
+    <string name="prefs_default_orig_airport">Default Origin</string>
+    <string name="prefs_default_orig_airport_summary">Default Origin Airport ICAO</string>
+    <string name="prefs_default_dest_airport">Default Destination</string>
+    <string name="prefs_default_dest_airport_summary">Default Desitnation Airport ICAO</string>
+    <string name="prefs_use_default_airports">Auto fill defaults</string>
+    <string name="prefs_use_default_airports_summary">Always fill in default airports</string>
+    <string name="prefs_fill_last_airports">Remember airports</string>
+    <string name="prefs_fill_last_airports_summary">Automatically fill in the last used airports</string>
 </resources>
