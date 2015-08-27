@@ -10,7 +10,6 @@ import UIKit
 
 class PlannerViewController: UIViewController, UITextFieldDelegate {
     
-
     @IBOutlet weak var textFieldDeparture: UITextField!
     @IBOutlet weak var textFieldArrival: UITextField!
     
