@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -16,14 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Origin" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AHM-nM-5U3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Origin" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AHM-nM-5U3">
                                 <rect key="frame" x="252" y="109" width="97" height="30"/>
-                                <accessibility key="accessibilityConfiguration" hint="Origin" label="text_field_origin"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="svm-Ck-bHI">
-                                <rect key="frame" x="252" y="147" width="97" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Origin" label="text_field_origin"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
@@ -38,10 +33,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmI-6o-LZF">
-                                <rect key="frame" x="-6" y="185" width="600" height="162"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <pickerView contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-Dg-LXA" userLabel="AircraftPicker">
+                                <rect key="frame" x="-27" y="198" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.93272569444444442" green="0.93272569444444442" blue="0.93272569444444442" alpha="0.39000000000000001" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="Jhh-VC-vEE"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="qVK-Cu-xs8"/>
+                                </connections>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="svm-Ck-bHI">
+                                <rect key="frame" x="252" y="147" width="97" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="Origin" label="text_field_origin"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0091366065312718861" green="0.094970165045305324" blue="0.18659248737373735" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -50,14 +55,21 @@
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="top" secondItem="6BG-wa-UpB" secondAttribute="bottom" constant="37" id="OQU-un-bRb"/>
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="trailing" secondItem="6BG-wa-UpB" secondAttribute="trailing" id="Rxj-xs-JMW"/>
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="top" secondItem="6BG-wa-UpB" secondAttribute="bottom" constant="25" id="SCr-C4-xx8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cd1-Dg-LXA" secondAttribute="trailing" constant="-16" id="U0p-iY-CeA"/>
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="leading" secondItem="6BG-wa-UpB" secondAttribute="leading" id="gEL-GH-0qA"/>
+                            <constraint firstItem="cd1-Dg-LXA" firstAttribute="top" secondItem="svm-Ck-bHI" secondAttribute="bottom" constant="8" id="jX1-hx-ApV"/>
                             <constraint firstItem="6BG-wa-UpB" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="31" id="jah-RS-wIj"/>
+                            <constraint firstItem="cd1-Dg-LXA" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="mO5-Xd-IfB"/>
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="top" secondItem="6BG-wa-UpB" secondAttribute="bottom" constant="25" id="nGc-3c-jbY"/>
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="leading" secondItem="svm-Ck-bHI" secondAttribute="leading" id="tiB-WF-Ln3"/>
                             <constraint firstItem="AHM-nM-5U3" firstAttribute="trailing" secondItem="svm-Ck-bHI" secondAttribute="trailing" id="xgx-fb-fd4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="destinationText" destination="svm-Ck-bHI" id="0Ra-58-srb"/>
+                        <outlet property="originText" destination="AHM-nM-5U3" id="u5r-46-Qyq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
