@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="app_navigation">
-    	<item>Drivstoffplanlegger</item>
-        <item>Historikk</item>
-        <item>Favoritter</item>
-    </string-array>
-</resources>
