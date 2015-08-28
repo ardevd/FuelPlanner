@@ -13,6 +13,8 @@
 
     <string name="action_settings">Settings</string>
 
+    <string name="ok">OK</string>
+
     <!-- API Data -->
     <string translatable="false" name="account">E5A1B183</string>
     <string translatable="false" name="license">d55134a45df6d8ab37d6186284bfb775</string>
@@ -65,6 +67,17 @@
     <!--  Favorites -->
     <string name="favorites">Favorites</string>
     <string name="delete_fav">Delete</string>
+
+    <!-- Progress Dialogs-->
+    <string name="progress_aircraft_title">Loading Aircraft</string>
+    <string name="progress_aircraft_text">Downloading aircraft data</string>
+    <string name="progress_fuelplan_title">Preparing Fuel Plan</string>
+    <string name="progress_fuelplan_text">Downloading...</string>
+
+    <!-- Error Messages-->
+    <string name="error_title">Error</string>
+    <string name="error_aircraft_download">Could not communicate with aircraft data server</string>
+    <string name="error_fuel_plan">Could not reach fuel plan server</string>
 
     <!-- Preferences -->
     <string name="prefs_xfuel">xFuel Preferences</string>

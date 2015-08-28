@@ -8,7 +8,7 @@
         android:id="@+id/headerLayout"
         android:layout_width="fill_parent"
         android:background="@color/accent_blue"
-        android:elevation="10dp"
+        android:elevation="5dp"
         android:layout_height="wrap_content">
 
         <TextView
@@ -52,7 +52,7 @@
                 android:padding="15dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                card_view:cardElevation="8dp"
+                card_view:cardElevation="10dp"
                 card_view:cardCornerRadius="4dp">
 
                 <RelativeLayout
@@ -173,10 +173,9 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:padding="15dp"
-
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                card_view:cardElevation="8dp"
+                card_view:cardElevation="10dp"
                 card_view:cardCornerRadius="4dp">
 
                 <RelativeLayout
@@ -200,6 +199,7 @@
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/radioGroupUnits"
                     android:layout_below="@id/textViewUnits">
 
                     <RadioButton

@@ -1,10 +1,11 @@
 package com.connectutb.xfuel.tools;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -24,16 +25,28 @@ import java.util.Map;
 
 public class AircraftManager implements AircraftContract {
 
-    Context context;
+    private Context context;
+
+    private ProgressDialog progressAircraftUpdate;
 
     public AircraftManager(Context context){
         this.context = context;
+
     }
 
-    public void updateAircraftList(){
+    public void updateAircraftList() {
+
+        Cursor s = context.getContentResolver().query(QUERY_AIRCRAFT_ITEM, null, null, null, null);
+        int aircraftCount = s.getCount();
+        if (aircraftCount == 0) {
+            /**
+             * If there is no aircraft data present, we should show a progress dialog
+             */
+            // Configure progressDialog
+            progressAircraftUpdate = ProgressDialog.show(context, context.getString(R.string.progress_aircraft_title),
+                    context.getString(R.string.progress_aircraft_text), true);
+        }
         String url = context.getString(R.string.post_url);
-        // Delete existing aircraft list
-        context.getContentResolver().delete(QUERY_AIRCRAFT_ITEM, null, null);
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -43,6 +56,7 @@ public class AircraftManager implements AircraftContract {
                             parse(response);
                         } catch (Exception e) {
                             e.printStackTrace();
+                            progressAircraftUpdate.dismiss();
                         }
                     }
                 },
@@ -50,13 +64,15 @@ public class AircraftManager implements AircraftContract {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        progressAircraftUpdate.dismiss();
+                        ErrorDialog ed = new ErrorDialog();
+                        ed.showErrorDialog(context.getString(R.string.error_title), context.getString(R.string.error_aircraft_download), context);
                     }
                 }
         ) {
             @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 // the POST parameters:
                 params.put("QUERY", "LIST_E");
                 params.put("USER", context.getString(R.string.email));
@@ -97,14 +113,16 @@ public class AircraftManager implements AircraftContract {
                 System.out.println("Text "+xpp.getText());
                 if (xpp.getText().equals("A300")) {
                     aircraftBegins = true;
+                    // Found aircraft data, delete existing data.
+                    context.getContentResolver().delete(QUERY_AIRCRAFT_ITEM, null, null);
                     aircraftVals.put(AIRCRAFT_CODE, xpp.getText());
                 }
-
             }
-
-
             eventType = xpp.next();
+
         }
 
+        progressAircraftUpdate.dismiss();
     }
+
 }

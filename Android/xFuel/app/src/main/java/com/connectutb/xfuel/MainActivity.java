@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
-import com.connectutb.xfuel.tools.AircraftManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -37,9 +36,6 @@ public class MainActivity extends AppCompatActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        // Debug
-        AircraftManager am = new AircraftManager(this);
-        am.updateAircraftList();
     }
 
     @Override
