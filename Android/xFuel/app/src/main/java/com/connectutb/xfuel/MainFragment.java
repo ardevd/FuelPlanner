@@ -2,24 +2,28 @@ package com.connectutb.xfuel;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-
 import com.connectutb.xfuel.providers.AircraftContract;
 import com.connectutb.xfuel.tools.AircraftManager;
+import com.connectutb.xfuel.tools.FuelPlanGenerator;
 
 public class MainFragment extends Fragment implements AircraftContract{
     // Views
@@ -27,10 +31,15 @@ public class MainFragment extends Fragment implements AircraftContract{
     private RadioButton radioMetric;
     private RadioButton radioImperial;
     private RadioGroup radioGroupUnits;
+    private FloatingActionButton sendFAB;
+    private EditText etDeparture;
+    private EditText etArrival;
+
+    SimpleCursorAdapter adapter;
 
 
-    SharedPreferences settings;
-    SharedPreferences.Editor editor;
+    private SharedPreferences settings;
+    private SharedPreferences.Editor editor;
 
 
     /**
@@ -75,6 +84,9 @@ public class MainFragment extends Fragment implements AircraftContract{
         radioMetric = (RadioButton) rootView.findViewById(R.id.radioButtonMetric);
         radioImperial = (RadioButton) rootView.findViewById(R.id.radioButtonImperial);
         radioGroupUnits = (RadioGroup) rootView.findViewById(R.id.radioGroupUnits);
+        sendFAB = (FloatingActionButton)  rootView.findViewById(R.id.submitFAB);
+        etArrival = (EditText) rootView.findViewById(R.id.editTextArrival);
+        etDeparture = (EditText) rootView.findViewById(R.id.editTextDeparture);
 
         if (settings.getBoolean("want_metric", true)) {
             radioMetric.setChecked(true);
@@ -94,6 +106,15 @@ public class MainFragment extends Fragment implements AircraftContract{
                 }
             }
         });
+
+        sendFAB.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                FuelPlanGenerator fpg = new FuelPlanGenerator(getActivity());
+                String aircraftCode = adapter.getCursor().getString(1);
+                fpg.generateFuelPlan(etDeparture.getText().toString(), etArrival.getText().toString(), aircraftCode, true);
+
+            }
+        });
     }
 
     @Override
@@ -108,7 +129,7 @@ public class MainFragment extends Fragment implements AircraftContract{
         AircraftManager am = new AircraftManager(getActivity());
         am.updateAircraftList();
 
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getActivity(), R.layout.aircraft_spinner_row_layout, null,
+        adapter = new SimpleCursorAdapter(getActivity(), R.layout.aircraft_spinner_row_layout, null,
                 new String[] { AIRCRAFT_NAME },
                 new int[] { R.id.textViewSpinnerRowAircraftName }, SimpleCursorAdapter.NO_SELECTION);
 

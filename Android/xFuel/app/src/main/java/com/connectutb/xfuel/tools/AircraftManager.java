@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -38,6 +39,7 @@ public class AircraftManager implements AircraftContract {
 
         Cursor s = context.getContentResolver().query(QUERY_AIRCRAFT_ITEM, null, null, null, null);
         int aircraftCount = s.getCount();
+        progressAircraftUpdate = new ProgressDialog(context);
         if (aircraftCount == 0) {
             /**
              * If there is no aircraft data present, we should show a progress dialog
@@ -102,7 +104,7 @@ public class AircraftManager implements AircraftContract {
                 System.out.println("Start tag "+xpp.getName());
                 if (xpp.getName().equals("DESCRIP") && aircraftBegins){
                     aircraftVals.put(AIRCRAFT_NAME, xpp.nextText());
-                    context.getContentResolver().insert(INSERT_AIRCRAFT_ITEM, aircraftVals);
+                    Uri res = context.getContentResolver().insert(INSERT_AIRCRAFT_ITEM, aircraftVals);
                     aircraftVals = new ContentValues();
                 } else if (xpp.getName().equals("ID") && aircraftBegins) {
                     aircraftVals.put(AIRCRAFT_CODE, xpp.nextText());

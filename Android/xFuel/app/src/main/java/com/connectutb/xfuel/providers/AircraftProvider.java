@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -34,14 +35,16 @@ public class AircraftProvider extends ContentProvider implements AircraftContrac
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         Cursor c;
-
+        SQLiteDatabase database = db.getWritableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        qb.setTables(TABLE_AIRCRAFT);
         switch (matcher.match(uri)){
             case URI_ONE_AIRCRAFT:
                 long id = ContentUris.parseId(uri);
                 c = db.findAircraftById(id);
                 break;
             case URI_ALL_AIRCRAFT:
-                c = db.findAllAircraft();
+                c = qb.query(database, projection, selection, selectionArgs, null, null, null, null);
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);

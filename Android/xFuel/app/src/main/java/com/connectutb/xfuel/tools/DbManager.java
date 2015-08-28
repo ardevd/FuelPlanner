@@ -47,7 +47,7 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
 
     public Cursor findAircraftById(long id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.query(TABLE_AIRCRAFT, null, AIRCRAFT_ID + "= ?", new String[] { Long.toString(id) }, null, null, null, null);
+        return db.query(TABLE_AIRCRAFT, null, AIRCRAFT_ID + "=?", new String[] { Long.toString(id) }, null, null, null);
     }
 
     public Cursor findAllAircraft(){
