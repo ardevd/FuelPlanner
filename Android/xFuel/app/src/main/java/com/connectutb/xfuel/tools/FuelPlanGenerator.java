@@ -3,7 +3,6 @@ package com.connectutb.xfuel.tools;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.net.Uri;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,9 +21,7 @@ import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by eholst on 28.08.15.
- */
+
 public class FuelPlanGenerator implements HistoryContract {
     private Context context;
     private ProgressDialog progressFuelPlan;
