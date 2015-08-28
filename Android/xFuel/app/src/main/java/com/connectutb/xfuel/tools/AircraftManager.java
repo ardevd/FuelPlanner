@@ -2,7 +2,6 @@ package com.connectutb.xfuel.tools;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.util.Xml;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,15 +17,10 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-/**
- * Created by eholst on 28.08.15.
- */
 
 public class AircraftManager implements AircraftContract {
 
@@ -37,7 +31,6 @@ public class AircraftManager implements AircraftContract {
     }
 
     public void updateAircraftList(){
-        RequestQueue queue = Volley.newRequestQueue(context);
         String url = context.getString(R.string.post_url);
         // Delete existing aircraft list
         context.getContentResolver().delete(QUERY_AIRCRAFT_ITEM, null, null);
@@ -47,7 +40,6 @@ public class AircraftManager implements AircraftContract {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            response.length();
                             parse(response);
                         } catch (Exception e) {
                             e.printStackTrace();

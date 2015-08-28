@@ -9,10 +9,6 @@ import android.util.Log;
 import com.connectutb.xfuel.providers.AircraftContract;
 import com.connectutb.xfuel.providers.HistoryContract;
 
-/**
- * Created by eholst on 27.08.15.
- */
-
 public class DbManager extends SQLiteOpenHelper implements AircraftContract, HistoryContract{
 
     public static final String DB_NAME = "xfuel.db";

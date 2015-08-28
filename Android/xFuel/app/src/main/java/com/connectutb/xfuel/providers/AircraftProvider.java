@@ -11,9 +11,7 @@ import android.text.TextUtils;
 
 import com.connectutb.xfuel.tools.DbManager;
 
-/**
- * Created by eholst on 28.08.15.
- */
+
 public class AircraftProvider extends ContentProvider implements AircraftContract {
 
     private DbManager db;

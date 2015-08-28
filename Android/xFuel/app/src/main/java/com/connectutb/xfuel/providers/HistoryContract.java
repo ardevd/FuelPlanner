@@ -3,9 +3,6 @@ package com.connectutb.xfuel.providers;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-/**
- * Created by eholst on 27.08.15.
- */
 public interface HistoryContract extends BaseColumns {
 
     String HISTORY_AUTHORITY = "com.connectutb.xfuel.history";

@@ -3,6 +3,7 @@ package com.connectutb.xfuel;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
@@ -15,9 +16,7 @@ import android.widget.Spinner;
 
 import com.connectutb.xfuel.providers.AircraftContract;
 
-/**
- * Created by eholst on 28.08.15.
- */
+
 public class MainFragment extends Fragment implements AircraftContract{
 
     private Spinner aircraftSpinner;
@@ -52,7 +51,7 @@ public class MainFragment extends Fragment implements AircraftContract{
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));

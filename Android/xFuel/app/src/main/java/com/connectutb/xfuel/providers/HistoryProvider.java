@@ -5,9 +5,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 
-/**
- * Created by eholst on 28.08.15.
- */
 public class HistoryProvider extends ContentProvider implements HistoryContract {
     @Override
     public boolean onCreate() {
