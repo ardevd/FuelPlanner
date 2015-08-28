@@ -146,14 +146,14 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/spinnerPlanes"
+                        android:id="@+id/spinnerAircraft"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_below="@+id/textViewAircraft"
                         android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toRightOf="@+id/imageArrival" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_alignLeft="@id/textViewAircraft" />
 
 
                 </RelativeLayout>

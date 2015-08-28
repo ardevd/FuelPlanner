@@ -12,10 +12,10 @@ public interface HistoryContract extends BaseColumns {
 
     Uri HISTORY_CONTENT_URI = Uri.parse("content//" + HISTORY_AUTHORITY + "/item");
 
-    String HISTORY_ITEM = "aircraft";
+    String HISTORY_ITEM = "history";
 
     // SQL Table fields
-    String TABLE_HISTORY = "aircraft";
+    String TABLE_HISTORY = "history";
     String HISTORY_ID = BaseColumns._ID;
     String HISTORY_NAME = "name";
     String HISTORY_DEPARTURE = "departure";

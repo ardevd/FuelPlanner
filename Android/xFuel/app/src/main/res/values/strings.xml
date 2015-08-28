@@ -1,25 +1,26 @@
 <resources>
+
+    <!-- App Data -->
     <string name="app_name">xFuel</string>
 
-    <string name="fuel_planning_title">Fuel Planning</string>
-
-    <string name="title_section1">xFuel</string>
-    <string name="title_section2">xFuel</string>
-    <string name="title_section3">xFuel</string>
+    <string name="title_section1">Fuel Planning</string>
+    <string name="title_section2">History</string>
+    <string name="title_section3">Settings</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
 
-    <!-- API License -->
+    <!-- API Data -->
     <string translatable="false" name="account">E5A1B183</string>
     <string translatable="false" name="license">d55134a45df6d8ab37d6186284bfb775</string>
     <string translatable="false" name="email">xfuel@connect-utb.com</string>
+    <string name="post_url" translatable="false">http://fuelplanner.com/api/fuelapi.php</string>
 
     <!-- Fuel Planning -->
+    <string name="fuel_planning_title">Fuel Planning</string>
     <string name="aircaft_type">Aircraft</string>
     <string name="origin_airport">ICAO</string>
     <string name="origin">Departure Airport</string>
@@ -34,6 +35,7 @@
 
     <string name="error_network">An active internet connection is required to request fuel plans</string>
     <string name="error_support">Could not find a suitable messaging app.. </string>
+
     <!--  Fuel Report -->
     <string name="fuel_report">Fuel Report</string>
     <string name="load_sheet">Load Sheet</string>

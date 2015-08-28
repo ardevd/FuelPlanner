@@ -1,6 +1,7 @@
 package com.connectutb.xfuel.tools;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -33,7 +34,7 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
         db.execSQL(sql_aircraft);
 
         String sql_history = String.format("CREATE TABLE %s ( %s INT PRIMARY KEY,"
-                        + "%s TEXT, %s TEXT, %s TEXT, % sTEXT);", TABLE_HISTORY,
+                        + "%s TEXT, %s TEXT, %s TEXT, %s TEXT);", TABLE_HISTORY,
                 HISTORY_ID, HISTORY_NAME, HISTORY_DEPARTURE, HISTORY_ARRIVAL, HISTORY_AIRCRAFT);
 
         Log.i(TAG, "Created history database");
@@ -43,8 +44,18 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_AIRCRAFT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_AIRCRAFT);
         onCreate(db);
 
+    }
+
+    public Cursor findAircraftById(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.query(TABLE_AIRCRAFT, null, AIRCRAFT_ID + "= ?", new String[] { Long.toString(id) }, null, null, null, null);
+    }
+
+    public Cursor findAllAircraft(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.query(TABLE_AIRCRAFT, null, null, null, null, null, null);
     }
 }

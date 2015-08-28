@@ -8,7 +8,7 @@ public interface AircraftContract  extends BaseColumns {
 
     String AIRCRAFT_AUTHORITY = "com.connectutb.xfuel.aircraft";
 
-    Uri AIRCRAFT_CONTENT_URI = Uri.parse("content//" + AIRCRAFT_AUTHORITY + "/item");
+    Uri AIRCRAFT_CONTENT_URI = Uri.parse("content://" + AIRCRAFT_AUTHORITY + "/aircraft");
 
     String AIRCRAFT_ITEM = "aircraft";
 
@@ -20,5 +20,6 @@ public interface AircraftContract  extends BaseColumns {
 
     // Queries
     Uri QUERY_AIRCRAFT_ITEM = Uri.parse("content://" + AIRCRAFT_AUTHORITY + "/" + AIRCRAFT_ITEM);
+    Uri INSERT_AIRCRAFT_ITEM = QUERY_AIRCRAFT_ITEM;
 
 }

@@ -175,6 +175,10 @@ public class NavigationDrawerFragment extends Fragment {
         // per the navigation drawer design guidelines.
         if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
             mDrawerLayout.openDrawer(mFragmentContainerView);
+            mUserLearnedDrawer = true;
+            SharedPreferences sp = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity());
+            sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
         }
 
         // Defer code dependent on restoration of previous instance state.

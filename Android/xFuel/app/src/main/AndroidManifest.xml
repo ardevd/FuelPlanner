@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.connectutb.xfuel" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +19,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".providers.AircraftProvider"
+            android:authorities="com.connectutb.xfuel.aircraft"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
+
+        <provider
+            android:name=".providers.HistoryProvider"
+            android:authorities="com.connectutb.xfuel.history"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
     </application>
 
 </manifest>
