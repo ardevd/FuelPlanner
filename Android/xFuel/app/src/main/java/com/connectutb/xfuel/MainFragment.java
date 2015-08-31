@@ -1,17 +1,20 @@
 package com.connectutb.xfuel;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.LoaderManager;
-import android.content.ContentResolver;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.CursorLoader;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,8 @@ import android.widget.Spinner;
 import com.connectutb.xfuel.providers.AircraftContract;
 import com.connectutb.xfuel.tools.AircraftManager;
 import com.connectutb.xfuel.tools.FuelPlanGenerator;
+
+import java.util.HashMap;
 
 public class MainFragment extends Fragment implements AircraftContract{
     // Views
@@ -73,9 +78,28 @@ public class MainFragment extends Fragment implements AircraftContract{
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         configureViews(rootView);
 
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
+                mFuelPlanReceiver, new IntentFilter("fuelPlan"));
+
         populateAircraftSpinner();
         return rootView;
     }
+
+    private BroadcastReceiver mFuelPlanReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            HashMap fuelData = (HashMap<String, String>)intent.getSerializableExtra("data");
+            int count = fuelData.size();
+            int test = 0;
+
+            // Show Fuel Plan
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
+                    .addToBackStack(null)
+                    .commit();
+        }
+    };
 
     private void configureViews(View rootView){
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewPlanListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/load_sheet"
+        android:textColor="@color/accent_red"
+        android:textSize="15sp"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewPlanListDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_alignLeft="@id/textViewPlanListTitle"
+        android:layout_below="@id/textViewPlanListTitle"
+        android:layout_marginRight="15dp"
+        android:text="ENGM"
+        android:textColor="@color/accent_dark_gray"
+        android:textSize="16sp" />
+
+</RelativeLayout>

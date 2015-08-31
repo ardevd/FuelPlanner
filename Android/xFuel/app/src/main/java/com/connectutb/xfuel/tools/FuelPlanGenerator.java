@@ -1,14 +1,18 @@
 package com.connectutb.xfuel.tools;
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.connectutb.xfuel.MainFragment;
 import com.connectutb.xfuel.R;
 import com.connectutb.xfuel.providers.HistoryContract;
 
@@ -79,7 +83,7 @@ public class FuelPlanGenerator implements HistoryContract {
         Volley.newRequestQueue(context).add(postRequest);
     }
 
-    public void parse(String data) throws XmlPullParserException, IOException {
+    private void parse(String data) throws XmlPullParserException, IOException {
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
         XmlPullParser xpp = factory.newPullParser();
@@ -87,7 +91,7 @@ public class FuelPlanGenerator implements HistoryContract {
         xpp.setInput(new StringReader(data));
         int eventType = xpp.getEventType();
         boolean fuelPlanBegins = false;
-        ContentValues fuelPlanValues = new ContentValues();
+        HashMap fphm = new HashMap();
         while (eventType != XmlPullParser.END_DOCUMENT) {
             if(eventType == XmlPullParser.START_DOCUMENT) {
                 System.out.println("Start document");
@@ -98,7 +102,7 @@ public class FuelPlanGenerator implements HistoryContract {
                 if (xpp.getName().equals("MESSAGES")){
                     break;
                 } else if (fuelPlanBegins){
-                    fuelPlanValues.put(xpp.getName(), xpp.nextText());
+                    fphm.put(xpp.getName(), xpp.nextText());
                 } else if (xpp.getName().equals("DESCRIP")){
                     fuelPlanBegins = true;
                 }
@@ -112,8 +116,10 @@ public class FuelPlanGenerator implements HistoryContract {
 
         }
 
-        int count = fuelPlanValues.size();
-        fuelPlanValues.toString();
+        int count = fphm.size();
         progressFuelPlan.dismiss();
+        Intent intent = new Intent("fuelPlan");
+        intent.putExtra("data", fphm);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 }
