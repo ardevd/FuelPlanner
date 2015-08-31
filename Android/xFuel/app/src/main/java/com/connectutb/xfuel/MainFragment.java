@@ -134,8 +134,9 @@ public class MainFragment extends Fragment implements AircraftContract{
         sendFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 FuelPlanGenerator fpg = new FuelPlanGenerator(getActivity());
+                boolean wantMetric = settings.getBoolean("want_metric", true);
                 String aircraftCode = adapter.getCursor().getString(1);
-                fpg.generateFuelPlan(etDeparture.getText().toString(), etArrival.getText().toString(), aircraftCode, true);
+                fpg.generateFuelPlan(etDeparture.getText().toString(), etArrival.getText().toString(), aircraftCode, wantMetric);
 
             }
         });
