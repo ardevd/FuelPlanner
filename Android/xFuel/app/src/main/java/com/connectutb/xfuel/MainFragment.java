@@ -91,8 +91,6 @@ public class MainFragment extends Fragment implements AircraftContract{
         @Override
         public void onReceive(Context context, Intent intent) {
             HashMap fuelData = (HashMap<String, String>)intent.getSerializableExtra("data");
-            int count = fuelData.size();
-            int test = 0;
 
             // Show Fuel Plan
             FragmentManager fragmentManager = getFragmentManager();
