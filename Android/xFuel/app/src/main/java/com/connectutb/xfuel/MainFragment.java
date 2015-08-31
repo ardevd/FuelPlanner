@@ -24,6 +24,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.connectutb.xfuel.providers.AircraftContract;
 import com.connectutb.xfuel.tools.AircraftManager;
 import com.connectutb.xfuel.tools.FuelPlanGenerator;
@@ -112,6 +114,10 @@ public class MainFragment extends Fragment implements AircraftContract{
         etArrival = (EditText) rootView.findViewById(R.id.editTextArrival);
         etDeparture = (EditText) rootView.findViewById(R.id.editTextDeparture);
 
+        etArrival.setText(settings.getString("arr_icao", ""));
+        etDeparture.setText(settings.getString("dep_icao", ""));
+
+
         if (settings.getBoolean("want_metric", true)) {
             radioMetric.setChecked(true);
             radioImperial.setChecked(false);
@@ -133,13 +139,28 @@ public class MainFragment extends Fragment implements AircraftContract{
 
         sendFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                FuelPlanGenerator fpg = new FuelPlanGenerator(getActivity());
-                boolean wantMetric = settings.getBoolean("want_metric", true);
-                String aircraftCode = adapter.getCursor().getString(1);
-                fpg.generateFuelPlan(etDeparture.getText().toString(), etArrival.getText().toString(), aircraftCode, wantMetric);
-
+                submitFuelParameters();
             }
         });
+    }
+
+    private void submitFuelParameters(){
+        String depICAO = etDeparture.getText().toString();
+        String arrICAO = etArrival.getText().toString();
+        if (depICAO.length() == 4 && arrICAO.length() == 4) {
+            FuelPlanGenerator fpg = new FuelPlanGenerator(getActivity());
+            boolean wantMetric = settings.getBoolean("want_metric", true);
+            // Store last-used values
+            editor.putString("dep_icao", depICAO);
+            editor.putString("arr_icao", arrICAO);
+            editor.putInt("def_aircraft", aircraftSpinner.getSelectedItemPosition());
+            editor.commit();
+
+            String aircraftCode = adapter.getCursor().getString(1);
+            fpg.generateFuelPlan(depICAO, arrICAO, aircraftCode, wantMetric);
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.error_invalid_airport), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

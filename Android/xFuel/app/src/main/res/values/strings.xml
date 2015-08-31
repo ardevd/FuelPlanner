@@ -32,7 +32,8 @@
     <string name="units">Units</string>
     <string name="metric">Metric</string>
     <string name="imperial">Imperial</string>
-    <string name="advanced_options">Advanced Options</string>
+    <string name="advanced_options">Advanced</string>
+    <string name="more">More</string>
 
     <string name="error_network">An active internet connection is required to request fuel plans</string>
     <string name="error_support">Could not find a suitable messaging app.. </string>
@@ -77,6 +78,7 @@
     <string name="error_title">Error</string>
     <string name="error_aircraft_download">Could not communicate with aircraft data server</string>
     <string name="error_fuel_plan">Could not reach fuel plan server</string>
+    <string name="error_invalid_airport">Invalid airport ICAO</string>
 
     <!-- Preferences -->
     <string name="prefs_xfuel">xFuel Preferences</string>
