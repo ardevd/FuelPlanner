@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -105,20 +106,20 @@ public class FuelPlanGenerator implements HistoryContract {
             if(eventType == XmlPullParser.START_DOCUMENT) {
                 System.out.println("Start document");
             } else if(eventType == XmlPullParser.END_DOCUMENT) {
-                System.out.println("End document");
             } else if(eventType == XmlPullParser.START_TAG) {
-                System.out.println("Start tag "+xpp.getName());
                 if (xpp.getName().equals("MESSAGES")){
                     break;
                 } else if (fuelPlanBegins){
-                    fphm.put(xpp.getName(), xpp.nextText());
+                    String tagValue = xpp.nextText();
+                    if (tagValue.length()>0) {
+                        fphm.put(xpp.getName(), tagValue.toString());
+                    }
+
                 } else if (xpp.getName().equals("DESCRIP")){
                     fuelPlanBegins = true;
                 }
             } else if(eventType == XmlPullParser.END_TAG) {
-                System.out.println("End tag "+xpp.getName());
             } else if(eventType == XmlPullParser.TEXT) {
-                System.out.println("Text "+xpp.getText());
 
             }
             eventType = xpp.next();

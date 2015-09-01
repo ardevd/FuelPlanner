@@ -1,11 +1,14 @@
 package com.connectutb.xfuel;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.connectutb.xfuel.tools.OutputMatcher;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,10 +65,22 @@ public class FuelPlanAdapter extends ArrayAdapter<String> {
         }
 
         Map.Entry<String, String> item = (Map.Entry) fuelData.get(position);
-        if (item.getValue().length() > 0) {
+        OutputMatcher om = new OutputMatcher(context);
+        ContentValues values = om.getTitleAndDesc(item.getKey());
+        if (values.get("title").toString().length()>0){
+            holder.textViewKey.setText(values.get("title").toString());
+        } else {
             holder.textViewKey.setText(item.getKey());
-            holder.textViewValue.setText(item.getValue());
         }
+
+        if (values.get("desc").toString().length()>0){
+            holder.textviewDesc.setText(values.get("desc").toString());
+        } else {
+            holder.textviewDesc.setText("");
+        }
+
+        holder.textViewValue.setText(item.getValue());
+
 
         return rowView;
     }

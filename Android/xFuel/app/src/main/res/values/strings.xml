@@ -56,6 +56,18 @@
     <string name="zero_fuel_weight">Zero Fuel Weight</string>
     <string name="share">Share</string>
 
+    <!-- Output values -->
+    <string name="heading_tc">Initial Heading</string>
+    <string name="heading_tc_summary">Initial direct true heading from ORIG to DEST</string>
+    <string name="oew">Operating empty weight</string>
+    <string name="ttl">Total traffic load</string>
+    <string name="zfw">Zero fuel weight</string>
+    <string name="fuel_efu">Estimated fuel usage</string>
+    <string name="fuel_rsv">Reserve fuel</string>
+    <string name="fuel_tof">Takeoff Fuel</string>
+    <string name="time_blk">Block Time</string>
+    <string name="time_blk_summary">Estimated total block time from time-out to time-in.</string>
+
     <!-- Advanced Options -->
 
     <string name="advanced_title">Optional Advanced Parameters</string>
