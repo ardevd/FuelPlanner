@@ -34,7 +34,7 @@ public class FuelPlanGenerator implements HistoryContract {
         this.context = context;
     }
 
-    public void generateFuelPlan(final String departure, final String arrival, final String aircraft, final boolean wantMetric){
+    public void generateFuelPlan(final String departure, final String arrival, final String aircraft, final HashMap<String, String> advancedOptions, final boolean wantMetric){
 
         String url = context.getString(R.string.post_url);
         // Configure progressDialog
@@ -77,6 +77,15 @@ public class FuelPlanGenerator implements HistoryContract {
                 if (wantMetric){
                     params.put("UNITS", "METRIC");
                 }
+
+                if (advancedOptions.size()>0){
+                    for (Map.Entry<String, String> entry : advancedOptions.entrySet()) {
+                        String key = entry.getKey();
+                        String value = entry.getValue();
+                        params.put(key, value);
+                    }
+                }
+
                 return params;
             }
         };

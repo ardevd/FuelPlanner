@@ -14,6 +14,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
     <!-- API Data -->
     <string translatable="false" name="account">E5A1B183</string>
@@ -32,6 +33,7 @@
     <string name="units">Units</string>
     <string name="metric">Metric</string>
     <string name="imperial">Imperial</string>
+    <string name="round_trip">Round Trip</string>
     <string name="advanced_options">Advanced</string>
     <string name="more">More</string>
 
@@ -57,6 +59,17 @@
     <string name="added_favorite">Added To Favorites!</string>
     <string name="add_to_favs">Add to Favorites</string>
     <string name="fuelplan_name">Fuelplan Name</string>
+
+    <!-- Advanced Options -->
+
+    <string name="advanced_title">Optional Advanced Parameters</string>
+    <string name="advanced_summary">Units are in kg or lbs according to in-app setting</string>
+    <string name="advanced_ttl">Total Traffic Load</string>
+    <string name="advanced_hint_ttl">TTL</string>
+    <string name="advanced_oew">Operating empty weight</string>
+    <string name="advanced_hint_oew">OEW</string>
+    <string name="advanced_mtank">Maximum fuel weight</string>
+    <string name="advanced_hint_mtank">MTANK</string>
 
     <!--  History -->
     <string name="history">History</string>

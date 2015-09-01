@@ -1,7 +1,9 @@
 package com.connectutb.xfuel;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -18,6 +20,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -33,6 +36,7 @@ import com.connectutb.xfuel.tools.FuelPlanGenerator;
 import java.util.HashMap;
 
 public class MainFragment extends Fragment implements AircraftContract{
+
     // Views
     private Spinner aircraftSpinner;
     private RadioButton radioMetric;
@@ -41,7 +45,10 @@ public class MainFragment extends Fragment implements AircraftContract{
     private FloatingActionButton sendFAB;
     private EditText etDeparture;
     private EditText etArrival;
+    private Button submitButton;
 
+    private int mStackLevel = 0;
+    private HashMap advOptions;
     SimpleCursorAdapter adapter;
 
 
@@ -83,6 +90,9 @@ public class MainFragment extends Fragment implements AircraftContract{
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
                 mFuelPlanReceiver, new IntentFilter("fuelPlan"));
 
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
+                mAdvancedOptionsReceiver, new IntentFilter("advancedOptions"));
+
         populateAircraftSpinner();
         return rootView;
     }
@@ -101,6 +111,13 @@ public class MainFragment extends Fragment implements AircraftContract{
         }
     };
 
+    private BroadcastReceiver mAdvancedOptionsReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            advOptions = (HashMap<String, String>)intent.getSerializableExtra("options");
+        }
+    };
+
     private void configureViews(View rootView){
 
         // Initialization of Views
@@ -111,6 +128,7 @@ public class MainFragment extends Fragment implements AircraftContract{
         sendFAB = (FloatingActionButton)  rootView.findViewById(R.id.submitFAB);
         etArrival = (EditText) rootView.findViewById(R.id.editTextArrival);
         etDeparture = (EditText) rootView.findViewById(R.id.editTextDeparture);
+        submitButton = (Button) rootView.findViewById(R.id.buttonCalculate);
 
         etArrival.setText(settings.getString("arr_icao", ""));
         etDeparture.setText(settings.getString("dep_icao", ""));
@@ -135,6 +153,14 @@ public class MainFragment extends Fragment implements AircraftContract{
             }
         });
 
+        submitButton.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                showAdvancedDialog();
+            }
+        });
+
         sendFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 submitFuelParameters();
@@ -154,8 +180,11 @@ public class MainFragment extends Fragment implements AircraftContract{
             editor.putInt("def_aircraft", aircraftSpinner.getSelectedItemPosition());
             editor.commit();
 
+            if (advOptions == null){
+                advOptions = new HashMap();
+            }
             String aircraftCode = adapter.getCursor().getString(1);
-            fpg.generateFuelPlan(depICAO, arrICAO, aircraftCode, wantMetric);
+            fpg.generateFuelPlan(depICAO, arrICAO, aircraftCode, advOptions, wantMetric);
         } else {
             Toast.makeText(getActivity(), getString(R.string.error_invalid_airport), Toast.LENGTH_SHORT).show();
         }
@@ -216,4 +245,22 @@ public class MainFragment extends Fragment implements AircraftContract{
 
         });
         }
+
+    private void showAdvancedDialog() {
+        mStackLevel++;
+
+        // DialogFragment.show() will take care of adding the fragment
+        // in a transaction.  We also want to remove any currently showing
+        // dialog, so make our own transaction and take care of that here.
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        // Create and show the dialog.
+        DialogFragment newFragment = AdvancedOptionsDialog.newInstance(mStackLevel);
+        newFragment.show(ft, "advancedDialog");
+    }
 }

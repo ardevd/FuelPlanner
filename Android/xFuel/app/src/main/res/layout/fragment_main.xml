@@ -140,6 +140,7 @@
                         android:textColor="@color/accent_dark_gray"
                         android:textSize="25sp" />
 
+
                     <TextView
                         android:id="@+id/textViewAircraft"
                         android:layout_width="wrap_content"
@@ -162,6 +163,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
                         android:layout_alignLeft="@id/textViewAircraft" />
+
 
 
                 </RelativeLayout>

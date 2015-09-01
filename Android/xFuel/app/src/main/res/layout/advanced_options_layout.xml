@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewAdvancedDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/advanced_title"
+        android:textColor="@color/accent_dark_gray"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewAdvancedDialogSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAdvancedDialogTitle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/advanced_summary"
+        android:textColor="@color/accent_red"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewTTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAdvancedDialogSummary"
+        android:layout_marginLeft="15dp"
+        android:text="@string/advanced_ttl"
+        android:textColor="@color/accent_light_gray"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextTTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTTL"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:ems="4"
+        android:gravity="right"
+        android:hint="@string/advanced_hint_ttl"
+        android:digits="0123456789"
+        android:inputType="numberDecimal"
+        android:maxLength="8"
+        android:textColor="@color/accent_dark_gray"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textViewOEW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTTL"
+        android:layout_marginLeft="15dp"
+        android:text="@string/advanced_oew"
+        android:textColor="@color/accent_light_gray"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextOEW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewOEW"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:ems="4"
+        android:gravity="right"
+        android:hint="@string/advanced_hint_oew"
+        android:digits="0123456789"
+        android:inputType="numberDecimal"
+        android:maxLength="8"
+        android:textColor="@color/accent_dark_gray"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textViewMTANK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextOEW"
+        android:layout_marginLeft="15dp"
+        android:text="@string/advanced_mtank"
+        android:textColor="@color/accent_light_gray"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextMTANK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewMTANK"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:ems="4"
+        android:gravity="right"
+        android:hint="@string/advanced_hint_mtank"
+        android:digits="0123456789"
+        android:inputType="numberDecimal"
+        android:maxLength="8"
+        android:textColor="@color/accent_dark_gray"
+        android:textSize="20sp" />
+
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/round_trip"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/accent_dark_gray"
+        android:id="@+id/switchRoundTrip"
+        android:layout_alignLeft="@id/textViewMTANK"
+        android:layout_below="@+id/editTextMTANK"/>
+
+</RelativeLayout>
