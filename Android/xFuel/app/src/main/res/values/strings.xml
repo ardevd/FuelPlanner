@@ -55,10 +55,6 @@
     <string name="metar_dest">METAR Destination</string>
     <string name="zero_fuel_weight">Zero Fuel Weight</string>
     <string name="share">Share</string>
-    <string name="add_favourite">Favorite</string>
-    <string name="added_favorite">Added To Favorites!</string>
-    <string name="add_to_favs">Add to Favorites</string>
-    <string name="fuelplan_name">Fuelplan Name</string>
 
     <!-- Advanced Options -->
 

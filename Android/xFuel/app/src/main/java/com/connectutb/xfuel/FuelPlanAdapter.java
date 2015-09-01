@@ -30,6 +30,7 @@ public class FuelPlanAdapter extends ArrayAdapter<String> {
     // any members of the containing class
     static class ViewHolder {
         public TextView textViewKey;
+        public TextView textviewDesc;
         public TextView textViewValue;
     }
 
@@ -51,9 +52,9 @@ public class FuelPlanAdapter extends ArrayAdapter<String> {
         if (rowView == null) {
             LayoutInflater inflater = context.getLayoutInflater();
             rowView = inflater.inflate(R.layout.fuelplan_list_row, parent, false);
-            // rowView.setBackgroundColor(0x1a1a1a);
             holder = new ViewHolder();
             holder.textViewKey = (TextView) rowView.findViewById(R.id.textViewPlanListTitle);
+            holder.textviewDesc = (TextView) rowView.findViewById(R.id.textViewPlanListDesc);
             holder.textViewValue = (TextView) rowView.findViewById(R.id.textViewPlanListDetails);
             rowView.setTag(holder);
         } else {

@@ -68,8 +68,9 @@
                         android:id="@+id/imageRoute"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_dep"/>
+                        android:layout_alignTop="@id/textViewReportDeparture"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_route"/>
 
                     <TextView
                         android:id="@+id/textViewReportArrival"
@@ -83,6 +84,31 @@
                         android:textColor="@color/accent_dark_gray"
                         android:textSize="25sp" />
 
+                    <TextView
+                        android:id="@+id/textViewReportDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/textViewReportArrival"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/distance"
+                        android:textColor="@color/accent_dark_gray"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/textViewReportDistanceValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@id/textViewReportDistance"
+                        android:layout_below="@id/textViewReportArrival"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="200NM"
+                        android:textColor="@color/accent_red"
+                        android:textSize="16sp" />
 
                     </RelativeLayout>
 

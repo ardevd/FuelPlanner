@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.HashMap;
 
@@ -15,6 +16,7 @@ import java.util.HashMap;
 public class FuelPlanFragment extends Fragment{
 
     private ListView fuelPlanListView;
+    private TextView textDistance;
     private HashMap<String, String> fuelData;
 
     public static FuelPlanFragment newInstance(HashMap<String, String> fuelData) {
@@ -40,6 +42,8 @@ public class FuelPlanFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_fuel_plan, container, false);
 
         fuelPlanListView = (ListView) rootView.findViewById(R.id.listViewFuelPlan);
+        textDistance = (TextView) rootView.findViewById(R.id.textViewReportDistanceValue);
+        textDistance.setText(fuelData.get("NM") + " NM");
 
         // Configure Adapter
         FuelPlanAdapter adapter = new FuelPlanAdapter(getActivity(), fuelData);
