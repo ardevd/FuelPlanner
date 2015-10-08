@@ -14,12 +14,18 @@ public interface HistoryContract extends BaseColumns {
     // SQL Table fields
     String TABLE_HISTORY = "history";
     String HISTORY_ID = BaseColumns._ID;
-    String HISTORY_NAME = "name";
     String HISTORY_DEPARTURE = "departure";
     String HISTORY_ARRIVAL = "arrival";
     String HISTORY_AIRCRAFT = "aircraft";
+    String HISTORY_TTL = "ttl";
+    String HISTORY_OEW = "oew";
+    String HISTORY_MTANK = "mtank";
+    String HISTORY_TANKER = "tanker";
+    // IMPERIAL = 0, METRIC = 1
+    String HISTORY_UNIT = "UNIT";
 
     // Queries
     Uri QUERY_HISTORY_ITEM = Uri.parse("content://" + HISTORY_AUTHORITY + "/" + HISTORY_ITEM);
+    Uri INSERT_HISTORY_ITEM = QUERY_HISTORY_ITEM;
 
 }

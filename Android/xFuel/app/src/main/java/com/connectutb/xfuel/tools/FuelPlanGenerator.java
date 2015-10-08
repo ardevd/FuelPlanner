@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -41,6 +42,8 @@ public class FuelPlanGenerator implements HistoryContract {
         // Configure progressDialog
         progressFuelPlan = ProgressDialog.show(context, context.getString(R.string.progress_fuelplan_title),
                 context.getString(R.string.progress_fuelplan_text), true);
+        // Save to History
+        saveToHistory(departure, arrival, aircraft, advancedOptions, wantMetric);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -91,6 +94,38 @@ public class FuelPlanGenerator implements HistoryContract {
             }
         };
         Volley.newRequestQueue(context).add(postRequest);
+    }
+
+    private void saveToHistory(final String departure, final String arrival, final String aircraft, final HashMap<String, String> advancedOptions, final boolean wantMetric){
+        ContentValues planVals = new ContentValues();
+        planVals.put(HISTORY_AIRCRAFT, aircraft);
+        planVals.put(HISTORY_ARRIVAL, arrival);
+        planVals.put(HISTORY_DEPARTURE, departure);
+        if (wantMetric) {
+            planVals.put(HISTORY_UNIT, 0);
+        } else{
+            planVals.put(HISTORY_UNIT, 1);
+        }
+
+        if (advancedOptions.size()>0) {
+            for (Map.Entry<String, String> entry : advancedOptions.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                // TODO: Is there a better way of doing this?
+                if (key.equals("TTL")){
+                    planVals.put(HISTORY_TTL, key);
+                } else if (key.equals("OEW")){
+                    planVals.put(HISTORY_OEW, key);
+                } else if (key.equals("MTANK")){
+                    planVals.put(HISTORY_MTANK, key);
+                } else if (key.equals("TANKER")){
+                    planVals.put(HISTORY_TANKER, key);
+                }
+            }
+        }
+
+        // Insert history item
+        Uri res = context.getContentResolver().insert(INSERT_HISTORY_ITEM, planVals);
     }
 
     private void parse(String data) throws XmlPullParserException, IOException {
