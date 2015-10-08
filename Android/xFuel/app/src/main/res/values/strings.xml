@@ -59,14 +59,21 @@
     <!-- Output values -->
     <string name="heading_tc">Initial Heading</string>
     <string name="heading_tc_summary">Initial direct true heading from ORIG to DEST</string>
-    <string name="oew">Operating empty weight</string>
+    <string name="oew">OEW</string>
+    <string name="oew_summary">Operating empty weight</string>
     <string name="ttl">Total traffic load</string>
     <string name="zfw">Zero fuel weight</string>
     <string name="fuel_efu">Estimated fuel usage</string>
-    <string name="fuel_rsv">Reserve fuel</string>
+    <string name="fuel_rsv">Fuel RSV</string>
+    <string name="fuel_rsv_summary">Reserve Fuel</string>
     <string name="fuel_tof">Takeoff Fuel</string>
     <string name="time_blk">Block Time</string>
     <string name="time_blk_summary">Estimated total block time from time-out to time-in.</string>
+    <string name="time_tte">TTE</string>
+    <string name="time_tte_summary">Total Time Enroute</string>
+    <string name="time_rsv">Time RSV</string>
+    <string name="time_rsv_summary">Reserve Fuel Time</string>
+    <string name="nm_summary">Nautical miles between origin and destination</string>
 
     <!-- Advanced Options -->
 
