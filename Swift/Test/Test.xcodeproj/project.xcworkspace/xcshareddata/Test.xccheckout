@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0EDCEF89-6943-4968-A31F-C348996BE948</string>
+	<string>F1A75321-FA6B-4261-B61F-C49EBACA96DC</string>
 	<key>IDESourceControlProjectName</key>
-	<string>xFuel</string>
+	<string>Test</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0BD14A713391F98801A36841446AD987736E02B6</key>
 		<string>https://github.com/Zyg0te/FuelPlanner.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS/xFuel/xFuel.xcodeproj</string>
+	<string>swift/Test/Test.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>0BD14A713391F98801A36841446AD987736E02B6</key>

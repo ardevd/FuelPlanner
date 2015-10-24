@@ -14,6 +14,9 @@
 		5E5B1E291B822AFC0087D21A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5B1E281B822AFC0087D21A /* Images.xcassets */; };
 		5E5B1E2C1B822AFC0087D21A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5B1E2A1B822AFC0087D21A /* LaunchScreen.xib */; };
 		5E5B1E381B822AFC0087D21A /* xFuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B1E371B822AFC0087D21A /* xFuelTests.swift */; };
+		DC8238421B90C60800D28AFD /* ModelAircraft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC8238401B90C60800D28AFD /* ModelAircraft.xcdatamodeld */; };
+		DC8238441B90F76A00D28AFD /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8238431B90F76A00D28AFD /* HistoryItem.swift */; };
+		DC8238461B90F76B00D28AFD /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8238451B90F76B00D28AFD /* Aircraft.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		5E5B1E311B822AFC0087D21A /* xFuelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xFuelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5B1E361B822AFC0087D21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5B1E371B822AFC0087D21A /* xFuelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xFuelTests.swift; sourceTree = "<group>"; };
+		DC8238411B90C60800D28AFD /* ModelAircraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelAircraft.xcdatamodel; sourceTree = "<group>"; };
+		DC8238431B90F76A00D28AFD /* HistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
+		DC8238451B90F76B00D28AFD /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 		5E5B1E111B822AFC0087D21A = {
 			isa = PBXGroup;
 			children = (
+				DC8238451B90F76B00D28AFD /* Aircraft.swift */,
+				DC8238431B90F76A00D28AFD /* HistoryItem.swift */,
 				5E5B1E1C1B822AFC0087D21A /* xFuel */,
 				5E5B1E341B822AFC0087D21A /* xFuelTests */,
 				5E5B1E1B1B822AFC0087D21A /* Products */,
@@ -80,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5E5B1E1F1B822AFC0087D21A /* AppDelegate.swift */,
+				DC8238401B90C60800D28AFD /* ModelAircraft.xcdatamodeld */,
 				5E5B1E211B822AFC0087D21A /* PlannerViewController.swift */,
 				5E5B1E231B822AFC0087D21A /* FavoritesViewController.swift */,
 				5E5B1E251B822AFC0087D21A /* Main.storyboard */,
@@ -219,6 +228,9 @@
 				5E5B1E241B822AFC0087D21A /* FavoritesViewController.swift in Sources */,
 				5E5B1E201B822AFC0087D21A /* AppDelegate.swift in Sources */,
 				5E5B1E221B822AFC0087D21A /* PlannerViewController.swift in Sources */,
+				DC8238441B90F76A00D28AFD /* HistoryItem.swift in Sources */,
+				DC8238421B90C60800D28AFD /* ModelAircraft.xcdatamodeld in Sources */,
+				DC8238461B90F76B00D28AFD /* Aircraft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +444,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DC8238401B90C60800D28AFD /* ModelAircraft.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC8238411B90C60800D28AFD /* ModelAircraft.xcdatamodel */,
+			);
+			currentVersion = DC8238411B90C60800D28AFD /* ModelAircraft.xcdatamodel */;
+			path = ModelAircraft.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5E5B1E121B822AFC0087D21A /* Project object */;
 }

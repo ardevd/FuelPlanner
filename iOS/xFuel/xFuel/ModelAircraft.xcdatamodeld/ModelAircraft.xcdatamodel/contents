@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Aircraft" representedClassName="PRODUCT_MODULE_NAME.Aircraft" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HistoryItem" representedClassName="PRODUCT_MODULE_NAME.HistoryItem" syncable="YES">
+        <attribute name="aircraft" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arrival" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="departure" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wantMetric" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Aircraft" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="HistoryItem" positionX="-54" positionY="-9" width="128" height="30"/>
+    </elements>
+</model>
