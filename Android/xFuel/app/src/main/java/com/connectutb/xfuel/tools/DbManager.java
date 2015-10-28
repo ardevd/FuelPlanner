@@ -30,8 +30,8 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
         db.execSQL(sql_aircraft);
 
         String sql_history = String.format("CREATE TABLE %s ( %s INT PRIMARY KEY,"
-                        + "%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s INT);", TABLE_HISTORY,
-                HISTORY_ID, HISTORY_DEPARTURE, HISTORY_ARRIVAL, HISTORY_AIRCRAFT, HISTORY_OEW, HISTORY_MTANK, HISTORY_TTL, HISTORY_TANKER, HISTORY_UNIT);
+                        + "%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s INT, %s INT);", TABLE_HISTORY,
+                HISTORY_ID, HISTORY_DEPARTURE, HISTORY_ARRIVAL, HISTORY_AIRCRAFT, HISTORY_OEW, HISTORY_MTANK, HISTORY_TTL, HISTORY_TANKER, HISTORY_UNIT, HISTORY_FAVORITE);
 
         Log.i(TAG, "Created history database");
         db.execSQL(sql_history);
@@ -53,5 +53,10 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
     public Cursor findAllAircraft(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.query(TABLE_AIRCRAFT, null, null, null, null, null, null);
+    }
+
+    public Cursor findHistoryById(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.query(TABLE_HISTORY, null, HISTORY_ID + "=?", new String[] { Long.toString(id) }, null, null, null);
     }
 }

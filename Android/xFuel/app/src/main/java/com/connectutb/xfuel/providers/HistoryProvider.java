@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 import com.connectutb.xfuel.tools.DbManager;
@@ -30,8 +31,25 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     }
 
     @Override
-    public Cursor query(Uri uri, String[] strings, String s, String[] strings1, String s1) {
-        return null;
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        Cursor c;
+        SQLiteDatabase database = db.getWritableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        qb.setTables(TABLE_HISTORY);
+        switch (matcher.match(uri)){
+            case URI_ONE_HISTORY:
+                long id = ContentUris.parseId(uri);
+                c = db.findHistoryById(id);
+                break;
+            case URI_ALL_HISTORY:
+                c = qb.query(database, projection, selection, selectionArgs, null, null, null, null);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
+
+        c.setNotificationUri(getContext().getContentResolver(), uri);
+        return c;
     }
 
     @Override

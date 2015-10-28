@@ -126,6 +126,7 @@ public class FuelPlanGenerator implements HistoryContract {
 
         // Insert history item
         Uri res = context.getContentResolver().insert(INSERT_HISTORY_ITEM, planVals);
+        Log.d("xFuel", res.toString());
     }
 
     private void parse(String data) throws XmlPullParserException, IOException {

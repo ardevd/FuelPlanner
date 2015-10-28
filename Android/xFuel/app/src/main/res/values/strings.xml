@@ -56,6 +56,8 @@
     <string name="zero_fuel_weight">Zero Fuel Weight</string>
     <string name="share">Share</string>
 
+    <!-- History Fragment -->
+    <string name="history_title">Fuel Planning History</string>
     <!-- Output values -->
     <string name="heading_tc">Initial Heading</string>
     <string name="heading_tc_summary">Initial direct true heading from ORIG to DEST</string>

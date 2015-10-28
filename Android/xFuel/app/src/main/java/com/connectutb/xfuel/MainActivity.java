@@ -43,9 +43,15 @@ public class MainActivity extends AppCompatActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance(position + 1))
-                .commit();
+        if (position == 0) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, MainFragment.newInstance(position + 1))
+                    .commit();
+        } else if (position == 1){
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, HistoryFragment.newInstance(position + 1))
+                    .commit();
+        }
     }
 
     @Override
@@ -61,7 +67,7 @@ public class MainActivity extends AppCompatActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.app_name);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);

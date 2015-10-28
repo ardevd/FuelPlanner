@@ -23,6 +23,8 @@ public interface HistoryContract extends BaseColumns {
     String HISTORY_TANKER = "tanker";
     // IMPERIAL = 0, METRIC = 1
     String HISTORY_UNIT = "UNIT";
+    // FAVORITE = 1, NOT_FAVORITE = 0
+    String HISTORY_FAVORITE = "favorite";
 
     // Queries
     Uri QUERY_HISTORY_ITEM = Uri.parse("content://" + HISTORY_AUTHORITY + "/" + HISTORY_ITEM);
