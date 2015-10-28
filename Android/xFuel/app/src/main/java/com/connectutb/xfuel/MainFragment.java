@@ -104,10 +104,14 @@ public class MainFragment extends Fragment implements AircraftContract{
 
             // Show Fuel Plan
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
-                    .addToBackStack(null)
-                    .commit();
+            try {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
+                        .addToBackStack(null)
+                        .commit();
+            } catch (NullPointerException ex){
+                ex.printStackTrace();
+            }
         }
     };
 
