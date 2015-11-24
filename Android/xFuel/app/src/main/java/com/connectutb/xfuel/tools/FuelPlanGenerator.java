@@ -1,20 +1,17 @@
 package com.connectutb.xfuel.tools;
 
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.connectutb.xfuel.MainFragment;
 import com.connectutb.xfuel.R;
 import com.connectutb.xfuel.providers.HistoryContract;
 
@@ -97,6 +94,7 @@ public class FuelPlanGenerator implements HistoryContract {
     }
 
     private void saveToHistory(final String departure, final String arrival, final String aircraft, final HashMap<String, String> advancedOptions, final boolean wantMetric){
+
         ContentValues planVals = new ContentValues();
         planVals.put(HISTORY_AIRCRAFT, aircraft);
         planVals.put(HISTORY_ARRIVAL, arrival);
@@ -126,7 +124,6 @@ public class FuelPlanGenerator implements HistoryContract {
 
         // Insert history item
         Uri res = context.getContentResolver().insert(INSERT_HISTORY_ITEM, planVals);
-        Log.d("xFuel", res.toString());
     }
 
     private void parse(String data) throws XmlPullParserException, IOException {

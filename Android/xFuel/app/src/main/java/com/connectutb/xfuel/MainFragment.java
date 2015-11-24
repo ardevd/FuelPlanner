@@ -20,6 +20,10 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -149,6 +153,7 @@ public class MainFragment extends Fragment implements AircraftContract{
 
         sendFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                animateFab();
                 submitFuelParameters();
             }
         });
@@ -234,6 +239,18 @@ public class MainFragment extends Fragment implements AircraftContract{
 
         });
         }
+
+    private void animateFab(){
+        AnimationSet animationSet = new AnimationSet(true);
+
+        RotateAnimation r =  new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        r.setDuration(400);
+        r.setRepeatCount(1);
+        //r.setRepeatMode(Animation.);
+        animationSet.addAnimation(r);
+        sendFAB.startAnimation(animationSet);
+
+    }
 
     private void showAdvancedDialog() {
         mStackLevel++;

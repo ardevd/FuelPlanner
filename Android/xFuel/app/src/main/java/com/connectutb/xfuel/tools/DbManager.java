@@ -41,6 +41,7 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_AIRCRAFT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
         onCreate(db);
 
     }

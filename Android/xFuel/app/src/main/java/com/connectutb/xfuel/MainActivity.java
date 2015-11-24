@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -103,17 +104,21 @@ public class MainActivity extends AppCompatActivity
     private BroadcastReceiver mFuelPlanReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            HashMap fuelData = (HashMap<String, String>)intent.getSerializableExtra("data");
+            HashMap fuelData = (HashMap<String, String>) intent.getSerializableExtra("data");
 
-            // Show Fuel Plan
-            FragmentManager fragmentManager = getFragmentManager();
-            try {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
-                        .addToBackStack(null)
-                        .commit();
-            } catch (NullPointerException ex){
-                ex.printStackTrace();
+            if (fuelData.get("NM") == null) {
+                Toast.makeText(getApplicationContext(), getString(R.string.error_no_valid_response), Toast.LENGTH_SHORT).show();
+            } else {
+                // Show Fuel Plan
+                FragmentManager fragmentManager = getFragmentManager();
+                try {
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
+                            .addToBackStack(null)
+                            .commit();
+                } catch (NullPointerException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     };
@@ -140,11 +145,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
-
 }

@@ -119,6 +119,7 @@
     <string name="error_aircraft_download">Could not communicate with aircraft data server</string>
     <string name="error_fuel_plan">Could not reach fuel plan server</string>
     <string name="error_invalid_airport">Invalid airport ICAO</string>
+    <string name="error_no_valid_response">Unable to calculate fuel plan. Check your parameters</string>
 
     <!-- Preferences -->
     <string name="prefs_show_units">Show units</string>
