@@ -102,9 +102,9 @@ public class FuelPlanGenerator implements HistoryContract {
         planVals.put(HISTORY_ARRIVAL, arrival);
         planVals.put(HISTORY_DEPARTURE, departure);
         if (wantMetric) {
-            planVals.put(HISTORY_UNIT, 0);
-        } else{
             planVals.put(HISTORY_UNIT, 1);
+        } else{
+            planVals.put(HISTORY_UNIT, 0);
         }
 
         if (advancedOptions.size()>0) {
@@ -113,13 +113,13 @@ public class FuelPlanGenerator implements HistoryContract {
                 String value = entry.getValue();
                 // TODO: Is there a better way of doing this?
                 if (key.equals("TTL")){
-                    planVals.put(HISTORY_TTL, key);
+                    planVals.put(HISTORY_TTL, value);
                 } else if (key.equals("OEW")){
-                    planVals.put(HISTORY_OEW, key);
+                    planVals.put(HISTORY_OEW, value);
                 } else if (key.equals("MTANK")){
-                    planVals.put(HISTORY_MTANK, key);
+                    planVals.put(HISTORY_MTANK, value);
                 } else if (key.equals("TANKER")){
-                    planVals.put(HISTORY_TANKER, key);
+                    planVals.put(HISTORY_TANKER, value);
                 }
             }
         }

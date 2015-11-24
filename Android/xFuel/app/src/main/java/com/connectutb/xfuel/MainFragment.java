@@ -88,32 +88,12 @@ public class MainFragment extends Fragment implements AircraftContract{
         configureViews(rootView);
 
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
-                mFuelPlanReceiver, new IntentFilter("fuelPlan"));
-
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
                 mAdvancedOptionsReceiver, new IntentFilter("advancedOptions"));
 
         populateAircraftSpinner();
         return rootView;
     }
 
-    private BroadcastReceiver mFuelPlanReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            HashMap fuelData = (HashMap<String, String>)intent.getSerializableExtra("data");
-
-            // Show Fuel Plan
-            FragmentManager fragmentManager = getFragmentManager();
-            try {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
-                        .addToBackStack(null)
-                        .commit();
-            } catch (NullPointerException ex){
-                ex.printStackTrace();
-            }
-        }
-    };
 
     private BroadcastReceiver mAdvancedOptionsReceiver = new BroadcastReceiver() {
         @Override
@@ -134,16 +114,18 @@ public class MainFragment extends Fragment implements AircraftContract{
         etDeparture = (EditText) rootView.findViewById(R.id.editTextDeparture);
         submitButton = (Button) rootView.findViewById(R.id.buttonCalculate);
 
-        etArrival.setText(settings.getString("arr_icao", ""));
-        etDeparture.setText(settings.getString("dep_icao", ""));
+        // Auto-fill if set to do so in settings
+        if (settings.getBoolean("pref_autofill", true)) {
+            etArrival.setText(settings.getString("arr_icao", ""));
+            etDeparture.setText(settings.getString("dep_icao", ""));
 
-
-        if (settings.getBoolean("want_metric", true)) {
-            radioMetric.setChecked(true);
-            radioImperial.setChecked(false);
-        } else {
-            radioMetric.setChecked(false);
-            radioImperial.setChecked(true);
+            if (settings.getBoolean("want_metric", true)) {
+                radioMetric.setChecked(true);
+                radioImperial.setChecked(false);
+            } else {
+                radioMetric.setChecked(false);
+                radioImperial.setChecked(true);
+            }
         }
 
         radioMetric.setOnCheckedChangeListener(new RadioButton.OnCheckedChangeListener() {
@@ -238,7 +220,10 @@ public class MainFragment extends Fragment implements AircraftContract{
             public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
                 //Loaded our data.
                 ((SimpleCursorAdapter) aircraftSpinner.getAdapter()).swapCursor(data);
-
+                //Set previously used aircraft if preferred.
+                if (settings.getBoolean("pref_autofill", true)) {
+                    aircraftSpinner.setSelection(settings.getInt("def_aircraft", 0));
+                }
             }
 
             @Override

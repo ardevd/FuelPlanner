@@ -41,6 +41,20 @@ public class OutputMatcher {
             desc = context.getString(R.string.time_rsv_summary);
         } else if (key.equals("NM")){
             desc = context.getString(R.string.nm_summary);
+        } else if (key.equals("TOW")){
+            desc = context.getString(R.string.tow_summary);
+        } else if (key.equals("UNDERLOAD")){
+            desc = context.getString(R.string.underload_summary);
+        } else if (key.equals("ZFW")){
+            desc = context.getString(R.string.zfw_summary);
+        } else if (key.equals("TTL")){
+            desc = context.getString(R.string.ttl_summary);
+        } else if (key.equals("LWT")){
+            desc = context.getString(R.string.lwt_summary);
+        } else if (key.equals("FUEL_EFU")){
+            desc = context.getString(R.string.fuel_efu_summary);
+        } else if (key.equals("FUEL_TOF")){
+            desc = context.getString(R.string.fuel_tof_summary);
         }
 
         values.put("title", title);

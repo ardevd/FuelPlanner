@@ -2,12 +2,19 @@ package com.connectutb.xfuel;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
+
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity
@@ -32,6 +39,9 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+                mFuelPlanReceiver, new IntentFilter("fuelPlan"));
+
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -50,6 +60,10 @@ public class MainActivity extends AppCompatActivity
         } else if (position == 1){
             fragmentManager.beginTransaction()
                     .replace(R.id.container, HistoryFragment.newInstance(position + 1))
+                    .commit();
+        } else if (position == 2){
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PreferencesFragment.newInstance(position + 1))
                     .commit();
         }
     }
@@ -84,6 +98,25 @@ public class MainActivity extends AppCompatActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
+
+
+    private BroadcastReceiver mFuelPlanReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            HashMap fuelData = (HashMap<String, String>)intent.getSerializableExtra("data");
+
+            // Show Fuel Plan
+            FragmentManager fragmentManager = getFragmentManager();
+            try {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, FuelPlanFragment.newInstance(fuelData))
+                        .addToBackStack(null)
+                        .commit();
+            } catch (NullPointerException ex){
+                ex.printStackTrace();
+            }
+        }
+    };
 
 
     @Override

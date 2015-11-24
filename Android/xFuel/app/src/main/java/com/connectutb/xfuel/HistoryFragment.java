@@ -12,10 +12,14 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.connectutb.xfuel.providers.HistoryContract;
+import com.connectutb.xfuel.tools.FuelPlanGenerator;
+
+import java.util.HashMap;
 
 /**
  * Created by Zygote on 08.10.2015.
@@ -45,7 +49,43 @@ public class HistoryFragment extends Fragment implements HistoryContract {
 
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
         listView = (ListView) rootView.findViewById(R.id.listViewHistory);
-        populateHistoryList();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // On item select, load fuel sheet.
+                Cursor obj = (Cursor) adapter.getItem(position);
+                String dep = obj.getString(obj.getColumnIndex("departure"));
+                String arr = obj.getString(obj.getColumnIndex("arrival"));
+                String aircraft = obj.getString(obj.getColumnIndex("aircraft"));
+                int unit = obj.getInt(obj.getColumnIndex("UNIT"));
+                HashMap advOptions = new HashMap<String, String>();
+
+                if (obj.getString(obj.getColumnIndex("ttl")) != null){
+                    advOptions.put("TTL",obj.getString(obj.getColumnIndex("ttl")));
+                }
+                if (obj.getString(obj.getColumnIndex("oew")) != null){
+                    advOptions.put("OEW",obj.getString(obj.getColumnIndex("oew")));
+                }
+                if (obj.getString(obj.getColumnIndex("mtank")) != null){
+                    advOptions.put("MTANK",obj.getString(obj.getColumnIndex("mtank")));
+                }
+                if (obj.getString(obj.getColumnIndex("tanker")) != null){
+                    advOptions.put("TANKER",obj.getString(obj.getColumnIndex("tanker")));
+                }
+
+                boolean wantMetric = false;
+                if (unit==1){
+                    wantMetric = true;
+                }
+
+                FuelPlanGenerator fpg = new FuelPlanGenerator(getActivity());
+                fpg.generateFuelPlan(dep, arr, aircraft, advOptions, wantMetric);
+            }
+        });
+
+            populateHistoryList();
         return rootView;
     }
 
