@@ -2,7 +2,6 @@ package com.connectutb.xfuel;
 
 import android.app.DialogFragment;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
@@ -23,7 +22,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;

@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Toast;
 
+import com.connectutb.xfuel.tools.ErrorDialog;
+
 import java.util.HashMap;
 
 
@@ -118,6 +120,9 @@ public class MainActivity extends AppCompatActivity
                             .commit();
                 } catch (NullPointerException ex) {
                     ex.printStackTrace();
+                } catch (IllegalStateException ex) {
+                    ErrorDialog ed = new ErrorDialog();
+                    ed.showErrorDialog(context.getString(R.string.error_title), ex.getMessage(), context);
                 }
             }
         }

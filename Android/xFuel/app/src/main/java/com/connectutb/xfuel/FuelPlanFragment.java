@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -119,7 +120,7 @@ public class FuelPlanFragment extends Fragment{
         // Configure Adapter
         FuelPlanAdapter adapter = new FuelPlanAdapter(getActivity(), fuelData);
         fuelPlanListView.setAdapter(adapter);
-
+        animateDistance();
         return rootView;
     }
 
@@ -159,5 +160,36 @@ public class FuelPlanFragment extends Fragment{
         }
     }
 
+    private void animateDistance(){
+        int distanceValue = Integer.valueOf(fuelData.get("NM"));
+        //textDistance.setText(distanceValue);
+        new IncrementDistanceCounterTask().execute(distanceValue);
 
+
+    }
+
+    private class IncrementDistanceCounterTask extends AsyncTask<Integer, Integer, Integer> {
+
+
+        protected void onProgressUpdate(Integer... progress) {
+            textDistance.setText(progress[0].toString() + " NM");
+        }
+
+        @Override
+        protected Integer doInBackground(Integer... distances) {
+
+            int count = distances.length;
+            for (int i = 0; i < count; i++) {
+                int distance = distances[i];
+                int currentValue = 0;
+                while (currentValue < distance) {
+
+                    publishProgress(currentValue + 1);
+                    currentValue++;
+                }
+            }
+
+            return count;
+        }
+    }
 }
