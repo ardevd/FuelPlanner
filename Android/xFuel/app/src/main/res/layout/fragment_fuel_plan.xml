@@ -151,6 +151,19 @@
                             android:layout_marginBottom="15dp"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:id="@+id/textViewPlanAircraft"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/textViewPlanReport"
+                            android:layout_alignTop="@id/textViewPlanReport"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:text=""
+                            android:textColor="@color/accent_red"
+                            android:textStyle="bold"
+                            android:textSize="15sp" />
+
                                 <ListView
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"

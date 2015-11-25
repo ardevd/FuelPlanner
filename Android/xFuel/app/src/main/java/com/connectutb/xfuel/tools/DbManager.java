@@ -30,8 +30,8 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
         db.execSQL(sql_aircraft);
 
         String sql_history = String.format("CREATE TABLE %s ( %s INT PRIMARY KEY,"
-                        + "%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s INT, %s INT);", TABLE_HISTORY,
-                HISTORY_ID, HISTORY_DEPARTURE, HISTORY_ARRIVAL, HISTORY_AIRCRAFT, HISTORY_OEW, HISTORY_MTANK, HISTORY_TTL, HISTORY_TANKER, HISTORY_UNIT, HISTORY_FAVORITE);
+                        + "%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s INT, %s INT, %s INTEGER);", TABLE_HISTORY,
+                HISTORY_ID, HISTORY_DEPARTURE, HISTORY_ARRIVAL, HISTORY_AIRCRAFT, HISTORY_OEW, HISTORY_MTANK, HISTORY_TTL, HISTORY_TANKER, HISTORY_UNIT, HISTORY_FAVORITE, HISTORY_TIMESTAMP);
 
         Log.i(TAG, "Created history database");
         db.execSQL(sql_history);

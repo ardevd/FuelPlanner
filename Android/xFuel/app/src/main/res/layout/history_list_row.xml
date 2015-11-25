@@ -41,9 +41,6 @@
         android:layout_marginBottom="5dp"
         android:textStyle="bold" />
 
-
-
-
     <TextView
         android:id="@+id/textViewHistoryListAircraft"
         android:layout_width="wrap_content"
@@ -51,6 +48,17 @@
         android:layout_alignLeft="@id/textViewHistoryListDeparture"
         android:layout_below="@id/textViewHistoryListDeparture"
         android:text="Test"
+        android:textColor="@color/accent_light_gray"
+        android:textSize="14sp"
+        android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryListTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/textViewHistoryListAircraft"
+        android:layout_below="@id/textViewHistoryListAircraft"
+        android:text=""
         android:textColor="@color/accent_light_gray"
         android:textSize="14sp"
         android:layout_marginBottom="5dp" />

@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/prefs_category_general"
+        android:key="pref_key_storage_general">
+
     <CheckBoxPreference
         android:key="pref_autofill"
         android:title="@string/prefs_remember_input"
         android:summary="@string/prefs_remember_input_summary"
         android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/prefs_category_history"
+        android:key="pref_key_storage_history">
+
+    <CheckBoxPreference
+        android:key="pref_sort_desc"
+        android:title="@string/prefs_history_sort_desc"
+        android:summary="@string/prefs_history_sort_desc_summary"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+
 
 </PreferenceScreen>

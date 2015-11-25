@@ -38,6 +38,12 @@ public class FuelPlanAdapter extends ArrayAdapter<String> {
     }
 
     @Override
+    public String getItem(int i) {
+        Map.Entry<String, String> item = (Map.Entry) fuelData.get(i);
+        return item.getKey() + " - " + item.getValue();
+    }
+
+    @Override
     public int getCount(){
         return fuelData.size();
     }

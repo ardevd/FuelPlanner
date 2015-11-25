@@ -25,6 +25,7 @@ public interface HistoryContract extends BaseColumns {
     String HISTORY_UNIT = "UNIT";
     // FAVORITE = 1, NOT_FAVORITE = 0
     String HISTORY_FAVORITE = "favorite";
+    String HISTORY_TIMESTAMP = "timestamp";
 
     // Queries
     Uri QUERY_HISTORY_ITEM = Uri.parse("content://" + HISTORY_AUTHORITY + "/" + HISTORY_ITEM);

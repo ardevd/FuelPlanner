@@ -104,6 +104,7 @@ public class FuelPlanGenerator implements HistoryContract {
         } else{
             planVals.put(HISTORY_UNIT, 0);
         }
+        planVals.put(HISTORY_TIMESTAMP, System.currentTimeMillis());
 
         if (advancedOptions.size()>0) {
             for (Map.Entry<String, String> entry : advancedOptions.entrySet()) {

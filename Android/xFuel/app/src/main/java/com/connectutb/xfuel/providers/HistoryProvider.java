@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.connectutb.xfuel.tools.DbManager;
 
@@ -42,7 +43,7 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
                 c = db.findHistoryById(id);
                 break;
             case URI_ALL_HISTORY:
-                c = qb.query(database, projection, selection, selectionArgs, null, null, null, null);
+                c = qb.query(database, projection, selection, selectionArgs, null, null, sortOrder, null);
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
@@ -72,8 +73,22 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     }
 
     @Override
-    public int delete(Uri uri, String s, String[] strings) {
-        return 0;
+    public int delete(Uri uri, String where, String[] whereArgs) {
+        SQLiteDatabase database = db.getWritableDatabase();
+        int count;
+
+        switch (matcher.match(uri)){
+
+            case URI_ALL_HISTORY:
+                count = database.delete(TABLE_HISTORY, where, whereArgs);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
+        if (count >0 ){
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return count;
     }
 
     @Override

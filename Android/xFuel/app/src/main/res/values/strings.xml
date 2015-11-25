@@ -57,7 +57,9 @@
     <string name="share">Share</string>
 
     <!-- Menu Bar Items -->
-    <string name="action_clear">Clear</string>
+    <string name="action_clear_history">Clear History</string>
+    <string name="action_share">Share</string>
+
 
     <!-- History Fragment -->
     <string name="history_title">Fuel Planning History</string>
@@ -126,4 +128,8 @@
     <string name="prefs_show_units_summary">Show unit notations on load sheet</string>
     <string name="prefs_remember_input">Remember Parameters</string>
     <string name="prefs_remember_input_summary">Automatically fill in your last used fuel plan parameters</string>
+    <string name="prefs_category_general">General</string>
+    <string name="prefs_category_history">History</string>
+    <string name="prefs_history_sort_desc">Sort newest first</string>
+    <string name="prefs_history_sort_desc_summary">The most recent history entries are on the top.</string>
 </resources>

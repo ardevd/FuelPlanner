@@ -153,7 +153,6 @@ public class MainFragment extends Fragment implements AircraftContract{
 
         sendFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                animateFab();
                 submitFuelParameters();
             }
         });
@@ -163,11 +162,13 @@ public class MainFragment extends Fragment implements AircraftContract{
         String depICAO = etDeparture.getText().toString();
         String arrICAO = etArrival.getText().toString();
         if (depICAO.length() == 4 && arrICAO.length() == 4) {
+            animateFab();
             FuelPlanGenerator fpg = new FuelPlanGenerator(getActivity());
             boolean wantMetric = settings.getBoolean("want_metric", true);
             // Store last-used values
             editor.putString("dep_icao", depICAO);
             editor.putString("arr_icao", arrICAO);
+            editor.putString("aircraft", adapter.getCursor().getString(1));
             editor.putInt("def_aircraft", aircraftSpinner.getSelectedItemPosition());
             editor.commit();
 
