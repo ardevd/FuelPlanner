@@ -8,8 +8,8 @@ android {
         applicationId "com.connectutb.xfuel"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 30
-        versionName "2.0 Beta 1"
+        versionCode 31
+        versionName "2.0"
     }
     buildTypes {
         release {
