@@ -1,6 +1,5 @@
 package com.connectutb.xfuel;
 
-import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -12,7 +12,7 @@ import com.connectutb.xfuel.providers.HistoryContract;
 public class DbManager extends SQLiteOpenHelper implements AircraftContract, HistoryContract{
 
     public static final String DB_NAME = "xfuel.db";
-    public static final int DB_VERSION = 20;
+    public static final int DB_VERSION = 21;
     private final static String TAG = "xFuel";
 
     public DbManager(Context context){
@@ -40,6 +40,9 @@ public class DbManager extends SQLiteOpenHelper implements AircraftContract, His
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        // Legacy tables
+        db.execSQL("DROP TABLE IF EXISTS list");
+        db.execSQL("DROP TABLE IF EXISTS favorites");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_AIRCRAFT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
         onCreate(db);
