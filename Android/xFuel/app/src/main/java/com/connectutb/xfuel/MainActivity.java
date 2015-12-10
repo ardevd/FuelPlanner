@@ -120,8 +120,7 @@ public class MainActivity extends AppCompatActivity
                 } catch (NullPointerException ex) {
                     ex.printStackTrace();
                 } catch (IllegalStateException ex) {
-                    ErrorDialog ed = new ErrorDialog();
-                    ed.showErrorDialog(context.getString(R.string.error_title), ex.getMessage(), context);
+                   ex.printStackTrace();
                 }
             }
         }
