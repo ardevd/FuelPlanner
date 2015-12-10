@@ -158,8 +158,7 @@ public class HistoryFragment extends Fragment implements HistoryContract {
                         if (!settings.getBoolean("pref_sort_desc", true)){
                             sort = " ASC";
                         }
-                        CursorLoader loader = new CursorLoader(getActivity(), QUERY_HISTORY_ITEM, null, null, null, HISTORY_TIMESTAMP + sort);
-                        return loader;
+                        return new CursorLoader(getActivity(), QUERY_HISTORY_ITEM, null, null, null, HISTORY_TIMESTAMP + sort);
                     }
 
                     @Override

@@ -25,9 +25,7 @@ public class AdvancedOptionsDialog extends DialogFragment {
     private Switch roundtrip;
 
     static AdvancedOptionsDialog newInstance(int num) {
-        AdvancedOptionsDialog f = new AdvancedOptionsDialog();
-
-        return f;
+        return new AdvancedOptionsDialog();
     }
 
     @Override

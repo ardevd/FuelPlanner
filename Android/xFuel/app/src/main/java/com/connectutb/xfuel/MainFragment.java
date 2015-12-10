@@ -216,8 +216,7 @@ public class MainFragment extends Fragment implements AircraftContract{
 
             @Override
             public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-                CursorLoader loader = new CursorLoader(getActivity(), QUERY_AIRCRAFT_ITEM, null, null, null, null);
-                return loader;
+                return new CursorLoader(getActivity(), QUERY_AIRCRAFT_ITEM, null, null, null, null);
             }
 
             @Override
