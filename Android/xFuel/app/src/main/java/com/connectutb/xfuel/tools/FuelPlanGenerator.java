@@ -146,7 +146,7 @@ public class FuelPlanGenerator implements HistoryContract {
                 } else if (fuelPlanBegins){
                     String tagValue = xpp.nextText();
                     if (tagValue.length()>0) {
-                        fphm.put(xpp.getName(), tagValue.toString());
+                        fphm.put(xpp.getName(), tagValue);
                     }
 
                 } else if (xpp.getName().equals("DESCRIP")){

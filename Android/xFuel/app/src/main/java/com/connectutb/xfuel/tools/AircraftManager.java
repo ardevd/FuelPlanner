@@ -88,7 +88,7 @@ public class AircraftManager implements AircraftContract {
         Volley.newRequestQueue(context).add(postRequest);
     }
 
-    public void parse(String aircraftData) throws XmlPullParserException, IOException {
+    private void parse(String aircraftData) throws XmlPullParserException, IOException {
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
         XmlPullParser xpp = factory.newPullParser();

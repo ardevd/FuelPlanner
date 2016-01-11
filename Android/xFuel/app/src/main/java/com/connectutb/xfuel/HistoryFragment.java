@@ -69,7 +69,7 @@ public class HistoryFragment extends Fragment implements HistoryContract {
         }
     }
 
-    public void deleteHistory(){
+    private void deleteHistory(){
         getActivity().getContentResolver().delete(QUERY_HISTORY_ITEM, null, null);
     }
 
@@ -120,7 +120,7 @@ public class HistoryFragment extends Fragment implements HistoryContract {
         return rootView;
     }
 
-    public void populateHistoryList(){
+    private void populateHistoryList(){
         adapter = new SimpleCursorAdapter(getActivity(), R.layout.history_list_row, null,
                 new String[] { HISTORY_DEPARTURE, HISTORY_ARRIVAL, HISTORY_AIRCRAFT, HISTORY_TIMESTAMP},
                 new int[] { R.id.textViewHistoryListDeparture, R.id.textViewHistoryListArrival, R.id.textViewHistoryListAircraft, R.id.textViewHistoryListTime }, SimpleCursorAdapter.NO_SELECTION);

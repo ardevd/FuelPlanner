@@ -19,7 +19,7 @@ import org.json.JSONObject;
  * Created by Zygote on 24.11.2015.
  */
 public class ICAOManager {
-    Context context;
+    private Context context;
     private final static String ICAO_API_URL = "http://www.airport-data.com/api/ap_info.json?icao=";
 
     public ICAOManager(Context context) {

@@ -51,7 +51,7 @@ public class MainFragment extends Fragment implements AircraftContract{
 
     private int mStackLevel = 0;
     private HashMap advOptions;
-    SimpleCursorAdapter adapter;
+    private SimpleCursorAdapter adapter;
 
 
     private SharedPreferences settings;

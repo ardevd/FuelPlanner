@@ -11,8 +11,8 @@ import com.connectutb.xfuel.providers.HistoryContract;
 
 public class DbManager extends SQLiteOpenHelper implements AircraftContract, HistoryContract{
 
-    public static final String DB_NAME = "xfuel.db";
-    public static final int DB_VERSION = 20;
+    private static final String DB_NAME = "xfuel.db";
+    private static final int DB_VERSION = 20;
     private final static String TAG = "xFuel";
 
     public DbManager(Context context){

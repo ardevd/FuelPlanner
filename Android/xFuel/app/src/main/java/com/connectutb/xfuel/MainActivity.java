@@ -14,8 +14,6 @@ import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Toast;
 
-import com.connectutb.xfuel.tools.ErrorDialog;
-
 import java.util.HashMap;
 
 
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void restoreActionBar() {
+    private void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
