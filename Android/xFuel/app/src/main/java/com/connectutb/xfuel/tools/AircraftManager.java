@@ -50,6 +50,8 @@ public class AircraftManager implements AircraftContract {
         }
         String url = context.getString(R.string.post_url);
 
+        // Close cursor
+        s.close();
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
