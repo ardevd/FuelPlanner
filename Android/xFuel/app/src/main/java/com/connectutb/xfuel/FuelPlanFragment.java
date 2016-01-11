@@ -81,8 +81,10 @@ public class FuelPlanFragment extends Fragment{
             String icaoName = intent.getStringExtra("name");
             if (isDeparture){
                 textDepName.setText(icaoName);
+                textDepName.setVisibility(View.VISIBLE);
             } else {
                 textArrName.setText(icaoName);
+                textArrName.setVisibility(View.VISIBLE);
             }
 
         }
@@ -99,8 +101,10 @@ public class FuelPlanFragment extends Fragment{
         textDistance = (TextView) rootView.findViewById(R.id.textViewReportDistanceValue);
         textDep = (TextView) rootView.findViewById(R.id.textViewReportDeparture);
         textDepName = (TextView) rootView.findViewById(R.id.textViewReportDepartureName);
+        textDepName.setVisibility(View.INVISIBLE);
         textArr = (TextView) rootView.findViewById(R.id.textViewReportArrival);
         textArrName = (TextView) rootView.findViewById(R.id.textViewReportArrivalName);
+        textArrName.setVisibility(View.INVISIBLE);
         textAircraft = (TextView) rootView.findViewById(R.id.textViewPlanAircraft);
         textDistance.setText(fuelData.get("NM") + " NM");
         ICAOManager im = new ICAOManager(getActivity());
