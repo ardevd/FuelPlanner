@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import com.connectutb.xfuel.tools.DbManager;
 
@@ -20,8 +21,8 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     private final static int URI_ONE_HISTORY = 2;
 
     public HistoryProvider() {
-        matcher.addURI(HISTORY_AUTHORITY, "/" + HISTORY_ITEM + "/#", URI_ONE_HISTORY);
-        matcher.addURI(HISTORY_AUTHORITY, "/" + HISTORY_ITEM, URI_ALL_HISTORY);
+        matcher.addURI(HISTORY_AUTHORITY, HISTORY_ITEM + "/#", URI_ONE_HISTORY);
+        matcher.addURI(HISTORY_AUTHORITY, HISTORY_ITEM, URI_ALL_HISTORY);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         Cursor c;
         SQLiteDatabase database = db.getWritableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -53,12 +54,12 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     }
 
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         return null;
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
         Uri result = null;
 
         SQLiteDatabase database = db.getWritableDatabase();
@@ -72,7 +73,7 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     }
 
     @Override
-    public int delete(Uri uri, String where, String[] whereArgs) {
+    public int delete(@NonNull Uri uri, String where, String[] whereArgs) {
         SQLiteDatabase database = db.getWritableDatabase();
         int count;
 
@@ -91,7 +92,7 @@ public class HistoryProvider extends ContentProvider implements HistoryContract 
     }
 
     @Override
-    public int update(Uri uri, ContentValues contentValues, String s, String[] strings) {
+    public int update(@NonNull Uri uri, ContentValues contentValues, String s, String[] strings) {
         return 0;
     }
 }

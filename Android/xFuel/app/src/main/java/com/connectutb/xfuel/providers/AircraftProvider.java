@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.connectutb.xfuel.tools.DbManager;
@@ -22,8 +23,8 @@ public class AircraftProvider extends ContentProvider implements AircraftContrac
     private final static int URI_ONE_AIRCRAFT = 2;
 
     public AircraftProvider(){
-        matcher.addURI(AIRCRAFT_AUTHORITY, "/" + AIRCRAFT_ITEM + "/#", URI_ONE_AIRCRAFT);
-        matcher.addURI(AIRCRAFT_AUTHORITY, "/" + AIRCRAFT_ITEM, URI_ALL_AIRCRAFT);
+        matcher.addURI(AIRCRAFT_AUTHORITY, AIRCRAFT_ITEM + "/#", URI_ONE_AIRCRAFT);
+        matcher.addURI(AIRCRAFT_AUTHORITY, AIRCRAFT_ITEM, URI_ALL_AIRCRAFT);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class AircraftProvider extends ContentProvider implements AircraftContrac
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         Cursor c;
         SQLiteDatabase database = db.getWritableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -49,18 +50,21 @@ public class AircraftProvider extends ContentProvider implements AircraftContrac
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
-
-        c.setNotificationUri(getContext().getContentResolver(), uri);
+        try {
+            c.setNotificationUri(getContext().getContentResolver(), uri);
+        } catch (NullPointerException ex){
+            return null;
+        }
         return c;
     }
 
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         return null;
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
         Uri result = null;
 
         SQLiteDatabase database = db.getWritableDatabase();
@@ -74,7 +78,7 @@ public class AircraftProvider extends ContentProvider implements AircraftContrac
     }
 
     @Override
-    public int delete(Uri uri, String where, String[] whereArgs) {
+    public int delete(@NonNull Uri uri, String where, String[] whereArgs) {
         SQLiteDatabase database = db.getWritableDatabase();
         int count;
 
@@ -99,7 +103,7 @@ public class AircraftProvider extends ContentProvider implements AircraftContrac
     }
 
     @Override
-    public int update(Uri uri, ContentValues contentValues, String s, String[] strings) {
+    public int update(@NonNull Uri uri, ContentValues contentValues, String s, String[] strings) {
         return 0;
     }
 }

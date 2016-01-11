@@ -38,15 +38,18 @@ public class AircraftManager implements AircraftContract {
     public void updateAircraftList() {
 
         Cursor s = context.getContentResolver().query(QUERY_AIRCRAFT_ITEM, null, null, null, null);
-        int aircraftCount = s.getCount();
-        progressAircraftUpdate = new ProgressDialog(context);
-        if (aircraftCount == 0) {
-            /**
-             * If there is no aircraft data present, we should show a progress dialog
-             */
-            // Configure progressDialog
-            progressAircraftUpdate = ProgressDialog.show(context, context.getString(R.string.progress_aircraft_title),
-                    context.getString(R.string.progress_aircraft_text), true);
+        if (s != null) {
+            int aircraftCount = s.getCount();
+            progressAircraftUpdate = new ProgressDialog(context);
+            if (aircraftCount == 0) {
+                /**
+                 * If there is no aircraft data present, we should show a progress dialog
+                 */
+                // Configure progressDialog
+                progressAircraftUpdate = ProgressDialog.show(context, context.getString(R.string.progress_aircraft_title),
+                        context.getString(R.string.progress_aircraft_text), true);
+            }
+
         }
         String url = context.getString(R.string.post_url);
 
