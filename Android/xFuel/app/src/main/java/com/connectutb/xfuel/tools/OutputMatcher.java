@@ -21,40 +21,55 @@ public class OutputMatcher {
         ContentValues values= new ContentValues();
         String title = "";
         String desc = "";
-        if (key.equals("HEADING_TC")){
-            title = context.getString(R.string.heading_tc);
-            desc = context.getString(R.string.heading_tc_summary);
-        } else if (key.equals("OEW")){
-            title = context.getString(R.string.oew);
-            desc = context.getString(R.string.oew_summary);
-        } else if (key.equals("TIME_BLK")){
-            title = context.getString(R.string.time_blk);
-            desc = context.getString(R.string.time_blk_summary);
-        } else if (key.equals("TIME_TTE")){
-            title = context.getString(R.string.time_tte);
-            desc = context.getString(R.string.time_tte_summary);
-        } else if (key.equals("FUEL_RSV")){
-            title = context.getString(R.string.fuel_rsv);
-            desc = context.getString(R.string.fuel_rsv_summary);
-        } else if (key.equals("TIME_RSV")){
-            title = context.getString(R.string.time_rsv);
-            desc = context.getString(R.string.time_rsv_summary);
-        } else if (key.equals("NM")){
-            desc = context.getString(R.string.nm_summary);
-        } else if (key.equals("TOW")){
-            desc = context.getString(R.string.tow_summary);
-        } else if (key.equals("UNDERLOAD")){
-            desc = context.getString(R.string.underload_summary);
-        } else if (key.equals("ZFW")){
-            desc = context.getString(R.string.zfw_summary);
-        } else if (key.equals("TTL")){
-            desc = context.getString(R.string.ttl_summary);
-        } else if (key.equals("LWT")){
-            desc = context.getString(R.string.lwt_summary);
-        } else if (key.equals("FUEL_EFU")){
-            desc = context.getString(R.string.fuel_efu_summary);
-        } else if (key.equals("FUEL_TOF")){
-            desc = context.getString(R.string.fuel_tof_summary);
+        switch (key) {
+            case "HEADING_TC":
+                title = context.getString(R.string.heading_tc);
+                desc = context.getString(R.string.heading_tc_summary);
+                break;
+            case "OEW":
+                title = context.getString(R.string.oew);
+                desc = context.getString(R.string.oew_summary);
+                break;
+            case "TIME_BLK":
+                title = context.getString(R.string.time_blk);
+                desc = context.getString(R.string.time_blk_summary);
+                break;
+            case "TIME_TTE":
+                title = context.getString(R.string.time_tte);
+                desc = context.getString(R.string.time_tte_summary);
+                break;
+            case "FUEL_RSV":
+                title = context.getString(R.string.fuel_rsv);
+                desc = context.getString(R.string.fuel_rsv_summary);
+                break;
+            case "TIME_RSV":
+                title = context.getString(R.string.time_rsv);
+                desc = context.getString(R.string.time_rsv_summary);
+                break;
+            case "NM":
+                desc = context.getString(R.string.nm_summary);
+                break;
+            case "TOW":
+                desc = context.getString(R.string.tow_summary);
+                break;
+            case "UNDERLOAD":
+                desc = context.getString(R.string.underload_summary);
+                break;
+            case "ZFW":
+                desc = context.getString(R.string.zfw_summary);
+                break;
+            case "TTL":
+                desc = context.getString(R.string.ttl_summary);
+                break;
+            case "LWT":
+                desc = context.getString(R.string.lwt_summary);
+                break;
+            case "FUEL_EFU":
+                desc = context.getString(R.string.fuel_efu_summary);
+                break;
+            case "FUEL_TOF":
+                desc = context.getString(R.string.fuel_tof_summary);
+                break;
         }
 
         values.put("title", title);

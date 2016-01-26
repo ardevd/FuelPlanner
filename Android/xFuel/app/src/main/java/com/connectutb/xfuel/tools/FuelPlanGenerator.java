@@ -111,14 +111,19 @@ public class FuelPlanGenerator implements HistoryContract {
                 String key = entry.getKey();
                 String value = entry.getValue();
                 // TODO: Is there a better way of doing this?
-                if (key.equals("TTL")){
-                    planVals.put(HISTORY_TTL, value);
-                } else if (key.equals("OEW")){
-                    planVals.put(HISTORY_OEW, value);
-                } else if (key.equals("MTANK")){
-                    planVals.put(HISTORY_MTANK, value);
-                } else if (key.equals("TANKER")){
-                    planVals.put(HISTORY_TANKER, value);
+                switch (key) {
+                    case "TTL":
+                        planVals.put(HISTORY_TTL, value);
+                        break;
+                    case "OEW":
+                        planVals.put(HISTORY_OEW, value);
+                        break;
+                    case "MTANK":
+                        planVals.put(HISTORY_MTANK, value);
+                        break;
+                    case "TANKER":
+                        planVals.put(HISTORY_TANKER, value);
+                        break;
                 }
             }
         }

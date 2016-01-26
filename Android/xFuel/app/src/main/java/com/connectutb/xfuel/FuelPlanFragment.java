@@ -183,8 +183,7 @@ public class FuelPlanFragment extends Fragment{
         protected Integer doInBackground(Integer... distances) {
 
             int count = distances.length;
-            for (int i = 0; i < count; i++) {
-                int distance = distances[i];
+            for (Integer distance : distances) {
                 int currentValue = 0;
                 while (currentValue < distance) {
 
