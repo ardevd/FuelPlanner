@@ -54,7 +54,12 @@ public class AircraftManager implements AircraftContract {
         String url = context.getString(R.string.post_url);
 
         // Close cursor
-        s.close();
+        try {
+            s.close();
+        } catch (NullPointerException ex){
+            // Could not close the cursor.
+            ex.printStackTrace();
+        }
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
