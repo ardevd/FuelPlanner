@@ -19,7 +19,7 @@
     <!-- API Data -->
     <string translatable="false" name="account">E5A1B183</string>
     <string translatable="false" name="license">d55134a45df6d8ab37d6186284bfb775</string>
-    <string translatable="false" name="email">xfuel@connect-utb.com</string>
+    <string translatable="false" name="email">edvard.holst@gmail.com</string>
     <string name="post_url" translatable="false">http://fuelplanner.com/api/fuelapi.php</string>
 
     <!-- Fuel Planning -->
